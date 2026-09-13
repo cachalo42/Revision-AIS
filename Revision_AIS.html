@@ -520,10 +520,1849 @@
   <h3>Résumé fiche 7</h3>
   <p>Hyperviseurs, fonctions avancées, architectures convergées/HCI, data centers, clusters, licences, bases Azure/AWS.</p>
 
-  <!-- FICHE 8 (début seulement, PDF tronqué) -->
-  <h2>FICHE 8 – Administrer et sécuriser une infrastructure de serveurs virtualisés</h2>
-  <p><strong>Objectif :</strong> Savoir administrer une plateforme de virtualisation complète : gestion des VMs, haute
-  disponibilité, migration, automatisation.</p>
+<h2>FICHE 8 - Administrer et sécuriser une infrastructure de serveurs virtualisés</h2>
 
-</body>
-</html>
+<h3>Objectif du module</h3>
+<p>Savoir administrer une plateforme de virtualisation complète : gestion des VMs, haute disponibilité, migration, automatisation, supervision, sauvegarde, cloud, sécurité et mise à jour des composants.</p>
+
+<h3>1. Administrer une infrastructure de serveurs virtualisés</h3>
+<p>Définition : Infrastructure virtualisée</p>
+<p>Ensemble de serveurs physiques (hôtes), d’un hyperviseur, d’un stockage partagé et de machines virtuelles.</p>
+<ul>
+  <li>Création / suppression de VMs</li>
+  <li>Gestion des ressources (CPU, RAM, stockage)</li>
+  <li>Gestion du réseau virtuel (vSwitch, VLAN)</li>
+  <li>Surveillance de l’état des hôtes</li>
+  <li>Gestion des snapshots</li>
+</ul>
+
+<h3>2. Administrer la haute disponibilité et la répartition de charge</h3>
+<p>Définition : Haute disponibilité (HA)</p>
+<p>Capacité d’un cluster à redémarrer automatiquement les VMs en cas de panne d’un hôte.</p>
+<p>Définition : Répartition de charge (Load Balancing)</p>
+<p>Distribution automatique des VMs ou du trafic pour éviter la surcharge d’un serveur.</p>
+<ul>
+  <li>VMware HA</li>
+  <li>Hyper-V Failover Cluster</li>
+  <li>vSphere DRS</li>
+</ul>
+
+<h3>3. Migrer des composants de virtualisation</h3>
+<ul>
+  <li>Migration à chaud (Live Migration / vMotion)</li>
+  <li>Migration à froid</li>
+  <li>Migration de stockage</li>
+  <li>Migration d’hôtes</li>
+</ul>
+<ul>
+  <li>Maintenance sans interruption</li>
+  <li>Optimisation des ressources</li>
+  <li>Réduction des risques</li>
+</ul>
+
+<h3>4. Administrer l’environnement de virtualisation</h3>
+<ul>
+  <li>Gestion des hôtes</li>
+  <li>Gestion du cluster</li>
+  <li>Gestion du stockage partagé (SAN, NAS)</li>
+  <li>Gestion du réseau virtuel</li>
+  <li>Gestion des permissions (RBAC)</li>
+</ul>
+
+<h3>5. Administrer via une solution centralisée</h3>
+<ul>
+  <li>VMware vCenter</li>
+  <li>Hyper-V Manager / SCVMM</li>
+  <li>Proxmox VE</li>
+</ul>
+<ul>
+  <li>Vue globale</li>
+  <li>Automatisation</li>
+  <li>Gestion des clusters</li>
+  <li>Supervision intégrée</li>
+</ul>
+
+<h3>6. Automatiser le déploiement de machines virtuelles</h3>
+<ul>
+  <li>Templates de VM</li>
+  <li>Clonage rapide</li>
+  <li>Scripts PowerShell / Bash</li>
+  <li>Terraform / Ansible</li>
+</ul>
+
+<h3>7. Automatiser le déploiement d’infrastructures</h3>
+<p>Définition : Infrastructure as Code (IaC)</p>
+<ul>
+  <li>Terraform</li>
+  <li>Ansible</li>
+  <li>Puppet</li>
+  <li>CloudFormation</li>
+</ul>
+
+<h3>8. Gérer la mise à jour des composants</h3>
+<ul>
+  <li>Hyperviseur</li>
+  <li>Firmware</li>
+  <li>Drivers réseau / stockage</li>
+  <li>Outils de virtualisation</li>
+</ul>
+
+<h3>9. Administrer les machines virtuelles et les privilèges</h3>
+<ul>
+  <li>Gestion des comptes administrateurs</li>
+  <li>Attribution des permissions</li>
+  <li>Isolation des VMs sensibles</li>
+  <li>Sécurisation des accès console</li>
+</ul>
+
+<h3>10. Superviser la sauvegarde et la restauration</h3>
+<ul>
+  <li>Veeam Backup</li>
+  <li>Nakivo</li>
+  <li>Proxmox Backup Server</li>
+</ul>
+
+<h3>11. Dépanner un dysfonctionnement</h3>
+<ul>
+  <li>Analyse des logs hyperviseur</li>
+  <li>Vérification du stockage</li>
+  <li>Vérification du réseau virtuel</li>
+  <li>Vérification des ressources</li>
+  <li>Test de migration</li>
+  <li>Vérification des snapshots</li>
+</ul>
+
+<h3>12. Mettre à jour les caractéristiques</h3>
+<ul>
+  <li>Augmenter la RAM</li>
+  <li>Ajouter un disque</li>
+  <li>Modifier le réseau virtuel</li>
+  <li>Ajouter un nœud au cluster</li>
+</ul>
+
+<h3>13. Sauvegarder et restaurer cloud et local</h3>
+<ul>
+  <li>Snapshots automatiques</li>
+  <li>Sauvegardes managées</li>
+  <li>Sauvegardes NAS / SAN</li>
+  <li>Réplication</li>
+</ul>
+
+<h3>14. Offre de services cloud</h3>
+<ul>
+  <li>IaaS</li>
+  <li>PaaS</li>
+  <li>SaaS</li>
+  <li>Sécurité</li>
+  <li>Réseau</li>
+</ul>
+
+<h3>15. Administrer des ressources cloud</h3>
+<ul>
+  <li>Gestion des identités</li>
+  <li>Politiques de sécurité</li>
+  <li>Chiffrement</li>
+  <li>Gestion des réseaux virtuels</li>
+  <li>Journalisation</li>
+  <li>MFA obligatoire</li>
+</ul>
+
+<h3>16. Migrer des services cloud / local</h3>
+<ul>
+  <li>Cloud vers local</li>
+  <li>Local vers cloud</li>
+  <li>Migration hybride</li>
+</ul>
+
+<h3>17. Conception des services</h3>
+<ul>
+  <li>Analyse du besoin</li>
+  <li>Choix des technologies</li>
+  <li>Définition des SLA</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>18. Transition des services</h3>
+<ul>
+  <li>Tests</li>
+  <li>Validation</li>
+  <li>Mise en production</li>
+  <li>Documentation</li>
+  <li>Transfert de compétences</li>
+</ul>
+
+<h3>Résumé fiche 8</h3>
+<p>Cluster virtualisé, haute disponibilité, migration, automatisation, supervision, sauvegarde, cloud, sécurité, conception et transition des services.</p>
+
+<hr>
+
+<h2>FICHE 9 - Gérer les containers</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre la conteneurisation, Docker, Docker Compose, Kubernetes, l’automatisation et la sécurisation des mises à jour.</p>
+
+<h3>1. Techniques de virtualisation basées sur les conteneurs</h3>
+<ul>
+  <li>Définition : Conteneur</li>
+  <li>Différence VM / Conteneur</li>
+  <li>Avantages : rapidité, isolation, scalabilité</li>
+</ul>
+
+<h3>2. Orchestration des conteneurs</h3>
+<ul>
+  <li>Kubernetes</li>
+  <li>Docker Swarm</li>
+  <li>OpenShift</li>
+</ul>
+
+<h3>3. Docker : principes</h3>
+<ul>
+  <li>Image</li>
+  <li>Container</li>
+  <li>Registry</li>
+  <li>Dockerfile</li>
+</ul>
+
+<h3>4. Dockerfile</h3>
+<ul>
+  <li>FROM</li>
+  <li>RUN</li>
+  <li>COPY / ADD</li>
+  <li>EXPOSE</li>
+  <li>CMD</li>
+  <li>ENTRYPOINT</li>
+</ul>
+
+<h3>5. Docker Compose</h3>
+<ul>
+  <li>Déploiement multi-conteneurs</li>
+  <li>Réseau automatique</li>
+  <li>Volumes</li>
+</ul>
+
+<h3>6. Étude de cas Docker Compose</h3>
+<p>Application web + base de données</p>
+
+<h3>7. Automatiser la création des containers</h3>
+<ul>
+  <li>Scripts</li>
+  <li>CI/CD</li>
+  <li>Terraform</li>
+</ul>
+
+<h3>8. Conteneurs pour sécuriser les mises à jour</h3>
+<ul>
+  <li>Tests isolés</li>
+  <li>Rollback simple</li>
+</ul>
+
+<h3>Résumé fiche 9</h3>
+<p>Conteneurs, Docker, Dockerfile, Compose, Kubernetes, automatisation, sécurisation.</p>
+
+<hr>
+
+<h2>FICHE 10 - Les bases des solutions techniques</h2>
+
+<h3>Objectif du module</h3>
+<p>Besoins IT, gestion de projet, tests, PoC, TCO, comptabilité.</p>
+
+<h3>1. Besoins nouveaux dans l’IT</h3>
+<ul>
+  <li>Cloud</li>
+  <li>Virtualisation</li>
+  <li>Sécurité</li>
+  <li>Mobilité</li>
+  <li>Automatisation</li>
+</ul>
+
+<h3>2. Méthodes de gestion de projet</h3>
+<ul>
+  <li>Cycle en V</li>
+  <li>Agile</li>
+  <li>Kanban</li>
+</ul>
+
+<h3>3. Méthodes de test</h3>
+<ul>
+  <li>Tests unitaires</li>
+  <li>Intégration</li>
+  <li>Charge</li>
+  <li>Sécurité</li>
+  <li>UAT</li>
+</ul>
+
+<h3>4. Proof of Concept</h3>
+<ul>
+  <li>Tester une idée</li>
+  <li>Évaluer les risques</li>
+</ul>
+
+<h3>5. TCO</h3>
+<ul>
+  <li>Achat</li>
+  <li>Exploitation</li>
+  <li>Support</li>
+  <li>Mise à jour</li>
+  <li>Fin de vie</li>
+</ul>
+
+<h3>6. Notions comptables</h3>
+<ul>
+  <li>CAPEX</li>
+  <li>OPEX</li>
+  <li>Amortissement</li>
+</ul>
+
+<h3>Résumé fiche 10</h3>
+<p>Besoins IT, gestion de projet, tests, PoC, TCO, comptabilité.</p>
+
+<hr>
+
+<h2>FICHE 11 - Proposer une solution informatique</h2>
+
+<h3>Objectif du module</h3>
+<p>Analyser un besoin, proposer une solution, évaluer l’impact, intégrer la sécurité, maquetter, benchmarker.</p>
+
+<h3>1. Proposition commerciale IT</h3>
+<ul>
+  <li>Contexte</li>
+  <li>Solution</li>
+  <li>Architecture</li>
+  <li>Planning</li>
+  <li>Coûts</li>
+  <li>SLA</li>
+</ul>
+
+<h3>2. Maquette</h3>
+<ul>
+  <li>Schéma réseau</li>
+  <li>Architecture</li>
+  <li>Prototype</li>
+</ul>
+
+<h3>3. Benchmark</h3>
+<ul>
+  <li>Performance</li>
+  <li>Sécurité</li>
+  <li>Coût</li>
+  <li>Compatibilité</li>
+</ul>
+
+<h3>4. Finaliser une solution</h3>
+<ul>
+  <li>Choix techniques</li>
+  <li>Validation</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>5. Évaluer un impact</h3>
+<ul>
+  <li>Technique</li>
+  <li>Organisationnel</li>
+  <li>Financier</li>
+  <li>Sécurité</li>
+</ul>
+
+<h3>6. Sécurité</h3>
+<ul>
+  <li>Confidentialité</li>
+  <li>MFA</li>
+  <li>Chiffrement</li>
+  <li>Journalisation</li>
+  <li>RBAC</li>
+</ul>
+
+<h3>7. Proposition argumentée</h3>
+<ul>
+  <li>Analyse du besoin</li>
+  <li>Choix techniques</li>
+  <li>Avantages</li>
+  <li>Risques</li>
+  <li>Coûts</li>
+</ul>
+
+<h3>8. Veille technologique</h3>
+<ul>
+  <li>Blogs</li>
+  <li>ANSSI</li>
+  <li>NIST</li>
+</ul>
+
+<h3>9. Intégrer une solution IT</h3>
+<ul>
+  <li>Installation</li>
+  <li>Configuration</li>
+  <li>Tests</li>
+  <li>Mise en production</li>
+</ul>
+
+<h3>10. Fonctions de l’entreprise</h3>
+<ul>
+  <li>Production</li>
+  <li>Finance</li>
+  <li>RH</li>
+  <li>Logistique</li>
+  <li>IT</li>
+</ul>
+
+<h3>11. Reformuler la demande</h3>
+<p>Technique pour vérifier la compréhension du besoin.</p>
+
+<h3>12. Argumenter auprès d’un client</h3>
+<ul>
+  <li>Bénéfices</li>
+  <li>Justification technique</li>
+  <li>Comparaison</li>
+</ul>
+
+<h3>Résumé fiche 11</h3>
+<p>Analyse du besoin, benchmark, maquette, sécurité, proposition argumentée.</p>
+
+<hr>
+
+<h2>FICHE 12 - Mettre en production des évolutions de l’infrastructure</h2>
+
+<h3>Objectif du module</h3>
+<p>Préparer, tester, valider, planifier, déployer, gérer les changements, piloter les intervenants, documenter, gérer les incidents et crises, maintenir PRA/PCI.</p>
+
+<h3>1. Procédures de test</h3>
+<ul>
+  <li>Objectifs</li>
+  <li>Pré-requis</li>
+  <li>Étapes</li>
+  <li>Résultats attendus</li>
+</ul>
+
+<h3>2. Valider la solution</h3>
+<ul>
+  <li>Conformité</li>
+  <li>Performance</li>
+  <li>Sécurité</li>
+  <li>Compatibilité</li>
+</ul>
+
+<h3>3. Mise en production</h3>
+<ul>
+  <li>Fenêtre d’intervention</li>
+  <li>Risques</li>
+  <li>Rollback</li>
+  <li>Communication</li>
+</ul>
+
+<h3>4. Documentation</h3>
+<ul>
+  <li>Procédures</li>
+  <li>Schémas</li>
+  <li>Change log</li>
+</ul>
+
+<h3>5. Gestion des changements</h3>
+<ul>
+  <li>Standard</li>
+  <li>Normal</li>
+  <li>Urgent</li>
+</ul>
+
+<h3>6. Piloter les intervenants</h3>
+<ul>
+  <li>Internes</li>
+  <li>Externes</li>
+</ul>
+
+<h3>7. Transfert de compétences</h3>
+<ul>
+  <li>Formation</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>8. Gérer incidents et crises</h3>
+<ul>
+  <li>Détection</li>
+  <li>Communication</li>
+  <li>Procédures d’urgence</li>
+</ul>
+
+<h3>9. Tester PRA / PCI</h3>
+<ul>
+  <li>Simulation</li>
+  <li>RTO</li>
+  <li>RPO</li>
+</ul>
+
+<h3>10. Mettre à jour PRA / PCI</h3>
+<ul>
+  <li>Contacts</li>
+  <li>Procédures</li>
+  <li>Tests réguliers</li>
+</ul>
+
+<h3>Résumé fiche 12</h3>
+<p>Mise en production, gestion des changements, incidents, crises, PRA/PCI.</p>
+
+<hr>
+
+<h2>FICHE 13 - Les bases de la supervision</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre SNMP, WMI, Syslog, analyse de flux.</p>
+
+<h3>1. SNMP</h3>
+<ul>
+  <li>Agent SNMP</li>
+  <li>Manager SNMP</li>
+  <li>OID</li>
+  <li>Trap SNMP</li>
+</ul>
+
+<h3>2. WBEM / WMI</h3>
+<ul>
+  <li>Supervision Windows</li>
+  <li>Services</li>
+  <li>CPU / RAM</li>
+  <li>Journaux</li>
+</ul>
+
+<h3>3. Syslog</h3>
+<ul>
+  <li>Logs système</li>
+  <li>Logs sécurité</li>
+  <li>Logs réseau</li>
+</ul>
+
+<h3>4.
+<h3>Résumé de la fiche 14</h3>
+<p>
+Ce module t’apprend à :
+</p>
+<ul>
+  <li>superviser la disponibilité de l’infrastructure,</li>
+  <li>définir des seuils d’alerte,</li>
+  <li>suivre les indicateurs de performance,</li>
+  <li>exploiter une solution de supervision,</li>
+  <li>analyser les journaux d’événements,</li>
+  <li>présenter les résultats de manière professionnelle.</li>
+</ul>
+<h2>FICHE 15 - Mesurer les performances et la disponibilité de l’infrastructure</h2>
+
+<h3>Objectif du module</h3>
+<p>Savoir mesurer la disponibilité, la performance et la qualité de service d’une infrastructure, analyser les indicateurs, interpréter les résultats, et utiliser ces données pour améliorer le système d’information.</p>
+
+<h3>1. Mesurer la disponibilité de l’infrastructure</h3>
+<p>Définition : Disponibilité</p>
+<p>Pourcentage de temps pendant lequel un service ou un équipement est accessible et fonctionnel.</p>
+<p>Exemples :</p>
+<ul>
+  <li>99 % → 3,65 jours d’indisponibilité par an</li>
+  <li>99,9 % → 8 h 45 min d’indisponibilité par an</li>
+  <li>99,99 % → 52 min d’indisponibilité par an</li>
+</ul>
+<p>Ce que l’on mesure :</p>
+<ul>
+  <li>Serveurs</li>
+  <li>Réseau</li>
+  <li>Services</li>
+  <li>Applications métiers</li>
+  <li>Stockage</li>
+  <li>Cloud</li>
+</ul>
+
+<h3>2. Mesurer les performances de l’infrastructure</h3>
+<p>Définition : Performance</p>
+<p>Capacité d’un système à répondre rapidement et efficacement aux demandes.</p>
+<ul>
+  <li>CPU</li>
+  <li>RAM</li>
+  <li>I/O disque</li>
+  <li>Latence réseau</li>
+  <li>Débit réseau</li>
+  <li>Temps de réponse applicatif</li>
+</ul>
+
+<h3>3. Interpréter les résultats de la supervision</h3>
+<ul>
+  <li>Tendances</li>
+  <li>Pics d’activité</li>
+  <li>Alertes répétitives</li>
+  <li>Dégradations progressives</li>
+  <li>Comportements anormaux</li>
+</ul>
+
+<h3>4. Mesurer la qualité de service</h3>
+<ul>
+  <li>Temps de réponse</li>
+  <li>Disponibilité</li>
+  <li>Taux d’erreurs</li>
+  <li>Satisfaction utilisateur</li>
+  <li>Respect des SLA</li>
+</ul>
+
+<h3>5. Mesurer la disponibilité des services</h3>
+<ul>
+  <li>DNS</li>
+  <li>DHCP</li>
+  <li>Active Directory</li>
+  <li>Serveurs web</li>
+  <li>Bases de données</li>
+  <li>Applications métiers</li>
+</ul>
+
+<h3>6. Mesurer la disponibilité des équipements</h3>
+<ul>
+  <li>Switches</li>
+  <li>Routeurs</li>
+  <li>Firewalls</li>
+  <li>Serveurs physiques</li>
+  <li>Stockage</li>
+</ul>
+
+<h3>7. Mesurer la disponibilité des applications</h3>
+<ul>
+  <li>Tests synthétiques</li>
+  <li>Tests réels</li>
+  <li>Monitoring applicatif</li>
+</ul>
+
+<h3>Résumé fiche 15</h3>
+<p>Disponibilité, performances, interprétation des données, qualité de service, indicateurs.</p>
+
+<hr>
+
+<h2>FICHE 16 - Les bases de la gestion de projet</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre les fondamentaux de la gestion de projet : rôles, étapes, méthodes, outils, communication, planification, risques et documentation.</p>
+
+<h3>1. Les rôles dans un projet</h3>
+<ul>
+  <li>Chef de projet</li>
+  <li>Sponsor</li>
+  <li>Product Owner</li>
+  <li>Scrum Master</li>
+  <li>Équipe technique</li>
+</ul>
+
+<h3>2. Les étapes d’un projet</h3>
+<ul>
+  <li>Expression du besoin</li>
+  <li>Analyse</li>
+  <li>Conception</li>
+  <li>Planification</li>
+  <li>Réalisation</li>
+  <li>Tests</li>
+  <li>Mise en production</li>
+  <li>Clôture</li>
+</ul>
+
+<h3>3. Méthodes de gestion de projet</h3>
+<ul>
+  <li>Cycle en V</li>
+  <li>Agile</li>
+  <li>Kanban</li>
+</ul>
+
+<h3>4. Outils de gestion de projet</h3>
+<ul>
+  <li>Trello</li>
+  <li>Jira</li>
+  <li>Microsoft Project</li>
+  <li>Notion</li>
+  <li>Diagramme de Gantt</li>
+</ul>
+
+<h3>5. Communication</h3>
+<ul>
+  <li>Réunions</li>
+  <li>Points d’avancement</li>
+  <li>Compte-rendus</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>6. Planification</h3>
+<ul>
+  <li>Gantt</li>
+  <li>Planning prévisionnel</li>
+  <li>Roadmap</li>
+</ul>
+
+<h3>7. Gestion des risques</h3>
+<ul>
+  <li>Techniques</li>
+  <li>Organisationnels</li>
+  <li>Financiers</li>
+  <li>Sécurité</li>
+  <li>Humains</li>
+</ul>
+
+<h3>8. Documentation</h3>
+<ul>
+  <li>Cahier des charges</li>
+  <li>Spécifications</li>
+  <li>Procédures</li>
+  <li>Planning</li>
+  <li>Documentation finale</li>
+</ul>
+
+<h3>Résumé fiche 16</h3>
+<p>Rôles, étapes, méthodes, outils, communication, planification, risques, documentation.</p>
+
+<hr>
+
+<h2>FICHE 17 - Gestion de projet (suite)</h2>
+
+<h3>Objectif du module</h3>
+<p>Approfondir la gestion de projet : planning, budget, risques, suivi, reporting, livrables, clôture, amélioration continue.</p>
+
+<h3>1. Planning détaillé</h3>
+<ul>
+  <li>Tâches</li>
+  <li>Durées</li>
+  <li>Dépendances</li>
+  <li>Ressources</li>
+  <li>Jalons</li>
+  <li>Chemin critique</li>
+</ul>
+
+<h3>2. Budget</h3>
+<ul>
+  <li>Matériel</li>
+  <li>Licences</li>
+  <li>Prestations</li>
+  <li>Ressources internes</li>
+  <li>Maintenance</li>
+  <li>Formation</li>
+</ul>
+
+<h3>3. Gestion des risques</h3>
+<ul>
+  <li>Identifier</li>
+  <li>Évaluer</li>
+  <li>Mitiger</li>
+  <li>Suivre</li>
+</ul>
+
+<h3>4. Suivi du projet</h3>
+<ul>
+  <li>Réunions</li>
+  <li>Mise à jour du planning</li>
+  <li>Gestion des priorités</li>
+</ul>
+
+<h3>5. Reporting</h3>
+<ul>
+  <li>Avancement</li>
+  <li>Problèmes</li>
+  <li>Risques</li>
+  <li>Décisions</li>
+</ul>
+
+<h3>6. Livrables</h3>
+<ul>
+  <li>Cahier des charges</li>
+  <li>Spécifications</li>
+  <li>Maquette</li>
+  <li>Procédures</li>
+  <li>Solution déployée</li>
+</ul>
+
+<h3>7. Clôture</h3>
+<ul>
+  <li>Recette</li>
+  <li>Validation</li>
+  <li>Archivage</li>
+  <li>Retour d’expérience</li>
+</ul>
+
+<h3>8. Amélioration continue</h3>
+<ul>
+  <li>Analyse des erreurs</li>
+  <li>Mise à jour des procédures</li>
+  <li>Formation</li>
+</ul>
+
+<h3>Résumé fiche 17</h3>
+<p>Planning, budget, risques, suivi, reporting, livrables, clôture, amélioration continue.</p>
+
+<hr>
+
+<h2>FICHE 18 - Gestion de projet (fin)</h2>
+
+<h3>Objectif du module</h3>
+<p>Cadrage, analyse du besoin, cahier des charges, spécifications, pilotage, indicateurs, qualité, documentation, communication, clôture.</p>
+
+<h3>1. Cadrage</h3>
+<ul>
+  <li>Contexte</li>
+  <li>Objectifs</li>
+  <li>Périmètre</li>
+  <li>Contraintes</li>
+  <li>Parties prenantes</li>
+  <li>Risques initiaux</li>
+</ul>
+
+<h3>2. Analyse du besoin</h3>
+<ul>
+  <li>Interviews</li>
+  <li>Reformulation</li>
+  <li>Analyse métier</li>
+  <li>Contraintes</li>
+  <li>Priorités</li>
+</ul>
+
+<h3>3. Cahier des charges</h3>
+<ul>
+  <li>Objectifs</li>
+  <li>Fonctionnalités</li>
+  <li>Contraintes techniques</li>
+  <li>Sécurité</li>
+  <li>Performance</li>
+  <li>Planning</li>
+  <li>Budget</li>
+</ul>
+
+<h3>4. Spécifications</h3>
+<ul>
+  <li>Fonctionnelles</li>
+  <li>Techniques</li>
+</ul>
+
+<h3>5. Pilotage</h3>
+<ul>
+  <li>Planning</li>
+  <li>Ressources</li>
+  <li>Risques</li>
+  <li>Communication</li>
+</ul>
+
+<h3>6. Indicateurs</h3>
+<ul>
+  <li>Avancement</li>
+  <li>Budget</li>
+  <li>Incidents</li>
+  <li>Qualité</li>
+</ul>
+
+<h3>7. Qualité</h3>
+<ul>
+  <li>Tests</li>
+  <li>Recette</li>
+  <li>Validation</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>8. Documentation</h3>
+<ul>
+  <li>Cahier des charges</li>
+  <li>Spécifications</li>
+  <li>Planning</li>
+  <li>Procédures</li>
+  <li>Compte-rendus</li>
+  <li>Documentation finale</li>
+</ul>
+
+<h3>9. Communication</h3>
+<ul>
+  <li>Réunions</li>
+  <li>Points d’avancement</li>
+  <li>Tableaux de bord</li>
+</ul>
+
+<h3>10. Clôture</h3>
+<ul>
+  <li>Recette</li>
+  <li>Validation</li>
+  <li>Livrables</li>
+  <li>Documentation</li>
+  <li>Transfert de compétences</li>
+  <li>Retour d’expérience</li>
+</ul>
+
+<h3>Résumé fiche 18</h3>
+<p>Cadrage, analyse du besoin, cahier des charges, pilotage, indicateurs, qualité, documentation, communication, clôture.</p>
+
+<hr>
+
+<h2>FICHE 19 - Gestion de projet (dernière fiche)</h2>
+
+<h3>Objectif du module</h3>
+<p>Gouvernance, parties prenantes, gestion du changement, documentation, qualité, communication, pilotage, indicateurs, clôture.</p>
+
+<h3>1. Gouvernance</h3>
+<ul>
+  <li>Comité de pilotage</li>
+  <li>Comité projet</li>
+  <li>Sponsor</li>
+  <li>Chef de projet</li>
+  <li>Processus de décision</li>
+</ul>
+
+<h3>2. Parties prenantes</h3>
+<ul>
+  <li>Direction</li>
+  <li>Utilisateurs</li>
+  <li>Équipe IT</li>
+  <li>Prestataires</li>
+  <li>Fournisseurs</li>
+</ul>
+
+<h3>3. Gestion du changement</h3>
+<ul>
+  <li>Communication</li>
+  <li>Formation</li>
+  <li>Documentation</li>
+  <li>Support</li>
+</ul>
+
+<h3>4. Gestion documentaire</h3>
+<ul>
+  <li>Cahier des charges</li>
+  <li>Spécifications</li>
+  <li>Planning</li>
+  <li>Procédures</li>
+  <li>Documentation utilisateur</li>
+  <li>Documentation technique</li>
+</ul>
+
+<h3>5. Gestion de la qualité</h3>
+<ul>
+  <li>Tests</li>
+  <li>Recette</li>
+  <li>Validation</li>
+  <li>Contrôles</li>
+</ul>
+
+<h3>6. Communication projet</h3>
+<ul>
+  <li>Réunions</li>
+  <li>Points d’avancement</li>
+  <li>Tableaux de bord</li>
+  <li>Messages aux utilisateurs</li>
+</ul>
+
+<h3>7. Pilotage opérationnel</h3>
+<ul>
+  <li>Planning</li>
+  <li>Budget</li>
+  <li>Risques</li>
+  <li>Priorités</li>
+  <li>Coordination</li>
+</ul>
+
+<h3>8. Indicateurs</h3>
+<ul>
+  <li>Avancement</li>
+  <li>Budget</li>
+  <li>Incidents</li>
+  <li>Qualité</li>
+  <li>Satisfaction utilisateur</li>
+</ul>
+
+<h3>9. Clôture</h3>
+<ul>
+  <li>Recette</li>
+  <li>Validation</li>
+  <li>Livrables</li>
+  <li>Documentation</li>
+  <li>Transfert de compétences</li>
+  <li>Retour d’expérience</li>
+</ul>
+
+<h3>Résumé fiche 19</h3>
+<p>Gouvernance, parties prenantes, changement, qualité, communication, indicateurs, documentation, clôture.</p>
+
+<hr>
+
+<h2>FICHE 20 - Les bases de la cybersécurité</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre les menaces, vulnérabilités, risques, bonnes pratiques, normes, outils et concepts essentiels.</p>
+
+<h3>1. Menaces</h3>
+<ul>
+  <li>Malware</li>
+  <li>Phishing</li>
+  <li>Attaques réseau</li>
+  <li>Exploitation de vulnérabilités</li>
+  <li>Fuite de données</li>
+  <li>Erreurs humaines</li>
+  <li>Menaces internes</li>
+</ul>
+
+<h3>2. Vulnérabilités</h3>
+<ul>
+  <li>Mots de passe faibles</li>
+  <li>Ports ouverts</li>
+  <li>Logiciels non mis à jour</li>
+  <li>Mauvaise configuration</li>
+  <li>Absence de chiffrement</li>
+  <li>Droits trop élevés</li>
+</ul>
+
+<h3>3. Risques</h3>
+<ul>
+  <li>Probabilité</li>
+  <li>Impact</li>
+</ul>
+
+<h3>4. Bonnes pratiques</h3>
+<ul>
+  <li>MFA</li>
+  <li>Mots de passe robustes</li>
+  <li>Mises à jour</li>
+  <li>Segmentation réseau</li>
+  <li>Sauvegardes</li>
+  <li>Chiffrement</li>
+  <li>Moindre privilège</li>
+  <li>Journalisation</li>
+</ul>
+
+<h3>5. Normes</h3>
+<ul>
+  <li>ISO 27001</li>
+  <li>ISO 27002</li>
+  <li>RGPD</li>
+  <li>ANSSI</li>
+  <li>NIST</li>
+</ul>
+
+<h3>6. Outils</h3>
+<ul>
+  <li>Antivirus / EDR</li>
+  <li>Firewall / WAF</li>
+  <li>IDS / IPS</li>
+  <li>SIEM</li>
+  <li>Scanner de vulnérabilités</li>
+  <li>MFA / IAM</li>
+  <li>VPN</li>
+</ul>
+
+<h3>7. Concepts</h3>
+<ul>
+  <li>Confidentialité</li>
+  <li>Intégrité</li>
+  <li>Disponibilité</li>
+  <li>Zero Trust</li>
+  <li>Moindre privilège</li>
+  <li>Défense en profondeur</li>
+</ul>
+
+<h3>Résumé fiche 20</h3>
+<p>Menaces, vulnérabilités, risques, bonnes pratiques, normes, outils, concepts.</p>
+
+<hr>
+
+<h2>FICHE 21 - Mesurer et analyser le niveau de sécurité</h2>
+
+<h3>Objectif du module</h3>
+<p>Évaluer le niveau de sécurité d’un système d’information : vulnérabilités, risques, outils, logs, indicateurs, actions correctives.</p>
+
+<h3>1. Identifier les vulnérabilités</h3>
+<ul>
+  <li>Logiciels non mis à jour</li>
+  <li>Mauvaises configurations</li>
+  <li>Ports ouverts inutiles</li>
+  <li>Mots de passe faibles</li>
+  <li>Absence de chiffrement</li>
+  <li>Droits trop élevés</li>
+  <li>Services obsolètes</li>
+</ul>
+
+<h3>2. Analyser les risques</h3>
+<ul>
+  <li>Identifier les actifs</li>
+  <li>Identifier les menaces</li>
+  <li>Identifier les vulnérabilités</li>
+  <li>Évaluer la probabilité</li>
+  <li>Évaluer l’impact</li>
+  <li>Prioriser les risques</li>
+</ul>
+
+<h3>3. Outils de diagnostic</h3>
+<ul>
+  <li>Nessus</li>
+  <li>Qualys</li>
+  <li>OpenVAS</li>
+  <li>Wireshark</li>
+  <li>Nmap</li>
+  <li>Lynis</li>
+  <li>SIEM</li>
+  <li>EDR</li>
+</ul>
+
+<h3>4. Interpréter les résultats</h3>
+<ul>
+  <li>Vulnérabilités critiques</li>
+  <li>Services exposés</li>
+  <li>Ports ouverts</li>
+  <li>Versions obsolètes</li>
+  <li>Comportements anormaux</li>
+  <li>Tentatives d’intrusion</li>
+</ul>
+
+<h3>5. Analyser les journaux</h3>
+<ul>
+  <li>Authentification</li>
+  <li>Accès fichiers</li>
+  <li>Événements système</li>
+  <li>Alertes antivirus</li>
+  <li>Logs réseau</li>
+</ul>
+
+<h3>6. Mesurer le niveau de sécurité</h3>
+<ul>
+  <li>Nombre de vulnérabilités critiques</li>
+  <li>Taux de conformité</li>
+  <li>Temps de correction</li>
+  <li>Taux de patching</li>
+  <li>Nombre d’incidents détectés</li>
+  <li>Taux MFA</li>
+  <li>Taux de chiffrement</li>
+</ul>
+
+<h3>7. Actions correctives</h3>
+<ul>
+  <li>Mises à jour</li>
+  <li>Renforcement des mots de passe</li>
+  <li>Activation MFA</li>
+  <li>Segmentation réseau</li>
+  <li>Correction des configurations</li>
+  <li>Déploiement EDR</li>
+  <li>Hardening</li>
+</ul>
+
+<h3>Résumé fiche 21</h3>
+<p>Vulnérabilités, risques, outils, logs, indicateurs, actions correctives.</p>
+
+<hr>
+
+<h2>FICHE 22 - Détecter et traiter les incidents de sécurité</h2>
+
+<h3>Objectif du module</h3>
+<p>Détecter, analyser, qualifier, traiter et documenter un incident de sécurité.</p>
+
+<h3>1. Définir un incident</h3>
+<ul>
+  <li>Intrusion</li>
+  <li>Malware</li>
+  <li>Phishing</li>
+  <li>Compte compromis</li>
+  <li>Fuite de données</li>
+  <li>DDoS</li>
+</ul>
+
+<h3>2. Détecter un incident</h3>
+<ul>
+  <li>SIEM</li>
+  <li>EDR</li>
+  <li>IDS/IPS</li>
+  <li>Firewalls</li>
+  <li>Supervision</li>
+  <li>Logs système</li>
+  <li>Signalements utilisateurs</li>
+</ul>
+
+<h3>3. Qualifier l’incident</h3>
+<ul>
+  <li>Impact</li>
+  <li>Données touchées</li>
+  <li>Niveau de compromission</li>
+  <li>Propagation</li>
+</ul>
+
+<h3>4. Analyser l’incident</h3>
+<ul>
+  <li>Collecte des logs</li>
+  <li>Identification de la source</li>
+  <li>Vecteur d’attaque</li>
+  <li>Machines touchées</li>
+  <li>Étendue de la compromission</li>
+</ul>
+
+<h3>5. Traiter l’incident</h3>
+<ul>
+  <li>Isolation machine</li>
+  <li>Révocation comptes</li>
+  <li>Changement mots de passe</li>
+  <li>Suppression malware</li>
+  <li>Restauration fichiers</li>
+  <li>Correctifs</li>
+</ul>
+
+<h3>6. Communiquer</h3>
+<ul>
+  <li>Équipe IT</li>
+  <li>Direction</li>
+  <li>Utilisateurs</li>
+  <li>Prestataires</li>
+  <li>CNIL si fuite</li>
+</ul>
+
+<h3>7. Documenter</h3>
+<ul>
+  <li>Description</li>
+  <li>Date</li>
+  <li>Systèmes touchés</li>
+  <li>Analyse</li>
+  <li>Actions</li>
+  <li>Impact</li>
+  <li>Recommandations</li>
+</ul>
+
+<h3>8. Mesures préventives</h3>
+<ul>
+  <li>Mises à jour</li>
+  <li>MFA</li>
+  <li>Hardening</li>
+  <li>Segmentation</li>
+  <li>Règles firewall</li>
+  <li>Formation utilisateurs</li>
+</ul>
+
+<h3>Résumé fiche 22</h3>
+<p>Détection, qualification, analyse, traitement, communication, documentation, prévention.</p>
+
+<hr>
+
+<h2>FICHE 23 - Participer à la politique de sécurité</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre, appliquer et améliorer la politique de sécurité de l’entreprise.</p>
+
+<h3>1. Politique de sécurité</h3>
+<ul>
+  <li>Objectifs</li>
+  <li>Règles d’accès</li>
+  <li>Mots de passe</li>
+  <li>Sauvegardes</li>
+  <li>Mises à jour</li>
+  <li>Journalisation</li>
+  <li>Gestion des incidents</li>
+  <li>Conformité</li>
+</ul>
+
+<h3>2. Mise en œuvre</h3>
+<ul>
+  <li>Appliquer les règles</li>
+  <li>Configurer les systèmes</li>
+  <li>Mettre en place les outils</li>
+  <li>Documenter</li>
+  <li>Vérifier la conformité</li>
+</ul>
+
+<h3>3. Sensibilisation</h3>
+<ul>
+  <li>Phishing</li>
+  <li>Mots de passe</li>
+  <li>MFA</li>
+  <li>Sécurité email</li>
+  <li>Clés USB</li>
+  <li>Confidentialité</li>
+</ul>
+
+<h3>4. Gestion des accès</h3>
+<ul>
+  <li>Moindre privilège</li>
+  <li>Séparation des rôles</li>
+  <li>Comptes nominatifs</li>
+  <li>Comptes admin séparés</li>
+  <li>MFA obligatoire</li>
+</ul>
+
+<h3>5. Audits</h3>
+<ul>
+  <li>Configuration</li>
+  <li>Conformité</li>
+  <li>Réseau</li>
+  <li>Accès</li>
+  <li>Journaux</li>
+</ul>
+
+<h3>6. Documentation</h3>
+<ul>
+  <li>PSSI</li>
+  <li>Procédures</li>
+  <li>Sauvegardes</li>
+  <li>Mises à jour</li>
+  <li>Accès</li>
+  <li>Registre RGPD</li>
+</ul>
+
+<h3>7. Conformité</h3>
+<ul>
+  <li>RGPD</li>
+  <li>ISO 27001</li>
+  <li>ANSSI</li>
+  <li>NIS2</li>
+  <li>PCI-DSS</li>
+</ul>
+
+<h3>Résumé fiche 23</h3>
+<p>Politique de sécurité, mise en œuvre, sensibilisation, accès, audits, documentation, conformité.</p>
+
+<hr>
+
+<h2>FICHE 24 - Sécurité opérationnelle</h2>
+
+<h3>Objectif du module</h3>
+<p>Durcissement, correctifs, supervision, segmentation, accès, sauvegardes, sécurité postes et serveurs.</p>
+
+<h3>1. Hardening</h3>
+<ul>
+  <li>Désactiver services inutiles</li>
+  <li>Fermer ports</li>
+  <li>CIS Benchmarks</li>
+  <li>Chiffrement</li>
+  <li>Mots de passe renforcés</li>
+  <li>Désactiver comptes par défaut</li>
+</ul>
+
+<h3>2. Correctifs</h3>
+<ul>
+  <li>Système</li>
+  <li>Applications</li>
+  <li>Firmware</li>
+  <li>Antivirus</li>
+</ul>
+
+<h3>3. Supervision sécurité</h3>
+<ul>
+  <li>SIEM</li>
+  <li>EDR</li>
+  <li>IDS/IPS</li>
+  <li>Syslog</li>
+</ul>
+
+<h3>4. Segmentation réseau</h3>
+<ul>
+  <li>VLAN</li>
+  <li>DMZ</li>
+  <li>Réseau admin</li>
+  <li>Réseau serveur</li>
+</ul>
+
+<h3>5. Gestion des accès</h3>
+<ul>
+  <li>Moindre privilège</li>
+  <li>Comptes nominatifs</li>
+  <li>MFA</li>
+  <li>Rotation mots de passe</li>
+</ul>
+
+<h3>6. Sauvegardes</h3>
+<ul>
+  <li>Complète</li>
+  <li>Incrémentale</li>
+  <li>Différentielle</li>
+  <li>Snapshot</li>
+</ul>
+
+<h3>7. Sécurité postes</h3>
+<ul>
+  <li>EDR</li>
+  <li>Chiffrement</li>
+  <li>MFA</li>
+  <li>Mises à jour</li>
+</ul>
+
+<h3>8. Sécurité serveurs</h3>
+<ul>
+  <li>Hardening</li>
+  <li>Firewall</li>
+  <li>Journalisation</li>
+  <li>Accès via bastion</li>
+</ul>
+
+<h3>Résumé fiche 24</h3>
+<p>Hardening, correctifs, supervision, segmentation, accès, sauvegardes, postes, serveurs.</p>
+
+<hr>
+
+<h2>FICHE 25 - Sécurité des réseaux</h2>
+
+<h3>Objectif du module</h3>
+<p>Sécuriser un réseau : firewall, segmentation, protocoles, VPN, IDS/IPS, Wi-Fi, supervision.</p>
+
+<h3>1. Principes</h3>
+<ul>
+  <li>Confidentialité</li>
+  <li>Intégrité</li>
+  <li>Disponibilité</li>
+</ul>
+
+<h3>2. Firewall</h3>
+<ul>
+  <li>Stateless</li>
+  <li>Stateful</li>
+  <li>Next-Gen Firewall</li>
+</ul>
+
+<h3>3. Segmentation</h3>
+<ul>
+  <li>VLAN</li>
+  <li>DMZ</li>
+  <li>Réseau admin</li>
+  <li>Réseau serveur</li>
+</ul>
+
+<h3>4. Protocoles sécurisés</h3>
+<ul>
+  <li>HTTPS</li>
+  <li>SSH</li>
+  <li>SFTP</li>
+  <li>IPsec</li>
+</ul>
+
+<h3>5. VPN</h3>
+<ul>
+  <li>Site-to-site</li>
+  <li>Client-to-site</li>
+</ul>
+
+<h3>6. IDS/IPS</h3>
+<ul>
+  <li>Snort</li>
+  <li>Suricata</li>
+  <li>Zeek</li>
+</ul>
+
+<h3>7. Filtrage web</h3>
+<ul>
+  <li>WAF</li>
+  <li>Proxy</li>
+</ul>
+
+<h3>8. Wi-Fi</h3>
+<ul>
+  <li>WPA2-Enterprise</li>
+  <li>WPA3</li>
+  <li>RADIUS</li>
+</ul>
+
+<h3>9. Supervision réseau</h3>
+<ul>
+  <li>NetFlow</li>
+  <li>SIEM</li>
+  <li>Centreon</li>
+  <li>Wireshark</li>
+</ul>
+
+<h3>Résumé fiche 25</h3>
+<p>Firewall, segmentation, protocoles, VPN, IDS/IPS, Wi-Fi, supervision.</p>
+
+<hr>
+
+<h2>FICHE 26 - Sécurité des systèmes</h2>
+
+<h3>Objectif du module</h3>
+<p>Sécuriser Windows, Linux, comptes, mises à jour, journaux, services, virtualisation, cloud.</p>
+
+<h3>1. Objectifs</h3>
+<ul>
+  <li>Confidentialité</li>
+  <li>Intégrité</li>
+  <li>Disponibilité</li>
+</ul>
+
+<h3>2. Hardening</h3>
+<ul>
+  <li>Désactiver SMBv1</li>
+  <li>BitLocker</li>
+  <li>GPO</li>
+  <li>Firewall</li>
+  <li>Journalisation</li>
+  <li>sudo</li>
+  <li>SSH sécurisé</li>
+</ul>
+
+<h3>3. Comptes et privilèges</h3>
+<ul>
+  <li>Comptes nominatifs</li>
+  <li>Comptes admin séparés</li>
+  <li>Moindre privilège</li>
+  <li>MFA</li>
+</ul>
+
+<h3>4. Mises à jour</h3>
+<ul>
+  <li>Système</li>
+  <li>Applications</li>
+  <li>Drivers</li>
+  <li>Firmware</li>
+</ul>
+
+<h3>5. Journalisation</h3>
+<ul>
+  <li>Connexions</li>
+  <li>Modifications</li>
+  <li>Échecs d’authentification</li>
+</ul>
+
+<h3>6. Services critiques</h3>
+<ul>
+  <li>AD</li>
+  <li>DNS</li>
+  <li>DHCP</li>
+  <li>Web</li>
+  <li>Bases de données</li>
+</ul>
+
+<h3>7. Virtualisation</h3>
+<ul>
+  <li>Mises à jour hyperviseur</li>
+  <li>Isolation réseaux</li>
+  <li>Chiffrement disques VM</li>
+</ul>
+
+<h3>8. Cloud</h3>
+<ul>
+  <li>MFA</li>
+  <li>IAM strict</li>
+  <li>Journalisation</li>
+  <li>Chiffrement</li>
+  <li>Segmentation</li>
+</ul>
+
+<h3>Résumé fiche 26</h3>
+<p>Systèmes, comptes, mises à jour, journaux, services, virtualisation, cloud.</p>
+
+<hr>
+
+<h2>FICHE 27 - Les bases de la sécurité des applications</h2>
+
+<h3>Objectif du module</h3>
+<p>Comprendre comment sécuriser les applications : vulnérabilités OWASP, authentification, autorisation, API, bases de données, logs, mises à jour, tests de sécurité et bonnes pratiques de développement sécurisé.</p>
+
+<h3>1. Les vulnérabilités applicatives (OWASP Top 10)</h3>
+<ul>
+  <li>Injection</li>
+  <li>Authentification cassée</li>
+  <li>Exposition de données sensibles</li>
+  <li>XML External Entities</li>
+  <li>Contrôle d’accès cassé</li>
+  <li>Mauvaise configuration</li>
+  <li>XSS</li>
+  <li>Désérialisation non sécurisée</li>
+  <li>Composants vulnérables</li>
+  <li>Journalisation insuffisante</li>
+</ul>
+
+<h3>2. Authentification et autorisation</h3>
+<ul>
+  <li>MFA obligatoire</li>
+  <li>Mots de passe robustes</li>
+  <li>Limitation des tentatives</li>
+  <li>RBAC</li>
+  <li>Principe du moindre privilège</li>
+</ul>
+
+<h3>3. Sécurité des API</h3>
+<ul>
+  <li>OAuth2</li>
+  <li>JWT</li>
+  <li>Rate limiting</li>
+  <li>Validation des entrées</li>
+  <li>HTTPS obligatoire</li>
+  <li>Journalisation des appels</li>
+</ul>
+
+<h3>4. Sécurité des bases de données</h3>
+<ul>
+  <li>Requêtes préparées</li>
+  <li>Droits SQL limités</li>
+  <li>Chiffrement des données sensibles</li>
+  <li>Sauvegardes régulières</li>
+  <li>Journalisation des accès</li>
+  <li>Séparation dev / test / prod</li>
+</ul>
+
+<h3>5. Gestion des sessions</h3>
+<ul>
+  <li>Cookies sécurisés</li>
+  <li>Expiration automatique</li>
+  <li>Regénération du token</li>
+</ul>
+
+<h3>6. Sécurité du code</h3>
+<ul>
+  <li>Validation des entrées</li>
+  <li>Aucune donnée sensible dans le code</li>
+  <li>Aucune clé API en clair</li>
+  <li>Librairies à jour</li>
+  <li>Analyse statique du code</li>
+</ul>
+
+<h3>7. Tests de sécurité</h3>
+<ul>
+  <li>Pentest</li>
+  <li>Analyse statique</li>
+  <li>Analyse dynamique</li>
+  <li>Fuzzing</li>
+  <li>Scan de vulnérabilités</li>
+</ul>
+
+<h3>8. Journalisation et supervision applicative</h3>
+<ul>
+  <li>Erreurs</li>
+  <li>Accès</li>
+  <li>Tentatives de connexion</li>
+  <li>Appels API</li>
+  <li>Actions sensibles</li>
+</ul>
+
+<h3>Résumé fiche 27</h3>
+<p>OWASP, authentification, autorisation, API, bases de données, sessions, code sécurisé, tests, supervision.</p>
+
+<hr>
+
+<h2>FICHE 28 - Les bases de la sécurité des données</h2>
+
+<h3>Objectif du module</h3>
+<p>Protéger les données : classification, chiffrement, sauvegardes, accès, confidentialité, intégrité, disponibilité, conformité RGPD.</p>
+
+<h3>1. Classification des données</h3>
+<ul>
+  <li>Public</li>
+  <li>Interne</li>
+  <li>Confidentiel</li>
+  <li>Très sensible</li>
+</ul>
+
+<h3>2. Confidentialité</h3>
+<ul>
+  <li>Chiffrement</li>
+  <li>MFA</li>
+  <li>Gestion des accès</li>
+  <li>Cloisonnement</li>
+  <li>VPN</li>
+  <li>Masquage des données</li>
+</ul>
+
+<h3>3. Intégrité</h3>
+<ul>
+  <li>Hash</li>
+  <li>Signature numérique</li>
+  <li>Contrôles d’intégrité</li>
+  <li>Journalisation</li>
+</ul>
+
+<h3>4. Disponibilité</h3>
+<ul>
+  <li>Sauvegardes</li>
+  <li>Réplication</li>
+  <li>RAID</li>
+  <li>Haute disponibilité</li>
+  <li>PRA</li>
+  <li>PCI</li>
+</ul>
+
+<h3>5. Chiffrement</h3>
+<ul>
+  <li>Au repos</li>
+  <li>En transit</li>
+  <li>Applicatif</li>
+</ul>
+
+<h3>6. Gestion des accès</h3>
+<ul>
+  <li>Moindre privilège</li>
+  <li>Séparation des rôles</li>
+  <li>Comptes nominatifs</li>
+  <li>MFA</li>
+</ul>
+
+<h3>7. Sauvegardes</h3>
+<ul>
+  <li>Complète</li>
+  <li>Incrémentale</li>
+  <li>Différentielle</li>
+  <li>Snapshot</li>
+</ul>
+
+<h3>8. Protection contre les fuites (DLP)</h3>
+<ul>
+  <li>Blocage USB</li>
+  <li>Filtrage email</li>
+  <li>Journalisation des transferts</li>
+</ul>
+
+<h3>9. Conformité RGPD</h3>
+<ul>
+  <li>Minimisation</li>
+  <li>Consentement</li>
+  <li>Droit d’accès</li>
+  <li>Registre des traitements</li>
+  <li>Sécurisation</li>
+  <li>Notification CNIL</li>
+</ul>
+
+<h3>Résumé fiche 28</h3>
+<p>Classification, confidentialité, intégrité, disponibilité, chiffrement, accès, sauvegardes, DLP, RGPD.</p>
+
+<hr>
+
+<h2>FICHE 29 - Sécurité opérationnelle avancée</h2>
+
+<h3>Objectif du module</h3>
+<p>Détection avancée, réponse automatisée, durcissement renforcé, sécurité des identités, cloud hybride, surveillance continue, threat intelligence.</p>
+
+<h3>1. Détection avancée (EDR / XDR)</h3>
+<ul>
+  <li>Comportements suspects</li>
+  <li>Scripts malveillants</li>
+  <li>Ransomwares</li>
+  <li>Mouvements latéraux</li>
+</ul>
+
+<h3>2. Réponse automatisée (SOAR)</h3>
+<ul>
+  <li>Isolation machine</li>
+  <li>Révocation compte</li>
+  <li>Analyse logs</li>
+  <li>Alertes</li>
+  <li>Correctifs</li>
+</ul>
+
+<h3>3. Durcissement avancé</h3>
+<ul>
+  <li>AppLocker</li>
+  <li>Credential Guard</li>
+  <li>LAPS</li>
+  <li>SELinux</li>
+  <li>SSH renforcé</li>
+</ul>
+
+<h3>4. Sécurité des identités</h3>
+<ul>
+  <li>IAM</li>
+  <li>PAM</li>
+  <li>MFA</li>
+  <li>Rotation mots de passe</li>
+  <li>Coffre-fort à secrets</li>
+</ul>
+
+<h3>5. Sécurité cloud hybride</h3>
+<ul>
+  <li>MFA cloud</li>
+  <li>IAM strict</li>
+  <li>Journalisation cloud</li>
+  <li>Scanner configurations</li>
+</ul>
+
+<h3>6. Surveillance continue</h3>
+<ul>
+  <li>Logs système</li>
+  <li>Logs réseau</li>
+  <li>Logs cloud</li>
+  <li>Alertes EDR</li>
+  <li>Alertes firewall</li>
+</ul>
+
+<h3>7. Threat Intelligence</h3>
+<ul>
+  <li>ANSSI</li>
+  <li>CERT-FR</li>
+  <li>Microsoft TI</li>
+  <li>MISP</li>
+</ul>
+
+<h3>8. Sécurité des emails</h3>
+<ul>
+  <li>SPF</li>
+  <li>DKIM</li>
+  <li>DMARC</li>
+  <li>Filtrage</li>
+  <li>Sandbox</li>
+</ul>
+
+<h3>Résumé fiche 29</h3>
+<p>EDR, XDR, SOAR, durcissement, identités, cloud hybride, SIEM avancé, threat intelligence, emails.</p>
+
+<hr>
+
+<h2>FICHE 30 - Gestion des vulnérabilités</h2>
+
+<h3>Objectif du module</h3>
+<p>Identifier, analyser, prioriser et corriger les vulnérabilités avec des outils et processus structurés.</p>
+
+<h3>1. Définition</h3>
+<ul>
+  <li>Logiciels non mis à jour</li>
+  <li>Mauvaises configurations</li>
+  <li>Ports ouverts</li>
+  <li>Droits trop élevés</li>
+  <li>Services obsolètes</li>
+  <li>Protocoles non sécurisés</li>
+  <li>Failles applicatives</li>
+</ul>
+
+<h3>2. Cycle de gestion</h3>
+<ul>
+  <li>Découverte</li>
+  <li>Analyse</li>
+  <li>Priorisation</li>
+  <li>Correction</li>
+  <li>Vérification</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>3. Découverte</h3>
+<ul>
+  <li>Nessus</li>
+  <li>Qualys</li>
+  <li>OpenVAS</li>
+  <li>Defender VM</li>
+  <li>Rapid7</li>
+</ul>
+
+<h3>4. CVE et CVSS</h3>
+<ul>
+  <li>CVE : catalogue des vulnérabilités</li>
+  <li>CVSS : score de gravité</li>
+</ul>
+
+<h3>5. Priorisation</h3>
+<ul>
+  <li>Gravité</li>
+  <li>Exposition</li>
+  <li>Importance du système</li>
+  <li>Exploits disponibles</li>
+  <li>Données sensibles</li>
+</ul>
+
+<h3>6. Correction</h3>
+<ul>
+  <li>Mises à jour</li>
+  <li>Correctifs</li>
+  <li>Désactivation services</li>
+  <li>Hardening</li>
+  <li>MFA</li>
+</ul>
+
+<h3>7. Vérification</h3>
+<ul>
+  <li>Re-scan</li>
+  <li>Validation</li>
+  <li>Contrôle effets secondaires</li>
+</ul>
+
+<h3>8. Documentation</h3>
+<ul>
+  <li>Vulnérabilité</li>
+  <li>Gravité</li>
+  <li>Systèmes concernés</li>
+  <li>Actions</li>
+  <li>Date</li>
+  <li>Responsable</li>
+</ul>
+
+<h3>9. Gestion continue</h3>
+<ul>
+  <li>Scans réguliers</li>
+  <li>Mises à jour automatiques</li>
+  <li>Bulletins de sécurité</li>
+  <li>Patch management</li>
+  <li>Supervision CVE</li>
+</ul>
+
+<h3>Résumé fiche 30</h3>
+<p>Vulnérabilités, scanners, CVE, CVSS, priorisation, correction, vérification, documentation, gestion continue.</p>
+
