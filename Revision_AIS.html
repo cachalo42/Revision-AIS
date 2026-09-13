@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Révision AIS – Administration et sécurisation des infrastructures</title>
+</head>
+<body>
+
+  <h1>Révision AIS – Administration et sécuriser les infrastructures</h1>
+
+  <p><strong>Objectif global :</strong> Maîtriser les standards, les processus et les méthodes qui permettent d'administrer une
+  infrastructure informatique de manière fiable, sécurisée, documentée et professionnelle.</p>
+
+  <!-- FICHE 1 -->
+  <h2>FICHE 1 – Les bonnes pratiques dans l'administration des infrastructures</h2>
+
+  <h3>1. Référentiels de bonnes pratiques</h3>
+  <p><strong>Définition :</strong> Référentiel = cadre méthodologique qui décrit comment organiser, sécuriser et gérer un système
+  d'information.</p>
+  <ul>
+    <li><strong>ITIL v4 :</strong> gestion des services IT (incident, problème, changement...)</li>
+    <li><strong>ISO 27001 :</strong> sécurité de l'information</li>
+    <li><strong>ISO 20000 :</strong> gestion des services informatiques</li>
+    <li><strong>NIST CSF :</strong> cadre de cybersécurité américain</li>
+    <li><strong>ANSSI :</strong> recommandations françaises pour la sécurité</li>
+  </ul>
+  <p><strong>Pourquoi c'est important :</strong></p>
+  <ul>
+    <li>Standardise les pratiques</li>
+    <li>Réduit les incidents</li>
+    <li>Améliore la qualité de service</li>
+    <li>Structure l'organisation IT</li>
+  </ul>
+
+  <h3>2. Principes des SLA (Service Level Agreement)</h3>
+  <p><strong>Définition :</strong> Contrat ou engagement qui définit le niveau de service attendu : disponibilité, performance,
+  délais de résolution.</p>
+  <ul>
+    <li><strong>Exemples :</strong></li>
+    <li>Disponibilité 99,9 %</li>
+    <li>Temps de réponse &lt; 200 ms</li>
+    <li>Résolution d'incident critique &lt; 4 h</li>
+  </ul>
+  <p><strong>Utilité :</strong></p>
+  <ul>
+    <li>Base de la relation entre IT et métiers</li>
+    <li>Permet de mesurer la qualité de service</li>
+  </ul>
+
+  <h3>3. Gestion des niveaux de service</h3>
+  <p><strong>Définition :</strong> Suivi des indicateurs (KPI) pour vérifier que les SLA sont respectés.</p>
+  <ul>
+    <li>Mesurer</li>
+    <li>Comparer</li>
+    <li>Corriger</li>
+    <li>Documenter</li>
+  </ul>
+
+  <h3>4. Démarche de diagnostic logique et efficace</h3>
+  <p><strong>Définition :</strong> Méthode pour identifier la cause d'un dysfonctionnement.</p>
+  <ol>
+    <li>Identifier le symptôme</li>
+    <li>Reproduire le problème</li>
+    <li>Isoler la cause</li>
+    <li>Tester une solution</li>
+    <li>Documenter</li>
+  </ol>
+
+  <h3>5. Processus de gestion des incidents et des problèmes</h3>
+  <p><strong>Incident :</strong> Interruption ou dégradation d'un service – objectif : restaurer rapidement.</p>
+  <p><strong>Problème :</strong> Cause profonde d'un ou plusieurs incidents – objectif : corriger durablement.</p>
+  <p><strong>Processus ITIL :</strong></p>
+  <ul>
+    <li>Détection</li>
+    <li>Qualification</li>
+    <li>Priorisation</li>
+    <li>Escalade</li>
+    <li>Résolution</li>
+    <li>Clôture</li>
+  </ul>
+
+  <h3>6. Processus de gestion des mises en production</h3>
+  <p><strong>Définition :</strong> Déploiement d'une nouvelle version, d'un correctif ou d'un service.</p>
+  <ul>
+    <li>Planification</li>
+    <li>Tests</li>
+    <li>Validation</li>
+    <li>Communication</li>
+    <li>Documentation</li>
+  </ul>
+
+  <h3>7. Vérifier l'adéquation de la qualité de service</h3>
+  <p><strong>Objectif :</strong> Comparer la qualité réelle du service avec les SLA définis.</p>
+  <ul>
+    <li>Supervision</li>
+    <li>Rapports</li>
+    <li>Indicateurs de performance</li>
+  </ul>
+
+  <h3>8. Interpréter et exploiter les informations d'un système de supervision</h3>
+  <p><strong>Définition :</strong> Supervision = surveillance en temps réel de l'état des équipements et services.</p>
+  <ul>
+    <li>Alertes</li>
+    <li>Logs</li>
+    <li>Graphiques (CPU, RAM, latence...)</li>
+    <li>Seuils</li>
+  </ul>
+
+  <h3>9. Planifier des interventions d'administration et de MCO</h3>
+  <p><strong>Définition :</strong> MCO (Maintien en Condition Opérationnelle) = actions pour maintenir un système en fonctionnement optimal.</p>
+  <ul>
+    <li>Maintenance préventive</li>
+    <li>Maintenance corrective</li>
+    <li>Fenêtres d'intervention</li>
+  </ul>
+
+  <h3>10. Établir une procédure de traitement d'incidents</h3>
+  <ul>
+    <li>Détection</li>
+    <li>Qualification</li>
+    <li>Priorisation</li>
+    <li>Escalade</li>
+    <li>Résolution</li>
+    <li>Communication</li>
+    <li>Clôture</li>
+  </ul>
+
+  <h3>11. PRA / PCA</h3>
+  <p><strong>PRA :</strong> Plan de Reprise d'Activité – permet de redémarrer après un sinistre.</p>
+  <p><strong>PCA :</strong> Plan de Continuité d'Activité – permet de ne jamais s'arrêter, même en cas de panne.</p>
+  <ul>
+    <li><strong>RTO :</strong> Recovery Time Objective</li>
+    <li><strong>RPO :</strong> Recovery Point Objective</li>
+  </ul>
+
+  <h3>12. Tester les procédures PRA / PCA</h3>
+  <ul>
+    <li>Vérifier la faisabilité</li>
+    <li>Mesurer les temps réels</li>
+    <li>Identifier les points faibles</li>
+    <li>Adapter les procédures</li>
+  </ul>
+
+  <h3>Résumé fiche 1</h3>
+  <p>ITIL, ISO, ANSSI – SLA et qualité de service – diagnostic structuré – gestion des incidents / problèmes / changements – supervision – MCO – PRA / PCA.</p>
+
+  <!-- FICHE 2 -->
+  <h2>FICHE 2 – Utiliser un logiciel de gestion centralisée GLPI</h2>
+
+  <p><strong>Objectif :</strong> Comprendre, installer et exploiter GLPI pour gérer les équipements, les tickets, les utilisateurs
+  et les opérations d'administration dans une infrastructure IT.</p>
+
+  <h3>Définitions essentielles</h3>
+  <ul>
+    <li><strong>GLPI :</strong> logiciel open-source de gestion de parc, tickets, demandes, utilisateurs, contrats, licences, support.</li>
+    <li><strong>Parc informatique :</strong> ensemble des équipements matériels et logiciels (PC, serveurs, imprimantes, licences...).</li>
+    <li><strong>Ticket :</strong> enregistrement d'un incident ou d'une demande utilisateur.</li>
+    <li><strong>Inventaire automatique :</strong> remontée automatique des infos des machines (FusionInventory, OCS Inventory).</li>
+  </ul>
+
+  <h3>1. Installer GLPI</h3>
+  <ul>
+    <li>Installation serveur web (Apache ou Nginx)</li>
+    <li>Installation de PHP + extensions</li>
+    <li>Installation base de données (MySQL/MariaDB)</li>
+    <li>Déploiement des fichiers GLPI</li>
+    <li>Configuration initiale (admin, base, plugins)</li>
+  </ul>
+  <p><strong>À retenir :</strong> GLPI fonctionne en mode web, accessible via navigateur, souvent avec FusionInventory pour l’inventaire.</p>
+
+  <h3>2. Utiliser GLPI</h3>
+  <ul>
+    <li>Gestion des tickets : création, suivi, priorisation, affectation</li>
+    <li>Gestion des utilisateurs : rôles, permissions, groupes</li>
+    <li>Gestion du parc : ordinateurs, serveurs, logiciels, réseaux</li>
+    <li>Gestion des contrats : maintenance, garanties, fournisseurs</li>
+    <li>Gestion des licences : conformité, expiration</li>
+    <li>Base de connaissances : documentation interne</li>
+  </ul>
+  <p><strong>Rôle :</strong> ensemble de permissions attribuées à un utilisateur (technicien, administrateur...).</p>
+
+  <h3>3. Exploiter des données GLPI</h3>
+  <ul>
+    <li>Statistiques des tickets (temps de résolution, nombre d’incidents...)</li>
+    <li>État du parc (machines obsolètes, licences expirées...)</li>
+    <li>Historique des interventions</li>
+    <li>Rapports pour la direction / responsable IT</li>
+  </ul>
+  <p><strong>Utilité :</strong> améliorer la qualité de service, identifier les problèmes récurrents, optimiser les ressources.</p>
+
+  <h3>4. GLPI pour l'administration du réseau</h3>
+  <ul>
+    <li>Documenter les équipements réseau (switch, routeur, firewall)</li>
+    <li>Associer les ports réseau aux machines</li>
+    <li>Suivre les incidents réseau</li>
+    <li>Planifier les interventions</li>
+    <li>Centraliser les infos pour le MCO</li>
+  </ul>
+
+  <h3>Résumé fiche 2</h3>
+  <p>GLPI est un outil central pour gérer les incidents, suivre le parc, documenter l’infrastructure, analyser les performances du support, structurer l’administration réseau.</p>
+
+  <!-- FICHE 3 -->
+  <h2>FICHE 3 – Configurer le routage</h2>
+
+  <p><strong>Objectif :</strong> Comprendre, configurer et sécuriser les équipements réseau (routeurs, commutateurs), mettre
+  en place le routage, les VLAN, la redondance et la supervision.</p>
+
+  <h3>1. Équipements d’interconnexion</h3>
+  <p><strong>Définition :</strong> matériel permettant de relier plusieurs réseaux ou segments réseau.</p>
+  <ul>
+    <li><strong>Commutateur (switch) :</strong> relie des machines dans un LAN</li>
+    <li><strong>Routeur :</strong> relie plusieurs réseaux (LAN &lt;&gt; WAN)</li>
+    <li><strong>Passerelle (gateway) :</strong> point de sortie d’un réseau</li>
+    <li><strong>Pare-feu :</strong> filtre le trafic</li>
+    <li><strong>Point d’accès Wi-Fi :</strong> interconnexion sans fil</li>
+  </ul>
+
+  <h3>2. Configuration routeur / commutateur</h3>
+  <p><strong>Routeur :</strong></p>
+  <ul>
+    <li>Interfaces (IP, masque)</li>
+    <li>Routes statiques</li>
+    <li>Routage dynamique (OSPF, RIP, BGP)</li>
+    <li>Sécurisation (ACL, filtrage, SSH)</li>
+  </ul>
+  <p><strong>Commutateur :</strong></p>
+  <ul>
+    <li>Configuration des ports</li>
+    <li>Activation des VLAN</li>
+    <li>Spanning-tree</li>
+    <li>Sécurisation (port-security, storm-control)</li>
+  </ul>
+
+  <h3>3. VLAN et routage inter-VLAN</h3>
+  <p><strong>VLAN :</strong> segmentation logique d’un réseau sur un même switch.</p>
+  <ul>
+    <li>Sécurité</li>
+    <li>Organisation</li>
+    <li>Réduction du broadcast</li>
+  </ul>
+  <p><strong>Routage inter-VLAN :</strong> via routeur (router-on-a-stick) ou switch de couche 3.</p>
+
+  <h3>4. Commutation de couche 3</h3>
+  <p>Switch capable de faire du routage (L3) en plus de la commutation (L2) – utile pour le routage inter-VLAN avec de bonnes performances.</p>
+
+  <h3>5. Redondance d’un commutateur</h3>
+  <ul>
+    <li>Spanning Tree Protocol (STP)</li>
+    <li>RSTP / MSTP</li>
+    <li>Empilement (stacking)</li>
+  </ul>
+
+  <h3>6. Mise en œuvre d’un protocole de routage</h3>
+  <p><strong>Statique :</strong> routes définies manuellement.</p>
+  <p><strong>Dynamique :</strong></p>
+  <ul>
+    <li>RIP : simple, ancien</li>
+    <li>OSPF : performant, entreprise</li>
+    <li>BGP : entre opérateurs (Internet)</li>
+  </ul>
+
+  <h3>7. Redondance d’un routeur</h3>
+  <ul>
+    <li>HSRP (Cisco)</li>
+    <li>VRRP (standard)</li>
+    <li>GLBP</li>
+  </ul>
+  <p>Objectif : assurer une passerelle de secours.</p>
+
+  <h3>8. Monitorer commutateurs et routeurs</h3>
+  <p><strong>Outils :</strong> SNMP, Syslog, ICMP, solutions de supervision (Centreon, Zabbix, PRTG).</p>
+  <ul>
+    <li>CPU / RAM</li>
+    <li>Température</li>
+    <li>Erreurs ports</li>
+    <li>Débit</li>
+    <li>Disponibilité</li>
+    <li>Latence</li>
+  </ul>
+
+  <h3>Résumé fiche 3</h3>
+  <p>Rôle des équipements, configuration routeurs/switches, VLAN et routage inter-VLAN, redondance, protocoles de routage, supervision réseau.</p>
+
+  <!-- FICHE 4 -->
+  <h2>FICHE 4 – Administrer et sécuriser le réseau</h2>
+
+  <p><strong>Objectif :</strong> Administrer, sécuriser et surveiller un réseau d’entreprise : Wi-Fi, pare-feux, proxies,
+  bastions, IDS/IPS, VPN, interconnexions, BYOD, QoS, documentation, incidents.</p>
+
+  <h3>1. Réseaux sans fil (Wi-Fi)</h3>
+  <ul>
+    <li>Modes de sécurité : WPA2-Enterprise, WPA3</li>
+    <li>Gestion des SSID (invités, internes)</li>
+    <li>Puissance d’émission</li>
+    <li>Isolation des clients</li>
+    <li>Authentification RADIUS</li>
+  </ul>
+  <p><strong>Risques :</strong> intrusions, Evil Twin, mauvaise segmentation.</p>
+
+  <h3>2. Pare-feux</h3>
+  <ul>
+    <li>Firewall réseau, WAF, firewall local</li>
+    <li>ACL, NAT/PAT, inspection de paquets</li>
+    <li>Filtrage URL / ports, détection d’anomalies</li>
+  </ul>
+
+  <h3>3. Proxies</h3>
+  <ul>
+    <li>Filtrage web</li>
+    <li>Contrôle d’accès</li>
+    <li>Cache</li>
+    <li>Journalisation</li>
+  </ul>
+
+  <h3>4. Bastions</h3>
+  <p>Serveur sécurisé pour accès administrateurs : centralisation, enregistrement des sessions, moindre privilège.</p>
+
+  <h3>5. IDS</h3>
+  <p>Détection d’intrusion par signatures ou comportement, génération d’alertes.</p>
+
+  <h3>6. IPS</h3>
+  <p>Détecte et bloque les attaques en temps réel (Snort, Suricata, Cisco Firepower).</p>
+
+  <h3>7. VPN</h3>
+  <ul>
+    <li>SSL VPN</li>
+    <li>IPsec VPN</li>
+    <li>Site-to-site</li>
+    <li>Client-to-site</li>
+  </ul>
+
+  <h3>8–9. Connexions intersites / opérateurs</h3>
+  <ul>
+    <li>MPLS</li>
+    <li>VPN IPsec</li>
+    <li>Fibre dédiée</li>
+    <li>SD-WAN</li>
+    <li>Fibre pro, liaisons point-à-point, 4G/5G entreprise</li>
+  </ul>
+
+  <h3>10. BYOD</h3>
+  <p>Risques : perte de données, absence de contrôle, malware.</p>
+  <p>Solutions : MDM, conteneurisation, politiques de sécurité.</p>
+
+  <h3>11. QoS</h3>
+  <p>Priorisation des flux (VoIP, visioconférence, applis critiques) via marquage DSCP, files d’attente, limitation de bande passante.</p>
+
+  <h3>12. Analyse des dysfonctionnements réseau</h3>
+  <ul>
+    <li>Ping, traceroute</li>
+    <li>Analyse des logs</li>
+    <li>Ports (errors, drops)</li>
+    <li>Vérification des VLAN</li>
+    <li>Contrôle des ACL</li>
+  </ul>
+
+  <h3>13–14. Documentation et CMDB</h3>
+  <p>Schémas réseau, procédures, inventaire, historique des incidents.</p>
+  <p>CMDB : base de données des équipements, versions, relations – facilite diagnostics et changements.</p>
+
+  <h3>Résumé fiche 4</h3>
+  <p>Wi-Fi, pare-feux, proxies, bastions, IDS/IPS, VPN, interconnexions, BYOD, QoS, documentation, CMDB, analyse des incidents.</p>
+
+  <!-- FICHE 5 -->
+  <h2>FICHE 5 – Automatiser les tâches d'administration</h2>
+
+  <p><strong>Objectif :</strong> Comprendre les langages de script, identifier les tâches automatisables, créer des scripts simples,
+  sécuriser l’automatisation, manipuler des données via des requêtes.</p>
+
+  <h3>1. Langages de script</h3>
+  <ul>
+    <li><strong>Windows :</strong> PowerShell (administration système, AD, réseau, fichiers)</li>
+    <li><strong>Linux :</strong> Bash / Shell (fichiers, tâches système, services)</li>
+  </ul>
+  <p>Gain de temps, réduction des erreurs, standardisation, automatisation des tâches répétitives.</p>
+
+  <h3>2. Bon script Linux</h3>
+  <ul>
+    <li>Shebang <code>#!/bin/bash</code></li>
+    <li>Commentaires</li>
+    <li>Tests en non-production</li>
+    <li>Permissions (chmod)</li>
+    <li>Variables</li>
+    <li>Gestion des erreurs (if, exit, codes retour)</li>
+  </ul>
+
+  <h3>3. Tâches automatisables</h3>
+  <ul>
+    <li>Sauvegardes</li>
+    <li>Nettoyage de logs</li>
+    <li>Création d’utilisateurs</li>
+    <li>Déploiement de logiciels</li>
+    <li>Surveillance de services</li>
+    <li>Redémarrage automatique</li>
+  </ul>
+
+  <h3>4. Traitement automatisé</h3>
+  <p>Scripts de sauvegarde quotidienne, vérification d’espace disque, redémarrage de service.</p>
+  <p><strong>Outils :</strong> cron (Linux), Task Scheduler (Windows).</p>
+
+  <h3>5. Recherche de scripts et sécurité</h3>
+  <ul>
+    <li>Sources : GitHub, docs officielles, communautés, scripts internes</li>
+    <li>Lire le script, vérifier la source</li>
+    <li>Éviter exécution non contrôlée</li>
+    <li>Pas d’exécution admin sans validation</li>
+    <li>Journaliser les actions automatisées</li>
+  </ul>
+
+  <h3>6. Requêtes de données</h3>
+  <ul>
+    <li>DDL : définition de structures</li>
+    <li>DML : insertion, mise à jour, suppression</li>
+  </ul>
+  <p>Exemples : <code>SELECT * FROM utilisateurs;</code>, <code>INSERT INTO logs ...</code>, <code>UPDATE machines SET statut='OK';</code></p>
+
+  <h3>Résumé fiche 5</h3>
+  <p>PowerShell et Bash, scripts propres et sécurisés, tâches automatisables, traitements simples, sécurité, requêtes de données.</p>
+
+  <!-- FICHE 6 -->
+  <h2>FICHE 6 – Administrer et sécuriser les systèmes</h2>
+
+  <p><strong>Objectif :</strong> Administration Windows, Linux, cloud, sécurisation des services, annuaires, mises à jour, journaux, HA, performances.</p>
+
+  <h3>1. Spécificités systèmes</h3>
+  <ul>
+    <li><strong>Windows Server :</strong> interface graphique, AD, PowerShell, services (DHCP, DNS, IIS)</li>
+    <li><strong>Linux :</strong> CLI, systemd, droits stricts, serveurs web/DB/conteneurs</li>
+    <li><strong>Cloud (Azure, AWS) :</strong> services managés, scalabilité, IAM, facturation à l’usage</li>
+  </ul>
+
+  <h3>2. Licences logicielles</h3>
+  <ul>
+    <li>OEM, volume, subscription, open-source (GPL, MIT)</li>
+    <li>Conformité, audits, gestion des coûts</li>
+  </ul>
+
+  <h3>3–4. Configuration serveurs Linux / Windows</h3>
+  <p><strong>Linux :</strong> réseau, utilisateurs, services, paquets, SSH, firewall, permissions.</p>
+  <p><strong>Windows :</strong> rôles, réseau, AD, GPO, DNS/DHCP/IIS, PowerShell.</p>
+
+  <h3>5. Services réseau</h3>
+  <ul>
+    <li>DNS, DHCP, NTP</li>
+    <li>SMB/NFS</li>
+    <li>FTP/SFTP</li>
+  </ul>
+
+  <h3>6–7. Annuaire réseau / Azure AD</h3>
+  <p>AD, LDAP, Azure AD : gestion utilisateurs, groupes, GPO, MFA, politiques de sécurité.</p>
+
+  <h3>8–10. Connexions réseau et HA</h3>
+  <p>VPN, domaine AD, interfaces réseau, NAS.</p>
+  <p>Haute disponibilité : clusters, load balancing, réplication, redondance matérielle.</p>
+  <p>Accès distant sécurisé : SSH, RDP, bastion, VPN.</p>
+
+  <h3>11–13. SaaS, ligne de commande, mises à jour</h3>
+  <p>SaaS : gestion des accès, MFA, journaux, politiques, sauvegardes.</p>
+  <p>Administration CLI : Bash/SSH (Linux), PowerShell/WinRM (Windows).</p>
+  <p>Mises à jour : WSUS, Windows Update for Business, apt/yum – corriger vulnérabilités, stabilité, automatisation.</p>
+
+  <h3>14–15. Journaux et performances</h3>
+  <p>Linux : <code>/var/log</code>, journalctl. Windows : Observateur d’événements.</p>
+  <p>Indicateurs : CPU, RAM, I/O disque, réseau, processus – outils : Task Manager, Performance Monitor, top, htop, iostat, vmstat.</p>
+
+  <h3>Résumé fiche 6</h3>
+  <p>Windows, Linux, Azure AD, services réseau, annuaires, HA, sécurisation, mises à jour, journaux, performances.</p>
+
+  <!-- FICHE 7 -->
+  <h2>FICHE 7 – Les bases des serveurs virtualisés</h2>
+
+  <p><strong>Objectif :</strong> Virtualisation, solutions, fonctions avancées, architectures convergentes, data centers, clusters, licences, bases du cloud.</p>
+
+  <h3>1. Solutions de virtualisation</h3>
+  <p><strong>Virtualisation :</strong> plusieurs VMs sur un serveur physique via hyperviseur.</p>
+  <ul>
+    <li>VMware ESXi</li>
+    <li>Microsoft Hyper-V</li>
+    <li>Proxmox VE</li>
+    <li>KVM/QEMU</li>
+    <li>VirtualBox</li>
+  </ul>
+
+  <h3>2. Fonctions avancées</h3>
+  <ul>
+    <li>vMotion / Live Migration</li>
+    <li>High Availability (HA)</li>
+    <li>Fault Tolerance (FT)</li>
+    <li>Snapshots</li>
+    <li>Clonage</li>
+  </ul>
+
+  <h3>3. Convergé / hyper-convergé</h3>
+  <p>Infrastructure convergée : serveurs + stockage + réseau.</p>
+  <p>Hyper-convergence (HCI) : calcul, stockage, réseau dans les mêmes nœuds (vSAN, Nutanix, Azure Stack HCI).</p>
+
+  <h3>4. Impact de la virtualisation</h3>
+  <ul>
+    <li>Avantages : coûts, ressources, isolation, déploiement rapide, HA</li>
+    <li>Inconvénients : dépendance hyperviseur, compétences, surallocation</li>
+  </ul>
+
+  <h3>5–6. Data centers et clusters</h3>
+  <p>Data center : site physique avec serveurs, stockage, réseau, climatisation, sécurité, alimentation.</p>
+  <p>Cluster : groupe de serveurs hébergeant des VMs – nœuds, stockage partagé, réseau dédié, hyperviseur.</p>
+
+  <h3>7. Licences en virtualisation</h3>
+  <ul>
+    <li>Licences par hôte, par VM, par CPU/core, cloud à l’usage</li>
+    <li>Risques : non-conformité, surcoûts, audits</li>
+  </ul>
+
+  <h3>8. Introduction à Azure</h3>
+  <p>Azure : VMs, stockage, VNet, services managés (SQL, AD, Kubernetes), sécurité (IAM, MFA), scalabilité, paiement à l’usage.</p>
+
+  <h3>9. Introduction à AWS</h3>
+  <p>AWS : EC2, S3, RDS, VPC, IAM – large catalogue, fiabilité, flexibilité.</p>
+
+  <h3>Résumé fiche 7</h3>
+  <p>Hyperviseurs, fonctions avancées, architectures convergées/HCI, data centers, clusters, licences, bases Azure/AWS.</p>
+
+  <!-- FICHE 8 (début seulement, PDF tronqué) -->
+  <h2>FICHE 8 – Administrer et sécuriser une infrastructure de serveurs virtualisés</h2>
+  <p><strong>Objectif :</strong> Savoir administrer une plateforme de virtualisation complète : gestion des VMs, haute
+  disponibilité, migration, automatisation.</p>
+
+</body>
+</html>
