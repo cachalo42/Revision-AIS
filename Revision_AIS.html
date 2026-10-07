@@ -2661,3069 +2661,3598 @@ Cette fiche présente la préparation et la validation d'une solution, la planif
 
 
 
- FICHE 13 — Les bases de la supervision
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 4)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 13 - Les bases de la supervision</title>
+</head>
+<body>
 
- Objectif du module
-Comprendre les protocoles fondamentaux utilisés en supervision (SNMP, WBEM/WMI,
-Syslog, analyse de flux), savoir comment ils fonctionnent, ce qu’ils transmettent, et pourquoi
-ils sont essentiels pour surveiller une infrastructure.
+<h1>FICHE 13 - Les bases de la supervision</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre les protocoles fondamentaux utilisés en supervision, savoir comment ils fonctionnent, ce qu'ils transmettent et pourquoi ils sont essentiels pour surveiller une infrastructure.
+</p>
 
-       1. Le protocole SNMP
- Définition : SNMP (Simple Network Management Protocol)
+<h2>1. Le protocole SNMP</h2>
 
-Protocole standard permettant de superviser les équipements réseau (switches, routeurs,
-serveurs, imprimantes).
+<h3>Definition : SNMP</h3>
+<p>
+SNMP signifie Simple Network Management Protocol. C'est un protocole standard permettant de superviser les équipements réseau comme les switches, routeurs, serveurs et imprimantes.
+</p>
 
- Fonctionnement
+<h3>Fonctionnement</h3>
+<ul>
+  <li>Agent SNMP installé sur l'équipement supervisé.</li>
+  <li>Manager SNMP qui est le serveur de supervision.</li>
+  <li>OID qui est un identifiant d'un élément supervisé comme processeur ou mémoire.</li>
+  <li>Trap SNMP qui est une alerte envoyée automatiquement par l'équipement.</li>
+</ul>
 
-   -    Agent SNMP : installé sur l’équipement supervisé.
-   -    Manager SNMP : serveur de supervision (ex : Centreon, Zabbix).
-   -    OID (Object Identifier) : identifiant d’un élément supervisé (CPU, RAM,
-        température…).
-   -    Trap SNMP : alerte envoyée automatiquement par l’équipement.
+<h3>Utilité</h3>
+<ul>
+  <li>Surveillance en temps réel.</li>
+  <li>Collecte de métriques.</li>
+  <li>Détection des anomalies.</li>
+</ul>
 
- Utilité
+<h3>Exemple</h3>
+<p>
+Un switch envoie une alerte SNMP lorsque la température dépasse un seuil.
+</p>
 
-   -    Surveillance en temps réel.
-   -    Collecte de métriques.
-   -    Détection des anomalies.
+<h2>2. Le standard WBEM et WMI</h2>
 
+<h3>Definition : WBEM</h3>
+<p>
+WBEM signifie Web Based Enterprise Management. C'est un standard permettant la gestion et la supervision des systèmes via des interfaces web.
+</p>
 
- 2. Le standard WBEM et sa déclinaison
-WMI
- Définition : WBEM (Web-Based Enterprise Management)
+<h3>Definition : WMI</h3>
+<p>
+WMI signifie Windows Management Instrumentation. C'est l'implémentation Microsoft de WBEM utilisée pour superviser les systèmes Windows.
+</p>
 
-Standard permettant la gestion et la supervision des systèmes via des interfaces web.
+<h3>Ce que WMI permet</h3>
+<ul>
+  <li>Lire l'état des services.</li>
+  <li>Lire l'utilisation processeur et mémoire.</li>
+  <li>Lire les journaux.</li>
+  <li>Superviser les rôles Windows comme DNS, DHCP et Active Directory.</li>
+</ul>
 
- Définition : WMI (Windows Management Instrumentation)
-
-Implémentation Microsoft de WBEM, utilisée pour superviser les systèmes Windows.
-
- Ce que WMI permet
-
-
-   -    Lire l’état des services.
-   -    Lire l’utilisation CPU/RAM.
-   -    Lire les journaux.
-   -    Superviser les rôles Windows (DNS, DHCP, AD).
-
- Utilité
-
+<h3>Utilité</h3>
+<p>
 Indispensable pour superviser les serveurs Windows dans un environnement professionnel.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur Windows envoie une alerte WMI lorsque le service DNS s'arrête.
+</p>
+
+<h2>3. Le protocole Syslog</h2>
+
+<h3>Definition : Syslog</h3>
+<p>
+Syslog est un protocole permettant aux équipements d'envoyer leurs journaux vers un serveur central.
+</p>
+
+<h3>Fonctionnement</h3>
+<ul>
+  <li>Les équipements envoient leurs logs via le port 514.</li>
+  <li>Le serveur Syslog centralise et trie les messages.</li>
+  <li>Les solutions de supervision analysent ces logs.</li>
+</ul>
+
+<h3>Types de logs</h3>
+<ul>
+  <li>Sécurité.</li>
+  <li>Système.</li>
+  <li>Réseau.</li>
+  <li>Application.</li>
+</ul>
+
+<h3>Utilité</h3>
+<ul>
+  <li>Détection d'incidents.</li>
+  <li>Analyse post incident.</li>
+  <li>Audit de sécurité.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Un pare feu envoie un log Syslog lorsqu'il bloque une tentative d'intrusion.
+</p>
+
+<h2>4. Les protocoles d'analyse de flux réseau</h2>
+
+<h3>Definition : Analyse de flux</h3>
+<p>
+Technique permettant d'observer le trafic réseau pour comprendre ce qui circule, en quelle quantité et entre quelles machines.
+</p>
+
+<h3>Protocoles principaux</h3>
+<ul>
+  <li>NetFlow.</li>
+  <li>sFlow.</li>
+  <li>IPFIX.</li>
+</ul>
+
+<h3>Ce que l'analyse de flux permet</h3>
+<ul>
+  <li>Identifier les machines qui consomment le plus de bande passante.</li>
+  <li>Détecter des comportements anormaux.</li>
+  <li>Optimiser le réseau.</li>
+  <li>Aider à la sécurité.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+NetFlow détecte un poste qui envoie un volume inhabituel de données vers l'extérieur.
+</p>
+
+<h2>Résumé de la fiche 13</h2>
+<p>
+Cette fiche présente SNMP pour superviser les équipements, WMI pour superviser les serveurs Windows, Syslog pour centraliser les logs et NetFlow, sFlow et IPFIX pour analyser les flux réseau.
+</p>
+
+</body>
+</html>
 
 
-       3. Le protocole Syslog
- Définition : Syslog
 
-Protocole permettant aux équipements d’envoyer leurs journaux (logs) vers un serveur
-central.
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 14 - Superviser la disponibilité de l'infrastructure</title>
+</head>
+<body>
 
- Fonctionnement
+<h1>FICHE 14 - Superviser la disponibilité de l'infrastructure et en présenter les résultats</h1>
 
-   -    Les équipements envoient leurs logs via UDP/TCP port 514.
-   -    Le serveur Syslog centralise, trie et stocke les messages.
-   -    Les solutions de supervision analysent ces logs.
+<h2>Objectif du module</h2>
+<p>
+Savoir superviser la disponibilité des équipements et services, définir des seuils d'alerte, suivre les indicateurs de performance, exploiter une solution de supervision, analyser les journaux d'événements et présenter les résultats de manière professionnelle.
+</p>
 
- Types de logs
+<h2>1. Superviser la disponibilité de l'infrastructure</h2>
 
-   -    Sécurité.
-   -    Système.
-   -    Réseau.
-   -    Application.
+<h3>Definition : Disponibilité</h3>
+<p>
+Capacité d'un service ou équipement à être accessible et fonctionnel.
+</p>
 
- Utilité
+<h3>Ce que l'on supervise</h3>
+<ul>
+  <li>Serveurs comme processeur, mémoire et disque.</li>
+  <li>Réseau comme switches et routeurs.</li>
+  <li>Services comme DNS, DHCP, Active Directory et web.</li>
+  <li>Applications métiers.</li>
+  <li>Stockage comme NAS et SAN.</li>
+  <li>Cloud comme machines virtuelles et services managés.</li>
+</ul>
 
-   -    Détection d’incidents.
-   -    Analyse post-incident.
-   -    Audit de sécurité.
+<h3>Objectif</h3>
+<p>
+Détecter les anomalies avant qu'elles n'impactent les utilisateurs.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un serveur en surcharge mémoire peut être détecté avant qu'il ne tombe en panne.
+</p>
 
-  4. Les protocoles d’analyse de flux
-réseaux
- Définition : Analyse de flux
+<h2>2. Superviser la disponibilité avec Centreon</h2>
 
-Technique permettant d’observer le trafic réseau pour comprendre ce qui circule, en quelle
-quantité, et entre quelles machines.
+<h3>Definition : Centreon</h3>
+<p>
+Centreon est une solution de supervision open source utilisée pour surveiller les équipements, services et applications.
+</p>
 
- Protocoles principaux
+<h3>Fonctionnement</h3>
+<ul>
+  <li>Collecte des métriques via SNMP, WMI ou agents.</li>
+  <li>Définition de seuils d'alerte.</li>
+  <li>Tableaux de bord de disponibilité.</li>
+  <li>Rapports automatiques.</li>
+  <li>Notifications par mail ou SMS.</li>
+</ul>
 
+<h3>Avantages</h3>
+<ul>
+  <li>Interface claire.</li>
+  <li>Très utilisé en entreprise.</li>
+  <li>Compatible avec la majorité des équipements.</li>
+</ul>
 
-   -   NetFlow (Cisco)
-   -   sFlow
-   -   IPFIX (standard)
+<h3>Exemple</h3>
+<p>
+Centreon affiche un tableau de bord montrant les serveurs en état critique.
+</p>
 
- Ce que l’analyse de flux permet
+<h2>3. Définir des seuils d'alerte</h2>
 
-   -   Identifier les machines qui consomment le plus de bande passante.
-   -   Détecter des comportements anormaux (scan, exfiltration).
-   -   Optimiser le réseau.
-   -   Aider à la sécurité (détection d’attaques).
-
-
- Résumé de la fiche 13
-Ce module t’apprend :
-
-   -   SNMP pour superviser les équipements,
-   -   WMI pour superviser les serveurs Windows,
-   -   Syslog pour centraliser les logs,
-   -   NetFlow / sFlow / IPFIX pour analyser les flux réseau.
-
-C’est la base technique indispensable pour comprendre comment fonctionne la supervision
-dans une entreprise.
-
-
- FICHE 14 — Superviser la disponibilité
-de l’infrastructure et en présenter les
-résultats
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 5)
-
- Objectif du module
-Savoir superviser la disponibilité des équipements et services, définir des seuils d’alerte,
-suivre les indicateurs de performance, exploiter une solution de supervision (ex : Centreon),
-analyser les journaux d’événements et présenter les résultats de manière professionnelle.
-
-
-   1. Superviser la disponibilité de
-l’infrastructure
- Définition : Disponibilité
-
-Capacité d’un service ou équipement à être accessible et fonctionnel.
-
- Ce que l’on supervise
-
-   -   Serveurs (CPU, RAM, disque).
-   -   Réseau (switches, routeurs).
-   -   Services (DNS, DHCP, AD, web).
-   -   Applications métiers.
-   -   Stockage (NAS, SAN).
-   -   Cloud (VM, services managés).
-
-       Objectif
-
-Détecter les anomalies avant qu’elles n’impactent les utilisateurs.
-
-
-   2. Superviser la disponibilité de
-l’infrastructure : Centreon
- Définition : Centreon
-
-Solution de supervision open-source utilisée pour surveiller les équipements, services et
-applications.
-       
-
- Fonctionnement
-
-   -    Collecte des métriques via SNMP, WMI, agents.
-   -    Définition de seuils d’alerte.
-   -    Dashboards de disponibilité.
-   -    Rapports automatiques.
-   -    Notifications (mail, SMS).
-
- Avantages
-
-   -    Interface claire.
-   -    Très utilisé en entreprise.
-   -    Compatible avec la majorité des équipements.
-
-
-       3. Définir des seuils d’alerte
-       
- Définition : Seuil d’alerte
-
+<h3>Definition : Seuil d'alerte</h3>
+<p>
 Valeur à partir de laquelle un indicateur est considéré comme anormal.
+</p>
 
- Types de seuils
+<h3>Types de seuils</h3>
+<ul>
+  <li>Warning pour une anomalie légère.</li>
+  <li>Critical pour une anomalie grave.</li>
+</ul>
 
-   -    Warning : anomalie légère.
-   -    Critical : anomalie grave.
+<h3>Exemples</h3>
+<ul>
+  <li>Charge processeur supérieure à quatre vingt pour cent pour warning.</li>
+  <li>Charge processeur supérieure à quatre vingt quinze pour cent pour critical.</li>
+  <li>Espace disque inférieur à vingt pour cent pour warning.</li>
+  <li>Espace disque inférieur à dix pour cent pour critical.</li>
+</ul>
 
- Exemples
-
-   -    CPU &gt; 80 % → warning.
-   -    CPU &gt; 95 % → critical.
-   -    Espace disque &lt; 20 % → warning.
-   -    Espace disque &lt; 10 % → critical.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Déclencher des alertes pertinentes et éviter les faux positifs.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un serveur envoie une alerte critical lorsque son espace disque atteint dix pour cent.
+</p>
 
-   4. Suivre les indicateurs de performance
-et de disponibilité
- Définition : Indicateur (KPI)
+<h2>4. Suivre les indicateurs de performance et de disponibilité</h2>
 
-Mesure permettant d’évaluer l’état ou la performance d’un service.
+<h3>Definition : Indicateur</h3>
+<p>
+Mesure permettant d'évaluer l'état ou la performance d'un service.
+</p>
 
- Indicateurs typiques
+<h3>Indicateurs typiques</h3>
+<ul>
+  <li>Taux de disponibilité.</li>
+  <li>Temps de réponse.</li>
+  <li>Charge processeur.</li>
+  <li>Utilisation mémoire.</li>
+  <li>Latence réseau.</li>
+  <li>Débit réseau.</li>
+  <li>Erreurs sur les interfaces.</li>
+</ul>
 
-
-   -    Taux de disponibilité (%).
-   -    Temps de réponse.
-   -    Charge CPU.
-   -    Utilisation RAM.
-   -    Latence réseau.
-   -    Débit réseau.
-   -    Erreurs sur les interfaces.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Analyser les tendances et anticiper les problèmes.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une augmentation progressive de la latence réseau peut indiquer un futur incident.
+</p>
 
-       5. Exploiter une solution de supervision
- Actions
+<h2>5. Exploiter une solution de supervision</h2>
 
-   -    Lire les dashboards.
-   -    Identifier les alertes.
-   -    Vérifier les équipements en erreur.
-   -    Analyser les courbes de performance.
-   -    Générer des rapports.
-   -    Documenter les incidents détectés.
+<h3>Actions</h3>
+<ul>
+  <li>Lire les tableaux de bord.</li>
+  <li>Identifier les alertes.</li>
+  <li>Vérifier les équipements en erreur.</li>
+  <li>Analyser les courbes de performance.</li>
+  <li>Générer des rapports.</li>
+  <li>Documenter les incidents détectés.</li>
+</ul>
 
- Définition : Dashboard
+<h3>Definition : Tableau de bord</h3>
+<p>
+Vue graphique regroupant les indicateurs clés de l'infrastructure.
+</p>
 
-Vue graphique regroupant les indicateurs clés de l’infrastructure.
+<h3>Exemple</h3>
+<p>
+Un tableau de bord affiche la disponibilité des serveurs sur les trente derniers jours.
+</p>
 
+<h2>6. Analyser les journaux d'événements</h2>
 
-       6. Analyser les journaux d’événements
- Définition : Journal d’événements (log)
-
+<h3>Definition : Journal d'événements</h3>
+<p>
 Fichier contenant les messages générés par les systèmes, applications ou équipements.
+</p>
 
- Types de journaux
+<h3>Types de journaux</h3>
+<ul>
+  <li>Système.</li>
+  <li>Sécurité.</li>
+  <li>Application.</li>
+  <li>Réseau.</li>
+  <li>Supervision.</li>
+</ul>
 
-   -    Système.
-   -    Sécurité.
-   -    Application.
-   -    Réseau.
-   -    Supervision.
+<h3>Objectif</h3>
+<p>
+Comprendre l'origine d'un incident ou d'une alerte.
+</p>
 
- Objectif
+<h3>Outils</h3>
+<ul>
+  <li>Syslog.</li>
+  <li>Journalctl pour Linux.</li>
+  <li>Observateur d'événements pour Windows.</li>
+  <li>Logs Centreon ou Zabbix.</li>
+</ul>
 
-Comprendre l’origine d’un incident ou d’une alerte.
+<h3>Exemple</h3>
+<p>
+Un journal d'événements montre qu'un service a échoué à démarrer à cause d'un manque de mémoire.
+</p>
 
- Outils
+<h2>Résumé de la fiche 14</h2>
+<p>
+Cette fiche présente la supervision de la disponibilité des équipements et services, l'utilisation de Centreon, la définition des seuils d'alerte, le suivi des indicateurs de performance, l'analyse des journaux d'événements et la présentation des résultats.
+</p>
 
-
-   -   Syslog.
-   -   Journalctl (Linux).
-   -   Observateur d’événements (Windows).
-   -   Logs Centreon / Zabbix.
-
-
- Résumé de la fiche 14
-Ce module t’apprend à :
-
-   -   superviser la disponibilité des équipements et services,
-   -   utiliser Centreon,
-   -   définir des seuils d’alerte,
-   -   suivre les indicateurs de performance,
-   -   analyser les journaux d’événements,
-   -   présenter les résultats de manière professionnelle.
-
-C’est un module essentiel pour garantir la stabilité et la fiabilité d’une infrastructure.
-
-
- FICHE 15 — Mesurer les performances
-et la disponibilité de l’infrastructure
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 6)
-
- Objectif du module
-Savoir mesurer la disponibilité, la performance et la qualité de service d’une infrastructure,
-analyser les indicateurs, interpréter les résultats, et utiliser ces données pour améliorer le
-système d’information.
+</body>
+</html>
 
 
-   1. Mesurer la disponibilité de
-l’infrastructure
- Définition : Disponibilité
 
-Pourcentage de temps pendant lequel un service ou un équipement est accessible et
-fonctionnel.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 15 - Mesurer les performances et la disponibilité de l'infrastructure</title>
+</head>
+<body>
 
- Formule
-                                    ˊ    Temps de fonctionnement
-                       Disponibilite =
-                                               Temps total
-                                                                 × 100
+<h1>FICHE 15 - Mesurer les performances et la disponibilité de l'infrastructure</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Savoir mesurer la disponibilité, la performance et la qualité de service d'une infrastructure, analyser les indicateurs, interpréter les résultats et utiliser ces données pour améliorer le système d'information.
+</p>
 
- Exemples
+<h2>1. Mesurer la disponibilité de l'infrastructure</h2>
 
-   -   99 % → 3,65 jours d’indisponibilité par an.
-   -   99,9 % → 8 h 45 min d’indisponibilité par an.
-   -   99,99 % → 52 min d’indisponibilité par an.
+<h3>Definition : Disponibilité</h3>
+<p>
+Pourcentage de temps pendant lequel un service ou un équipement est accessible et fonctionnel.
+</p>
 
- Ce que l’on mesure
+<h3>Formule</h3>
+<p>
+Disponibilite = Temps de fonctionnement / Temps total × 100
+</p>
 
-   -   Serveurs.
-   -   Réseau.
-   -   Services (DNS, DHCP, AD).
-   -   Applications métiers.
-   -   Stockage.
-   -   Cloud.
+<h3>Exemples</h3>
+<ul>
+  <li>Quatre vingt dix neuf pour cent correspond à trois jours et demi d'indisponibilité par an.</li>
+  <li>Quatre vingt dix neuf virgule neuf pour cent correspond à huit heures quarante cinq minutes d'indisponibilité par an.</li>
+  <li>Quatre vingt dix neuf virgule quatre neuf pour cent correspond à cinquante deux minutes d'indisponibilité par an.</li>
+</ul>
 
+<h3>Ce que l'on mesure</h3>
+<ul>
+  <li>Serveurs.</li>
+  <li>Réseau.</li>
+  <li>Services comme DNS, DHCP et Active Directory.</li>
+  <li>Applications métiers.</li>
+  <li>Stockage.</li>
+  <li>Cloud.</li>
+</ul>
 
-   2. Mesurer les performances de
-l’infrastructure
+<h3>Exemple</h3>
+<p>
+Un serveur web disponible quatre vingt dix neuf virgule neuf pour cent du temps est considéré comme très fiable.
+</p>
 
+<h2>2. Mesurer les performances de l'infrastructure</h2>
 
- Définition : Performance
+<h3>Definition : Performance</h3>
+<p>
+Capacité d'un système à répondre rapidement et efficacement aux demandes.
+</p>
 
-Capacité d’un système à répondre rapidement et efficacement aux demandes.
+<h3>Indicateurs typiques</h3>
+<ul>
+  <li>Charge processeur.</li>
+  <li>Mémoire utilisée.</li>
+  <li>Entrées sorties disque.</li>
+  <li>Latence réseau.</li>
+  <li>Débit réseau.</li>
+  <li>Temps de réponse applicatif.</li>
+</ul>
 
- Indicateurs typiques
+<h3>Objectif</h3>
+<p>
+Identifier les goulots d'étranglement et anticiper les problèmes.
+</p>
 
-   -    CPU : charge du processeur.
-   -    RAM : mémoire utilisée.
-   -    I/O disque : vitesse de lecture/écriture.
-   -    Latence réseau : temps de réponse.
-   -    Débit réseau : quantité de données transférées.
-   -    Temps de réponse applicatif.
+<h3>Exemple</h3>
+<p>
+Une latence réseau élevée peut indiquer une saturation ou un problème de routage.
+</p>
 
- Objectif
+<h2>3. Interpréter les résultats de la supervision</h2>
 
-Identifier les goulots d’étranglement et anticiper les problèmes.
+<h3>Definition : Interprétation</h3>
+<p>
+Analyse des données collectées pour comprendre l'état réel de l'infrastructure.
+</p>
 
+<h3>Ce que l'on interprète</h3>
+<ul>
+  <li>Tendances comme augmentation de la charge processeur.</li>
+  <li>Pics d'activité.</li>
+  <li>Alertes répétitives.</li>
+  <li>Dégradations progressives.</li>
+  <li>Comportements anormaux.</li>
+</ul>
 
-  3. Interpréter les résultats de la
-supervision
- Définition : Interprétation
+<h3>Objectif</h3>
+<p>
+Prendre des décisions comme mise à niveau, optimisation, migration ou ajout de ressources.
+</p>
 
-Analyse des données collectées pour comprendre l’état réel de l’infrastructure.
+<h3>Exemple</h3>
+<p>
+Une augmentation régulière de l'utilisation mémoire peut indiquer un besoin d'extension.
+</p>
 
- Ce que l’on interprète
+<h2>4. Mesurer la qualité de service</h2>
 
-   -    Tendances (augmentation CPU, baisse RAM disponible).
-   -    Pics d’activité.
-   -    Alertes répétitives.
-   -    Dégradations progressives.
-   -    Comportements anormaux.
-
- Objectif
-
-Prendre des décisions : upgrade, optimisation, migration, ajout de ressources.
-
-
-       4. Mesurer la qualité de service
- Définition : Qualité de service (QoS)
-
+<h3>Definition : Qualité de service</h3>
+<p>
 Niveau de performance perçu par les utilisateurs.
+</p>
 
- Indicateurs
+<h3>Indicateurs</h3>
+<ul>
+  <li>Temps de réponse.</li>
+  <li>Disponibilité.</li>
+  <li>Taux d'erreurs.</li>
+  <li>Satisfaction utilisateur.</li>
+  <li>Respect des niveaux de service.</li>
+</ul>
 
-
-   -    Temps de réponse.
-   -    Disponibilité.
-   -    Taux d’erreurs.
-   -    Satisfaction utilisateur.
-   -    Respect des SLA.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Garantir que le service répond aux attentes métier.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un temps de réponse supérieur à deux secondes peut dégrader l'expérience utilisateur.
+</p>
+
+<h2>5. Mesurer la disponibilité des services</h2>
+
+<h3>Services typiques</h3>
+<ul>
+  <li>DNS.</li>
+  <li>DHCP.</li>
+  <li>Active Directory.</li>
+  <li>Serveurs web.</li>
+  <li>Bases de données.</li>
+  <li>Applications métiers.</li>
+</ul>
+
+<h3>Méthodes</h3>
+<ul>
+  <li>Ping.</li>
+  <li>Tests applicatifs.</li>
+  <li>Vérification des ports.</li>
+  <li>Monitoring via Centreon ou Zabbix.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Un test applicatif vérifie que l'application répond correctement à une requête.
+</p>
+
+<h2>6. Mesurer la disponibilité des équipements</h2>
+
+<h3>Équipements concernés</h3>
+<ul>
+  <li>Switches.</li>
+  <li>Routeurs.</li>
+  <li>Pare feux.</li>
+  <li>Serveurs physiques.</li>
+  <li>Stockage NAS ou SAN.</li>
+</ul>
+
+<h3>Indicateurs</h3>
+<ul>
+  <li>Temps de fonctionnement.</li>
+  <li>Température.</li>
+  <li>Erreurs sur interfaces.</li>
+  <li>Charge processeur et mémoire.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Un switch qui redémarre fréquemment présente une disponibilité faible.
+</p>
+
+<h2>7. Mesurer la disponibilité des applications</h2>
+
+<h3>Definition : Disponibilité applicative</h3>
+<p>
+Capacité d'une application à fonctionner correctement pour l'utilisateur final.
+</p>
+
+<h3>Méthodes</h3>
+<ul>
+  <li>Tests synthétiques.</li>
+  <li>Tests réels.</li>
+  <li>Monitoring applicatif.</li>
+</ul>
+
+<h3>Indicateurs</h3>
+<ul>
+  <li>Temps de réponse.</li>
+  <li>Taux d'erreurs.</li>
+  <li>Disponibilité.</li>
+  <li>Charge serveur.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Un robot effectue un test de connexion toutes les minutes pour vérifier la disponibilité d'une application.
+</p>
+
+<h2>Résumé de la fiche 15</h2>
+<p>
+Cette fiche présente la mesure de la disponibilité, la mesure des performances, l'interprétation des résultats de supervision, l'analyse de la qualité de service et l'utilisation des indicateurs pour améliorer l'infrastructure.
+</p>
+
+</body>
+</html>
 
 
-       5. Mesurer la disponibilité des services
- Services typiques
 
-   -    DNS.
-   -    DHCP.
-   -    Active Directory.
-   -    Serveurs web.
-   -    Bases de données.
-   -    Applications métiers.
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 16 - Les bases de la gestion de projet</title>
+</head>
+<body>
 
- Méthodes
+<h1>FICHE 16 - Les bases de la gestion de projet</h1>
 
-   -    Ping / ICMP.
-   -    Tests applicatifs.
-   -    Vérification des ports.
-   -    Monitoring via Centreon / Zabbix.
+<h2>Objectif du module</h2>
+<p>
+Comprendre les fondamentaux de la gestion de projet incluant les rôles, les étapes, les méthodes, les outils, la communication, la planification, la gestion des risques et la documentation.
+</p>
 
+<h2>1. Les rôles dans un projet</h2>
 
-  6. Mesurer la disponibilité des
-équipements
- Équipements concernés
+<h3>Rôles principaux</h3>
+<ul>
+  <li>Chef de projet responsable de la planification, du suivi, du budget et de la coordination.</li>
+  <li>Sponsor qui porte le projet au niveau direction.</li>
+  <li>Product Owner qui définit les besoins métier dans la méthode Agile.</li>
+  <li>Scrum Master qui facilite le travail de l'équipe dans Agile.</li>
+  <li>Équipe technique qui réalise les tâches comme développeurs, administrateurs et ingénieurs.</li>
+</ul>
 
-   -    Switches.
-   -    Routeurs.
-   -    Firewalls.
-   -    Serveurs physiques.
-   -    Stockage (NAS, SAN).
-
- Indicateurs
-
-   -    Uptime.
-   -    Température.
-   -    Erreurs sur interfaces.
-   -    Charge CPU / RAM.
-
-
-  7. Mesurer la disponibilité des
-applications
- Définition : Disponibilité applicative
-
-Capacité d’une application à fonctionner correctement pour l’utilisateur final.
-
- Méthodes
-
-   -   Tests synthétiques (robots).
-   -   Tests réels (utilisateurs).
-   -   Monitoring applicatif (APM : Application Performance Monitoring).
-
- Indicateurs
-
-   -   Temps de réponse.
-   -   Taux d’erreurs.
-   -   Disponibilité.
-   -   Charge serveur.
-
-
- Résumé de la fiche 15
-Ce module t’apprend à :
-
-   -   mesurer la disponibilité (serveurs, réseau, services, applications),
-   -   mesurer les performances (CPU, RAM, disque, réseau),
-   -   interpréter les résultats de supervision,
-   -   analyser la qualité de service,
-   -   utiliser les indicateurs pour améliorer l’infrastructure.
-
-C’est un module essentiel pour piloter la santé du système d’information.
-
-
- FICHE 16 — Les bases de la gestion de
-projet
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 7)
-
- Objectif du module
-Comprendre les fondamentaux de la gestion de projet : les rôles, les étapes, les méthodes, les
-outils, la communication, la planification, la gestion des risques et la documentation.
-
-
-       1. Les rôles dans un projet
- Rôles principaux
-
-   -    Chef de projet Responsable de la planification, du suivi, du budget, de la
-        coordination.
-   -    Sponsor Personne qui porte le projet au niveau direction.
-   -    Product Owner (PO) Définit les besoins métier (méthode Agile).
-   -    Scrum Master Facilite le travail de l’équipe (Agile).
-   -    Équipe technique Réalise les tâches (développeurs, admins, ingénieurs).
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Savoir qui fait quoi pour éviter les confusions.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le chef de projet organise les réunions tandis que le Product Owner valide les fonctionnalités.
+</p>
 
-       2. Les étapes d’un projet
- Étapes classiques
+<h2>2. Les étapes d'un projet</h2>
 
-   1.   Expression du besoin
-   2.   Analyse et faisabilité
-   3.   Conception
-   4.   Planification
-   5.   Réalisation
-   6.   Tests / Recette
-   7.   Mise en production
-   8.   Clôture / Documentation
+<h3>Étapes classiques</h3>
+<ul>
+  <li>Expression du besoin.</li>
+  <li>Analyse et faisabilité.</li>
+  <li>Conception.</li>
+  <li>Planification.</li>
+  <li>Réalisation.</li>
+  <li>Tests et recette.</li>
+  <li>Mise en production.</li>
+  <li>Clôture et documentation.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Structurer le projet pour éviter les dérives.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un projet de migration commence par une analyse de faisabilité avant la conception technique.
+</p>
 
-       3. Les méthodes de gestion de projet
+<h2>3. Les méthodes de gestion de projet</h2>
 
+<h3>Cycle en V</h3>
+<ul>
+  <li>Approche séquentielle.</li>
+  <li>Très documentée.</li>
+  <li>Tests en fin de cycle.</li>
+</ul>
 
- Cycle en V
+<h3>Agile ou Scrum</h3>
+<ul>
+  <li>Approche itérative.</li>
+  <li>Sprints de deux à quatre semaines.</li>
+  <li>Livraisons fréquentes.</li>
+  <li>Adaptation continue.</li>
+</ul>
 
-   -    Séquentiel.
-   -    Très documenté.
-   -    Tests en fin de cycle.
+<h3>Kanban</h3>
+<ul>
+  <li>Flux continu.</li>
+  <li>Tableau visuel avec tâches à faire, en cours et terminées.</li>
+</ul>
 
- Agile (Scrum)
-
-   -    Itératif.
-   -    Sprints (2 à 4 semaines).
-   -    Livraisons fréquentes.
-   -    Adaptation continue.
-
- Kanban
-
-   -    Flux continu.
-   -    Tableau visuel (To Do / Doing / Done).
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Choisir la méthode adaptée au type de projet.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un développement applicatif utilise Agile tandis qu'une mise en place d'infrastructure suit un cycle en V.
+</p>
 
-       4. Les outils de gestion de projet
- Outils typiques
+<h2>4. Les outils de gestion de projet</h2>
 
-   -    Trello : Kanban simple.
-   -    Jira : Agile / Scrum.
-   -    Microsoft Project : planification avancée.
-   -    Notion / Confluence : documentation.
-   -    Gantt : diagramme de planification.
+<h3>Outils typiques</h3>
+<ul>
+  <li>Trello pour Kanban simple.</li>
+  <li>Jira pour Agile et Scrum.</li>
+  <li>Microsoft Project pour la planification avancée.</li>
+  <li>Notion ou Confluence pour la documentation.</li>
+  <li>Diagramme de Gantt pour la planification visuelle.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Organiser, suivre et documenter efficacement.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Jira permet de suivre les tâches d'un sprint Agile.
+</p>
 
-       5. La communication dans un projet
- Types de communication
+<h2>5. La communication dans un projet</h2>
 
-   -    Réunions de suivi.
-   -    Points d’avancement.
-   -    Compte-rendus.
-   -    Documentation partagée.
-   -    Canaux dédiés (Teams, Slack).
+<h3>Types de communication</h3>
+<ul>
+  <li>Réunions de suivi.</li>
+  <li>Points d'avancement.</li>
+  <li>Compte rendus.</li>
+  <li>Documentation partagée.</li>
+  <li>Canaux dédiés comme Teams ou Slack.</li>
+</ul>
 
+<h3>Objectif</h3>
+<p>
+Assurer une circulation fluide de l'information.
+</p>
 
- Objectif
+<h3>Exemple</h3>
+<p>
+Une réunion hebdomadaire permet de synchroniser les équipes.
+</p>
 
-Assurer une circulation fluide de l’information.
+<h2>6. La planification</h2>
 
+<h3>Definition : Planification</h3>
+<p>
+Organisation des tâches dans le temps avec estimation des durées et des dépendances.
+</p>
 
-       6. La planification
- Définition : Planification
+<h3>Outils</h3>
+<ul>
+  <li>Diagramme de Gantt.</li>
+  <li>Planning prévisionnel.</li>
+  <li>Feuille de route.</li>
+</ul>
 
-Organisation des tâches dans le temps, avec estimation des durées et des dépendances.
-
- Outils
-
-   -    Diagramme de Gantt.
-   -    Planning prévisionnel.
-   -    Roadmap.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Respecter les délais et anticiper les contraintes.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un diagramme de Gantt montre les dépendances entre les tâches d'un projet.
+</p>
 
-       7. La gestion des risques
- Définition : Risque
+<h2>7. La gestion des risques</h2>
 
+<h3>Definition : Risque</h3>
+<p>
 Événement potentiel pouvant impacter le projet.
+</p>
 
- Types de risques
+<h3>Types de risques</h3>
+<ul>
+  <li>Techniques comme incompatibilité.</li>
+  <li>Organisationnels comme retard.</li>
+  <li>Financiers comme surcoût.</li>
+  <li>Sécurité comme vulnérabilité.</li>
+  <li>Humains comme manque de ressources.</li>
+</ul>
 
-   -    Techniques (incompatibilité).
-   -    Organisationnels (retard).
-   -    Financiers (surcoût).
-   -    Sécurité (vulnérabilité).
-   -    Humains (manque de ressources).
+<h3>Actions</h3>
+<ul>
+  <li>Identifier.</li>
+  <li>Évaluer.</li>
+  <li>Prévenir.</li>
+  <li>Suivre.</li>
+</ul>
 
- Actions
+<h3>Exemple</h3>
+<p>
+Un risque de retard est anticipé en ajoutant une marge dans le planning.
+</p>
 
-   -    Identifier.
-   -    Évaluer.
-   -    Prévenir.
-   -    Suivre.
+<h2>8. La documentation</h2>
 
+<h3>Documents essentiels</h3>
+<ul>
+  <li>Cahier des charges.</li>
+  <li>Spécifications techniques.</li>
+  <li>Procédures.</li>
+  <li>Planning.</li>
+  <li>Compte rendus.</li>
+  <li>Documentation finale.</li>
+</ul>
 
-       8. La documentation
- Documents essentiels
-
-
-   -   Cahier des charges.
-   -   Spécifications techniques.
-   -   Procédures.
-   -   Planning.
-   -   Compte-rendus.
-   -   Documentation finale.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer la pérennité du projet et faciliter la maintenance.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une documentation claire permet à une autre équipe de reprendre le projet sans difficulté.
+</p>
+
+<h2>Résumé de la fiche 16</h2>
+<p>
+Cette fiche présente les rôles d'un projet, les étapes clés, les méthodes de gestion de projet, les outils, la communication, la planification, la gestion des risques et la documentation.
+</p>
+
+</body>
+</html>
 
 
- Résumé de la fiche 16
-Ce module t’apprend :
 
-   -   les rôles d’un projet,
-   -   les étapes clés,
-   -   les méthodes (V, Agile, Kanban),
-   -   les outils (Jira, Trello, Gantt),
-   -   la communication,
-   -   la planification,
-   -   la gestion des risques,
-   -   la documentation.
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 17 - Gestion de projet (suite)</title>
+</head>
+<body>
 
-C’est une base indispensable pour piloter ou participer à un projet IT.
+<h1>FICHE 17 - Gestion de projet (suite)</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Approfondir la gestion de projet incluant le planning détaillé, le budget, la gestion des risques, le suivi, le reporting, les livrables, la clôture et l'amélioration continue.
+</p>
 
- FICHE 17 — Les bases de la gestion de
-projet (suite)
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 7,
-partie 2)
+<h2>1. Le planning détaillé du projet</h2>
 
- Objectif du module
-Approfondir la gestion de projet : planning détaillé, budget, gestion des risques, suivi,
-reporting, livrables, clôture et amélioration continue.
+<h3>Definition : Planning</h3>
+<p>
+Document qui organise les tâches dans le temps avec les durées, les dépendances et les ressources.
+</p>
 
+<h3>Contenu</h3>
+<ul>
+  <li>Liste des tâches.</li>
+  <li>Durée estimée.</li>
+  <li>Dépendances entre les tâches.</li>
+  <li>Ressources affectées.</li>
+  <li>Dates clés appelées jalons.</li>
+  <li>Chemin critique qui détermine la durée totale du projet.</li>
+</ul>
 
-       1. Le planning détaillé du projet
- Définition : Planning
+<h3>Outils</h3>
+<ul>
+  <li>Diagramme de Gantt.</li>
+  <li>Microsoft Project.</li>
+  <li>Trello ou Jira pour Agile.</li>
+</ul>
 
-Document qui organise les tâches dans le temps, avec les durées, les dépendances et les
-ressources.
+<h3>Exemple</h3>
+<p>
+Un diagramme de Gantt montre que la configuration du serveur doit être terminée avant les tests.
+</p>
 
- Contenu
+<h2>2. Le budget du projet</h2>
 
-   -    Liste des tâches.
-   -    Durée estimée.
-   -    Dépendances (ce qui doit être fait avant).
-   -    Ressources affectées.
-   -    Dates clés (jalons).
-   -    Chemin critique (tâches qui déterminent la durée totale).
-
- Outils
-
-   -    Diagramme de Gantt.
-   -    Microsoft Project.
-   -    Trello / Jira (Agile).
-
-
-       2. Le budget du projet
- Définition : Budget
-
+<h3>Definition : Budget</h3>
+<p>
 Montant total nécessaire pour réaliser le projet.
+</p>
 
- Composants
+<h3>Composants</h3>
+<ul>
+  <li>Matériel comme serveurs et stockage.</li>
+  <li>Licences comme Windows, VMware ou logiciels SaaS.</li>
+  <li>Prestations externes.</li>
+  <li>Ressources internes.</li>
+  <li>Maintenance.</li>
+  <li>Formation.</li>
+</ul>
 
-   -    Matériel (serveurs, stockage).
-   -    Licences (Windows, VMware, SaaS).
+<h3>Definition : Dépenses d'investissement</h3>
+<p>
+Dépenses liées à l'achat de matériel ou de licences perpétuelles.
+</p>
 
+<h3>Definition : Dépenses opérationnelles</h3>
+<p>
+Dépenses liées aux abonnements cloud ou à la maintenance.
+</p>
 
-   -    Prestations externes.
-   -    Ressources internes.
-   -    Maintenance.
-   -    Formation.
+<h3>Exemple</h3>
+<p>
+L'achat d'un serveur est une dépense d'investissement tandis qu'un abonnement cloud est une dépense opérationnelle.
+</p>
 
- CAPEX / OPEX
+<h2>3. La gestion des risques</h2>
 
-   -    CAPEX : investissement (achat).
-   -    OPEX : fonctionnement (abonnement, maintenance).
-
-
-       3. La gestion des risques
- Définition : Risque
-
+<h3>Definition : Risque</h3>
+<p>
 Événement potentiel pouvant impacter le projet.
+</p>
 
- Types de risques
+<h3>Types de risques</h3>
+<ul>
+  <li>Techniques comme incompatibilité ou panne.</li>
+  <li>Organisationnels comme retard ou absence.</li>
+  <li>Financiers comme surcoût.</li>
+  <li>Sécurité comme vulnérabilité.</li>
+  <li>Fournisseurs comme livraison tardive.</li>
+</ul>
 
-   -    Techniques (incompatibilité, panne).
-   -    Organisationnels (retard, absence).
-   -    Financiers (surcoût).
-   -    Sécurité (vulnérabilité).
-   -    Fournisseurs (livraison tardive).
+<h3>Actions</h3>
+<ul>
+  <li>Identifier.</li>
+  <li>Évaluer la probabilité et l'impact.</li>
+  <li>Définir des plans de mitigation.</li>
+  <li>Suivre régulièrement.</li>
+</ul>
 
- Actions
+<h3>Exemple</h3>
+<p>
+Un risque de retard est anticipé en ajoutant une marge dans le planning.
+</p>
 
-   -    Identifier.
-   -    Évaluer (probabilité / impact).
-   -    Définir des plans de mitigation.
-   -    Suivre régulièrement.
+<h2>4. Le suivi du projet</h2>
 
+<h3>Definition : Suivi</h3>
+<p>
+Contrôle régulier de l'avancement du projet.
+</p>
 
-       4. Le suivi du projet
- Définition : Suivi
+<h3>Actions</h3>
+<ul>
+  <li>Réunions d'avancement.</li>
+  <li>Mise à jour du planning.</li>
+  <li>Suivi des tâches en retard.</li>
+  <li>Gestion des priorités.</li>
+  <li>Ajustements si nécessaire.</li>
+</ul>
 
-Contrôle régulier de l’avancement du projet.
+<h3>Outils</h3>
+<ul>
+  <li>Tableaux Kanban.</li>
+  <li>Diagrammes de Gantt.</li>
+  <li>Tableaux de bord.</li>
+</ul>
 
- Actions
+<h3>Exemple</h3>
+<p>
+Une tâche critique en retard déclenche une réorganisation des priorités.
+</p>
 
-   -    Réunions d’avancement.
-   -    Mise à jour du planning.
-   -    Suivi des tâches en retard.
-   -    Gestion des priorités.
-   -    Ajustements si nécessaire.
+<h2>5. Le reporting</h2>
 
- Outils
+<h3>Definition : Reporting</h3>
+<p>
+Communication régulière de l'état du projet aux parties prenantes.
+</p>
 
+<h3>Contenu</h3>
+<ul>
+  <li>Avancement.</li>
+  <li>Problèmes rencontrés.</li>
+  <li>Risques.</li>
+  <li>Décisions à prendre.</li>
+  <li>Planning mis à jour.</li>
+</ul>
 
-   -    Tableaux Kanban.
-   -    Gantt.
-   -    Tableaux de bord (dashboards).
-
-
-       5. Le reporting
- Définition : Reporting
-
-Communication régulière de l’état du projet aux parties prenantes.
-
- Contenu
-
-   -    Avancement.
-   -    Problèmes rencontrés.
-   -    Risques.
-   -    Décisions à prendre.
-   -    Planning mis à jour.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer une transparence totale et éviter les surprises.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un rapport hebdomadaire informe la direction de l'avancement du projet.
+</p>
 
-       6. Les livrables du projet
- Définition : Livrable
+<h2>6. Les livrables du projet</h2>
 
-Élément produit par le projet (document, logiciel, infrastructure).
+<h3>Definition : Livrable</h3>
+<p>
+Élément produit par le projet comme document, logiciel ou infrastructure.
+</p>
 
- Exemples
+<h3>Exemples</h3>
+<ul>
+  <li>Cahier des charges.</li>
+  <li>Spécifications techniques.</li>
+  <li>Maquette.</li>
+  <li>Procédures.</li>
+  <li>Solution déployée.</li>
+  <li>Documentation finale.</li>
+</ul>
 
-   -    Cahier des charges.
-   -    Spécifications techniques.
-   -    Maquette.
-   -    Procédures.
-   -    Solution déployée.
-   -    Documentation finale.
+<h3>Objectif</h3>
+<p>
+Matérialiser l'avancement et la qualité du projet.
+</p>
 
- Objectif
+<h3>Exemple</h3>
+<p>
+La documentation finale est un livrable obligatoire avant la clôture du projet.
+</p>
 
-Matérialiser l’avancement et la qualité du projet.
+<h2>7. La clôture du projet</h2>
 
+<h3>Actions</h3>
+<ul>
+  <li>Vérification des livrables.</li>
+  <li>Recette finale.</li>
+  <li>Validation du client.</li>
+  <li>Archivage des documents.</li>
+  <li>Retour d'expérience.</li>
+  <li>Transfert de compétences.</li>
+</ul>
 
-       7. La clôture du projet
- Actions
+<h3>Definition : Retour d'expérience</h3>
+<p>
+Analyse de ce qui a bien fonctionné et de ce qui doit être amélioré.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un retour d'expérience montre que la communication doit être améliorée pour les prochains projets.
+</p>
 
-   -    Vérification des livrables.
-   -    Recette finale.
-   -    Validation du client.
-   -    Archivage des documents.
-   -    Retour d’expérience (RETEX).
-   -    Transfert de compétences.
+<h2>8. L'amélioration continue</h2>
 
- Définition : RETEX
-
-Analyse de ce qui a bien fonctionné et ce qui doit être amélioré.
-
-
-       8. L’amélioration continue
- Définition
-
+<h3>Definition</h3>
+<p>
 Processus visant à améliorer les méthodes, outils et pratiques de gestion de projet.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Analyse des erreurs.</li>
+  <li>Mise à jour des procédures.</li>
+  <li>Formation des équipes.</li>
+  <li>Adoption de nouvelles méthodes.</li>
+</ul>
 
-   -    Analyse des erreurs.
-   -    Mise à jour des procédures.
-   -    Formation des équipes.
-   -    Adoption de nouvelles méthodes (Agile, DevOps).
+<h3>Exemple</h3>
+<p>
+Une équipe adopte Agile après un retour d'expérience montrant des retards fréquents.
+</p>
 
+<h2>Résumé de la fiche 17</h2>
+<p>
+Cette fiche présente le planning détaillé, le budget, la gestion des risques, le suivi, le reporting, les livrables, la clôture et l'amélioration continue dans un projet informatique.
+</p>
 
- Résumé de la fiche 17
-Ce module t’apprend :
-
-   -    à construire un planning détaillé,
-   -    à gérer un budget CAPEX/OPEX,
-   -    à identifier et suivre les risques,
-   -    à piloter le projet au quotidien,
-   -    à faire du reporting,
-   -    à produire les livrables,
-   -    à clôturer un projet proprement,
-   -    à mettre en place l’amélioration continue.
-
-C’est une fiche essentielle pour maîtriser la gestion de projet dans un contexte IT.
-
-
- FICHE 18 — Les bases de la gestion de
-projet (suite et fin)
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 7,
-partie 3)
-
- Objectif du module
-Finaliser la maîtrise de la gestion de projet : cadrage, analyse du besoin, cahier des charges,
-spécifications, pilotage, indicateurs, qualité, documentation, communication et clôture.
+</body>
+</html>
 
 
-       1. Le cadrage du projet
- Définition : Cadrage
 
-Phase initiale qui permet de définir clairement le périmètre, les objectifs, les contraintes et les
-moyens du projet.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 18 - Gestion de projet (suite et fin)</title>
+</head>
+<body>
 
- Contenu
+<h1>FICHE 18 - Gestion de projet (suite et fin)</h1>
 
-   -    Contexte.
-   -    Objectifs.
-   -    Périmètre (ce qui est inclus / exclu).
-   -    Contraintes (techniques, budget, délais).
-   -    Parties prenantes.
-   -    Risques initiaux.
+<h2>Objectif du module</h2>
+<p>
+Finaliser la maîtrise de la gestion de projet incluant le cadrage, l'analyse du besoin, le cahier des charges, les spécifications, le pilotage, les indicateurs, la qualité, la documentation, la communication et la clôture.
+</p>
 
- Objectif
+<h2>1. Le cadrage du projet</h2>
 
+<h3>Definition : Cadrage</h3>
+<p>
+Phase initiale qui permet de définir clairement le périmètre, les objectifs, les contraintes et les moyens du projet.
+</p>
+
+<h3>Contenu</h3>
+<ul>
+  <li>Contexte.</li>
+  <li>Objectifs.</li>
+  <li>Périmètre incluant ce qui est inclus et ce qui est exclu.</li>
+  <li>Contraintes techniques, budget et délais.</li>
+  <li>Parties prenantes.</li>
+  <li>Risques initiaux.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
 Éviter les dérives et les incompréhensions.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le cadrage d'un projet cloud définit les applications migrées et celles qui restent en local.
+</p>
 
-       2. L’analyse du besoin
- Définition
+<h2>2. L'analyse du besoin</h2>
 
-Comprendre ce que l’utilisateur veut réellement, au-delà de la demande brute.
+<h3>Definition</h3>
+<p>
+Comprendre ce que l'utilisateur veut réellement au-delà de la demande brute.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Interviews.</li>
+  <li>Reformulation.</li>
+  <li>Analyse métier.</li>
+  <li>Identification des contraintes.</li>
+  <li>Définition des priorités.</li>
+</ul>
 
-   -    Interviews.
-   -    Reformulation.
-   -    Analyse métier.
-   -    Identification des contraintes.
-
-
-   -    Définition des priorités.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Proposer une solution adaptée et réaliste.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un utilisateur demande un serveur plus rapide mais le besoin réel est d'améliorer l'application métier.
+</p>
 
-       3. Le cahier des charges
- Définition : Cahier des charges
+<h2>3. Le cahier des charges</h2>
 
+<h3>Definition : Cahier des charges</h3>
+<p>
 Document qui décrit précisément le besoin, les fonctionnalités attendues et les contraintes.
+</p>
 
- Contenu
+<h3>Contenu</h3>
+<ul>
+  <li>Objectifs.</li>
+  <li>Fonctionnalités.</li>
+  <li>Contraintes techniques.</li>
+  <li>Sécurité.</li>
+  <li>Performance.</li>
+  <li>Planning.</li>
+  <li>Budget.</li>
+</ul>
 
-   -    Objectifs.
-   -    Fonctionnalités.
-   -    Contraintes techniques.
-   -    Sécurité.
-   -    Performance.
-   -    Planning.
-   -    Budget.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Servir de référence tout au long du projet.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le cahier des charges d'une application décrit les écrans, les rôles utilisateurs et les contraintes de sécurité.
+</p>
 
-   4. Les spécifications fonctionnelles et
-techniques
- Spécifications fonctionnelles
+<h2>4. Les spécifications fonctionnelles et techniques</h2>
 
-Décrivent ce que doit faire la solution (du point de vue utilisateur).
+<h3>Definition : Spécifications fonctionnelles</h3>
+<p>
+Décrivent ce que doit faire la solution du point de vue utilisateur.
+</p>
 
- Spécifications techniques
+<h3>Definition : Spécifications techniques</h3>
+<p>
+Décrivent comment la solution sera réalisée du point de vue technique.
+</p>
 
-Décrivent comment la solution sera réalisée (du point de vue technique).
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Aligner les équipes métier et technique.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une spécification fonctionnelle décrit un bouton tandis qu'une spécification technique décrit son fonctionnement.
+</p>
 
-       5. Le pilotage du projet
+<h2>5. Le pilotage du projet</h2>
 
+<h3>Actions</h3>
+<ul>
+  <li>Suivi du planning.</li>
+  <li>Gestion des ressources.</li>
+  <li>Suivi des risques.</li>
+  <li>Arbitrages.</li>
+  <li>Communication avec les parties prenantes.</li>
+</ul>
 
- Actions
-
-   -    Suivi du planning.
-   -    Gestion des ressources.
-   -    Suivi des risques.
-   -    Arbitrages.
-   -    Communication avec les parties prenantes.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer que le projet avance dans les délais et le budget.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le chef de projet réorganise les tâches après un retard sur une livraison.
+</p>
 
-       6. Les indicateurs de suivi
- Définition : Indicateur (KPI)
+<h2>6. Les indicateurs de suivi</h2>
 
-Mesure permettant d’évaluer l’avancement ou la qualité du projet.
+<h3>Definition : Indicateur</h3>
+<p>
+Mesure permettant d'évaluer l'avancement ou la qualité du projet.
+</p>
 
- Exemples
+<h3>Exemples</h3>
+<ul>
+  <li>Avancement en pourcentage.</li>
+  <li>Respect du planning.</li>
+  <li>Respect du budget.</li>
+  <li>Nombre d'incidents.</li>
+  <li>Qualité des livrables.</li>
+  <li>Satisfaction utilisateur.</li>
+</ul>
 
-   -    Avancement (%).
-   -    Respect du planning.
-   -    Respect du budget.
-   -    Nombre d’incidents.
-   -    Qualité des livrables.
-   -    Satisfaction utilisateur.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Piloter le projet de manière factuelle.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un indicateur montre que le projet est en avance de dix pour cent sur le planning.
+</p>
 
-       7. La qualité dans un projet
- Définition
+<h2>7. La qualité dans un projet</h2>
 
+<h3>Definition</h3>
+<p>
 Ensemble des actions permettant de garantir que le projet répond aux attentes.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Tests.</li>
+  <li>Recette.</li>
+  <li>Validation.</li>
+  <li>Documentation.</li>
+  <li>Contrôles réguliers.</li>
+</ul>
 
-   -    Tests.
-   -    Recette.
-   -    Validation.
-   -    Documentation.
-   -    Contrôles réguliers.
-
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Livrer une solution fiable, stable et conforme.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une recette utilisateur valide que l'application répond aux besoins métier.
+</p>
 
-       8. La documentation du projet
- Documents essentiels
+<h2>8. La documentation du projet</h2>
 
-   -    Cahier des charges.
-   -    Spécifications.
-   -    Planning.
-   -    Procédures.
-   -    Compte-rendus.
-   -    Documentation finale.
-   -    RETEX (retour d’expérience).
+<h3>Documents essentiels</h3>
+<ul>
+  <li>Cahier des charges.</li>
+  <li>Spécifications.</li>
+  <li>Planning.</li>
+  <li>Procédures.</li>
+  <li>Compte rendus.</li>
+  <li>Documentation finale.</li>
+  <li>Retour d'expérience.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer la pérennité et la maintenabilité du projet.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une documentation complète permet à une autre équipe de reprendre le projet facilement.
+</p>
 
-       9. La communication dans le projet
- Types de communication
+<h2>9. La communication dans le projet</h2>
 
-   -    Réunions.
-   -    Points d’avancement.
-   -    Compte-rendus.
-   -    Tableaux de bord.
-   -    Messages aux utilisateurs.
+<h3>Types de communication</h3>
+<ul>
+  <li>Réunions.</li>
+  <li>Points d'avancement.</li>
+  <li>Compte rendus.</li>
+  <li>Tableaux de bord.</li>
+  <li>Messages aux utilisateurs.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer une coordination fluide et éviter les malentendus.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un tableau de bord partagé informe toutes les équipes de l'avancement.
+</p>
 
-       10. La clôture du projet
-       
- Actions
+<h2>10. La clôture du projet</h2>
 
-   -    Recette finale.
-   -    Validation du client.
-   -    Livraison des livrables.
-   -    Documentation complète.
-   -    Transfert de compétences.
-   -    RETEX.
+<h3>Actions</h3>
+<ul>
+  <li>Recette finale.</li>
+  <li>Validation du client.</li>
+  <li>Livraison des livrables.</li>
+  <li>Documentation complète.</li>
+  <li>Transfert de compétences.</li>
+  <li>Retour d'expérience.</li>
+</ul>
 
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Terminer proprement et préparer les projets futurs.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Le retour d'expérience montre que la communication doit être améliorée pour les prochains projets.
+</p>
+
+<h2>Résumé de la fiche 18</h2>
+<p>
+Cette fiche présente le cadrage, l'analyse du besoin, le cahier des charges, les spécifications, le pilotage, les indicateurs, la qualité, la documentation, la communication et la clôture du projet.
+</p>
+
+</body>
+</html>
 
 
- Résumé de la fiche 18
-Ce module t’apprend à :
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 19 - Gestion de projet (dernière fiche)</title>
+</head>
+<body>
 
-   -   cadrer un projet,
-   -   analyser le besoin,
-   -   rédiger un cahier des charges,
-   -   produire des spécifications,
-   -   piloter le projet,
-   -   suivre les indicateurs,
-   -   garantir la qualité,
-   -   documenter et communiquer,
-   -   clôturer proprement.
+<h1>FICHE 19 - Les bases de la gestion de projet (dernière fiche)</h1>
 
-C’est la dernière fiche du bloc “gestion de projet”, indispensable pour concevoir et piloter des
-solutions IT.
+<h2>Objectif du module</h2>
+<p>
+Finaliser la maîtrise complète de la gestion de projet incluant la gouvernance, les parties prenantes, la gestion du changement, la documentation, la qualité, la communication, le pilotage, les indicateurs et la clôture.
+</p>
 
+<h2>1. La gouvernance du projet</h2>
 
- FICHE 19 — Les bases de la gestion de
-projet (dernière fiche)
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 7,
-partie 4)
-
- Objectif du module
-Finaliser la maîtrise complète de la gestion de projet : gouvernance, parties prenantes, gestion
-du changement, documentation, qualité, communication, pilotage, indicateurs, et clôture.
-
-
-       1. La gouvernance du projet
- Définition : Gouvernance
-
+<h3>Definition : Gouvernance</h3>
+<p>
 Ensemble des règles, rôles et processus permettant de piloter un projet de manière structurée.
+</p>
 
- Éléments clés
+<h3>Éléments clés</h3>
+<ul>
+  <li>Comité de pilotage.</li>
+  <li>Comité projet.</li>
+  <li>Sponsor.</li>
+  <li>Chef de projet.</li>
+  <li>Processus de décision.</li>
+</ul>
 
-   -    Comité de pilotage (COPIL).
-   -    Comité projet.
-   -    Sponsor.
-   -    Chef de projet.
-   -    Processus de décision.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer un pilotage clair, efficace et sans ambiguïté.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le comité de pilotage valide les décisions importantes comme les changements de planning.
+</p>
 
-       2. Les parties prenantes (stakeholders)
- Définition
+<h2>2. Les parties prenantes</h2>
 
+<h3>Definition : Parties prenantes</h3>
+<p>
 Personnes ou groupes impactés par le projet ou ayant un rôle dans sa réalisation.
+</p>
 
- Types
+<h3>Types</h3>
+<ul>
+  <li>Direction.</li>
+  <li>Utilisateurs finaux.</li>
+  <li>Équipe informatique.</li>
+  <li>Prestataires.</li>
+  <li>Fournisseurs.</li>
+  <li>Clients internes ou externes.</li>
+</ul>
 
-   -    Direction.
-   -    Utilisateurs finaux.
-   -    Équipe IT.
-   -    Prestataires.
-   -    Fournisseurs.
-   -    Clients internes / externes.
-
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Identifier qui doit être informé, consulté ou impliqué.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Les utilisateurs finaux sont consultés pour valider les besoins fonctionnels.
+</p>
 
- 3. La gestion du changement (change
-management)
- Définition
+<h2>3. La gestion du changement</h2>
 
-Processus permettant d’accompagner les utilisateurs lors de l’introduction d’une nouvelle
-solution.
+<h3>Definition : Gestion du changement</h3>
+<p>
+Processus permettant d'accompagner les utilisateurs lors de l'introduction d'une nouvelle solution.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Communication.</li>
+  <li>Formation.</li>
+  <li>Documentation.</li>
+  <li>Support renforcé.</li>
+  <li>Phase de transition.</li>
+</ul>
 
-   -    Communication.
-   -    Formation.
-   -    Documentation.
-   -    Support renforcé.
-   -    Phase de transition.
+<h3>Objectif</h3>
+<p>
+Réduire la résistance au changement et faciliter l'adoption.
+</p>
 
- Objectif
+<h3>Exemple</h3>
+<p>
+Une formation est organisée avant le déploiement d'une nouvelle application métier.
+</p>
 
-Réduire la résistance au changement et faciliter l’adoption.
+<h2>4. La gestion documentaire</h2>
 
+<h3>Documents essentiels</h3>
+<ul>
+  <li>Cahier des charges.</li>
+  <li>Spécifications.</li>
+  <li>Planning.</li>
+  <li>Procédures.</li>
+  <li>Compte rendus.</li>
+  <li>Documentation utilisateur.</li>
+  <li>Documentation technique.</li>
+  <li>Retour d'expérience.</li>
+</ul>
 
-       4. La gestion documentaire
- Documents essentiels
-
-   -    Cahier des charges.
-   -    Spécifications.
-   -    Planning.
-   -    Procédures.
-   -    Compte-rendus.
-   -    Documentation utilisateur.
-   -    Documentation technique.
-   -    RETEX.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer la continuité et la maintenabilité du projet.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une documentation utilisateur est fournie pour faciliter la prise en main de la solution.
+</p>
 
-       5. La gestion de la qualité
- Définition
+<h2>5. La gestion de la qualité</h2>
 
-
+<h3>Definition : Qualité</h3>
+<p>
 Ensemble des actions permettant de garantir que le projet répond aux attentes.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Tests.</li>
+  <li>Recette.</li>
+  <li>Validation.</li>
+  <li>Contrôles réguliers.</li>
+  <li>Documentation.</li>
+</ul>
 
-   -    Tests.
-   -    Recette.
-   -    Validation.
-   -    Contrôles réguliers.
-   -    Documentation.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Livrer une solution fiable, stable et conforme.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une recette finale valide que la solution répond aux besoins métier.
+</p>
 
-       6. La communication projet
- Types de communication
+<h2>6. La communication projet</h2>
 
-   -    Réunions.
-   -    Points d’avancement.
-   -    Compte-rendus.
-   -    Tableaux de bord.
-   -    Messages aux utilisateurs.
-   -    Documentation partagée.
+<h3>Types de communication</h3>
+<ul>
+  <li>Réunions.</li>
+  <li>Points d'avancement.</li>
+  <li>Compte rendus.</li>
+  <li>Tableaux de bord.</li>
+  <li>Messages aux utilisateurs.</li>
+  <li>Documentation partagée.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer une coordination fluide et éviter les malentendus.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un tableau de bord partagé informe toutes les équipes de l'avancement du projet.
+</p>
 
-       7. Le pilotage opérationnel
- Actions
+<h2>7. Le pilotage opérationnel</h2>
 
-   -    Suivi du planning.
-   -    Suivi du budget.
-   -    Suivi des risques.
-   -    Arbitrages.
-   -    Gestion des priorités.
-   -    Coordination des équipes.
+<h3>Actions</h3>
+<ul>
+  <li>Suivi du planning.</li>
+  <li>Suivi du budget.</li>
+  <li>Suivi des risques.</li>
+  <li>Arbitrages.</li>
+  <li>Gestion des priorités.</li>
+  <li>Coordination des équipes.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer que le projet avance dans les délais et le budget.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le chef de projet réorganise les tâches après un retard sur une livraison.
+</p>
 
-       8. Les indicateurs de suivi (KPI)
+<h2>8. Les indicateurs de suivi</h2>
 
+<h3>Definition : Indicateur</h3>
+<p>
+Mesure permettant d'évaluer l'avancement ou la qualité du projet.
+</p>
 
- Exemples
+<h3>Exemples</h3>
+<ul>
+  <li>Avancement en pourcentage.</li>
+  <li>Respect du planning.</li>
+  <li>Respect du budget.</li>
+  <li>Nombre d'incidents.</li>
+  <li>Qualité des livrables.</li>
+  <li>Satisfaction utilisateur.</li>
+</ul>
 
-   -    Avancement (%).
-   -    Respect du planning.
-   -    Respect du budget.
-   -    Nombre d’incidents.
-   -    Qualité des livrables.
-   -    Satisfaction utilisateur.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Piloter le projet de manière factuelle.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un indicateur montre que le projet est en avance de dix pour cent sur le planning.
+</p>
 
-       9. La clôture du projet
- Actions
+<h2>9. La clôture du projet</h2>
 
-   -    Recette finale.
-   -    Validation du client.
-   -    Livraison des livrables.
-   -    Documentation complète.
-   -    Transfert de compétences.
-   -    Retour d’expérience (RETEX).
+<h3>Actions</h3>
+<ul>
+  <li>Recette finale.</li>
+  <li>Validation du client.</li>
+  <li>Livraison des livrables.</li>
+  <li>Documentation complète.</li>
+  <li>Transfert de compétences.</li>
+  <li>Retour d'expérience.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Terminer proprement et préparer les projets futurs.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Le retour d'expérience montre que la communication doit être améliorée pour les prochains projets.
+</p>
+
+<h2>Résumé de la fiche 19</h2>
+<p>
+Cette fiche présente la gouvernance projet, les parties prenantes, la gestion du changement, la gestion documentaire, la qualité, la communication, le pilotage, les indicateurs et la clôture du projet.
+</p>
+
+</body>
+</html>
 
 
- Résumé de la fiche 19
-Ce module t’apprend à :
 
-   -    maîtriser la gouvernance projet,
-   -    identifier les parties prenantes,
-   -    gérer le changement,
-   -    piloter la qualité,
-   -    communiquer efficacement,
-   -    suivre les indicateurs,
-   -    documenter,
-   -    clôturer proprement.
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 20 - Les bases de la cybersécurité</title>
+</head>
+<body>
 
-C’est la dernière fiche du bloc gestion de projet, tu as maintenant une vision complète et
-professionnelle de la conduite de projet IT.
+<h1>FICHE 20 - Les bases de la cybersécurité</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre les fondamentaux de la cybersécurité incluant les menaces, les vulnérabilités, les risques, les bonnes pratiques, les normes, les outils et les concepts essentiels pour sécuriser un système d'information.
+</p>
 
- FICHE 20 — Les bases de la
-cybersécurité
-(Première fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
+<h2>1. Les menaces en cybersécurité</h2>
 
- Objectif du module
-Comprendre les fondamentaux de la cybersécurité : les menaces, les vulnérabilités, les
-risques, les bonnes pratiques, les normes, les outils, et les concepts essentiels pour sécuriser
-un système d’information.
+<h3>Definition : Menace</h3>
+<p>
+Événement potentiel pouvant causer un dommage au système d'information.
+</p>
 
+<h3>Types de menaces</h3>
+<ul>
+  <li>Malware comme virus, ransomware et trojan.</li>
+  <li>Phishing et ingénierie sociale.</li>
+  <li>Attaques réseau comme déni de service et interception.</li>
+  <li>Exploitation de vulnérabilités.</li>
+  <li>Fuite de données.</li>
+  <li>Erreurs humaines.</li>
+  <li>Menaces internes.</li>
+</ul>
 
-       1. Les menaces en cybersécurité
- Définition : Menace
+<h3>Exemple</h3>
+<p>
+Un ransomware chiffre les fichiers d'un serveur et demande une rançon.
+</p>
 
-Événement potentiel pouvant causer un dommage au système d’information.
+<h2>2. Les vulnérabilités</h2>
 
- Types de menaces
-
-   -    Malware (virus, ransomware, trojan).
-   -    Phishing / ingénierie sociale.
-   -    Attaques réseau (DDoS, MITM).
-   -    Exploitation de vulnérabilités.
-   -    Fuite de données.
-   -    Erreurs humaines.
-   -    Menaces internes (insider threat).
-
-
-       2. Les vulnérabilités
- Définition : Vulnérabilité
-
+<h3>Definition : Vulnérabilité</h3>
+<p>
 Faiblesse dans un système pouvant être exploitée par une menace.
+</p>
 
- Exemples
+<h3>Exemples</h3>
+<ul>
+  <li>Mots de passe faibles.</li>
+  <li>Ports ouverts inutiles.</li>
+  <li>Logiciels non mis à jour.</li>
+  <li>Mauvaise configuration.</li>
+  <li>Absence de chiffrement.</li>
+  <li>Droits trop élevés.</li>
+</ul>
 
-   -    Mots de passe faibles.
-   -    Ports ouverts inutiles.
-   -    Logiciels non mis à jour.
-   -    Mauvaise configuration.
-   -    Absence de chiffrement.
-   -    Droits trop élevés.
+<h3>Exemple concret</h3>
+<p>
+Un serveur avec un port non sécurisé ouvert peut être attaqué facilement.
+</p>
 
+<h2>3. Les risques</h2>
 
-       3. Les risques
+<h3>Definition : Risque</h3>
+<p>
+Combinaison d'une menace, d'une vulnérabilité et d'un impact.
+</p>
 
+<h3>Formule</h3>
+<p>
+Risque = Probabilite × Impact
+</p>
 
- Définition : Risque
-
-Combinaison d’une menace + une vulnérabilité + un impact.
-
- Formule
-                                                       ˊ
-                                     Risque = Probabilite × Impact
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Prioriser les actions de sécurité.
+</p>
 
+<h3>Principes essentiels</h3>
+<ul>
+  <li>Authentification multifacteur.</li>
+  <li>Mots de passe robustes.</li>
+  <li>Mise à jour régulière.</li>
+  <li>Segmentation réseau.</li>
+  <li>Sauvegardes régulières.</li>
+  <li>Chiffrement des données.</li>
+  <li>Principe du moindre privilège.</li>
+  <li>Journalisation et supervision.</li>
+</ul>
 
-  Principes essentiels
+<h3>Exemple</h3>
+<p>
+Activer l'authentification multifacteur réduit fortement le risque de compromission de compte.
+</p>
 
-    -    MFA (double authentification).
-    -    Mots de passe robustes.
-    -    Mise à jour régulière.
-    -    Segmentation réseau.
-    -    Sauvegardes régulières.
-    -    Chiffrement des données.
-    -    Principe du moindre privilège.
-    -    Journalisation et supervision.
+<h2>4. Les normes et référentiels</h2>
 
+<h3>Normes importantes</h3>
+<ul>
+  <li>ISO 27001 pour la gestion de la sécurité de l'information.</li>
+  <li>ISO 27002 pour les bonnes pratiques de sécurité.</li>
+  <li>Règlement général sur la protection des données.</li>
+  <li>Recommandations de l'agence nationale de sécurité des systèmes d'information.</li>
+  <li>Standards du National Institute of Standards and Technology.</li>
+</ul>
 
-        5. Les normes et référentiels
- Normes importantes
+<h3>Objectif</h3>
+<p>
+Structurer la sécurité dans l'entreprise.
+</p>
 
-    -    ISO 27001 : gestion de la sécurité de l’information.
-    -    ISO 27002 : bonnes pratiques de sécurité.
-    -    RGPD : protection des données personnelles.
-    -    ANSSI : recommandations françaises.
-    -    NIST : standards américains.
+<h3>Exemple</h3>
+<p>
+Une entreprise applique ISO 27001 pour structurer sa politique de sécurité.
+</p>
 
- Objectif
+<h2>5. Les outils de cybersécurité</h2>
 
-Structurer la sécurité dans l’entreprise.
+<h3>Outils typiques</h3>
+<ul>
+  <li>Antivirus et outils de détection et réponse.</li>
+  <li>Pare feu et pare feu applicatif.</li>
+  <li>Systèmes de détection et prévention d'intrusion.</li>
+  <li>Système d'analyse des logs.</li>
+  <li>Scanner de vulnérabilités.</li>
+  <li>Gestion des identités et authentification multifacteur.</li>
+  <li>Réseau privé virtuel.</li>
+</ul>
 
+<h3>Exemple</h3>
+<p>
+Un scanner de vulnérabilités détecte un logiciel obsolète sur un serveur.
+</p>
 
-        6. Les outils de cybersécurité
- Outils typiques
+<h2>6. Les concepts essentiels</h2>
 
-    -    Antivirus / EDR.
+<h3>Confidentialité</h3>
+<p>
+Accès limité aux données.
+</p>
 
+<h3>Intégrité</h3>
+<p>
+Données non altérées.
+</p>
 
-   -    Firewall / WAF.
-   -    IDS / IPS (détection / prévention d’intrusion).
-   -    SIEM (analyse des logs).
-   -    Scanner de vulnérabilités (Nessus, Qualys).
-   -    MFA / IAM.
-   -    VPN.
+<h3>Disponibilité</h3>
+<p>
+Service accessible.
+</p>
 
+<h3>Zero Trust</h3>
+<p>
+Ne jamais faire confiance par défaut et toujours vérifier.
+</p>
 
-       7. Les concepts essentiels
- CIA
-
-   -    Confidentialité : accès limité.
-   -    Intégrité : données non altérées.
-   -    Disponibilité : service accessible.
-
- Zero Trust
-
-Ne jamais faire confiance par défaut, toujours vérifier.
-
- Principe du moindre privilège
-
+<h3>Principe du moindre privilège</h3>
+<p>
 Donner uniquement les droits nécessaires.
+</p>
 
- Défense en profondeur
-
+<h3>Défense en profondeur</h3>
+<p>
 Superposer plusieurs couches de sécurité.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une entreprise applique le principe du moindre privilège en limitant les droits administrateurs.
+</p>
+
+<h2>Résumé de la fiche 20</h2>
+<p>
+Cette fiche présente les menaces, les vulnérabilités, les risques, les bonnes pratiques de sécurité, les normes, les outils et les concepts clés comme confidentialité, intégrité, disponibilité, Zero Trust et moindre privilège.
+</p>
+
+</body>
+</html>
 
 
- Résumé de la fiche 20
-Ce module t’apprend :
 
-   -    les menaces, vulnérabilités et risques,
-   -    les bonnes pratiques de sécurité,
-   -    les normes (ISO, RGPD, ANSSI),
-   -    les outils (EDR, firewall, SIEM),
-   -    les concepts clés (CIA, Zero Trust, moindre privilège).
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 21 - Mesurer et analyser le niveau de sécurité</title>
+</head>
+<body>
 
-C’est la base indispensable pour comprendre la cybersécurité dans un environnement
-professionnel.
+<h1>FICHE 21 - Mesurer et analyser le niveau de sécurité</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Savoir évaluer le niveau de sécurité d'un système d'information, identifier les vulnérabilités, analyser les risques, utiliser des outils de diagnostic, interpréter les résultats et proposer des actions correctives.
+</p>
 
- FICHE 21 — Mesurer et analyser le
-niveau de sécurité
-(Deuxième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
+<h2>1. Identifier les vulnérabilités du système d'information</h2>
 
- Objectif du module
-Savoir évaluer le niveau de sécurité d’un système d’information : identifier les vulnérabilités,
-analyser les risques, utiliser des outils de diagnostic, interpréter les résultats et proposer des
-actions correctives.
-
-
-  1. Identifier les vulnérabilités du système
-d’information
- Définition : Vulnérabilité
-
+<h3>Definition : Vulnérabilité</h3>
+<p>
 Faiblesse technique ou organisationnelle pouvant être exploitée par une menace.
+</p>
 
- Types de vulnérabilités
+<h3>Types de vulnérabilités</h3>
+<ul>
+  <li>Logiciels non mis à jour.</li>
+  <li>Mauvaises configurations.</li>
+  <li>Ports ouverts inutiles.</li>
+  <li>Mots de passe faibles.</li>
+  <li>Absence de chiffrement.</li>
+  <li>Droits trop élevés.</li>
+  <li>Services obsolètes.</li>
+</ul>
 
-   -    Logiciels non mis à jour.
-   -    Mauvaises configurations.
-   -    Ports ouverts inutiles.
-   -    Mots de passe faibles.
-   -    Absence de chiffrement.
-   -    Droits trop élevés.
-   -    Services obsolètes.
+<h3>Objectif</h3>
+<p>
+Repérer les failles avant qu'un attaquant ne les exploite.
+</p>
 
- Objectif
+<h3>Exemple</h3>
+<p>
+Un serveur avec une version obsolète de son système peut être compromis via une faille connue.
+</p>
 
-Repérer les failles avant qu’un attaquant ne les exploite.
+<h2>2. Analyser les risques</h2>
 
+<h3>Definition : Risque</h3>
+<p>
+Combinaison d'une menace, d'une vulnérabilité et d'un impact.
+</p>
 
-       2. Analyser les risques
- Définition : Risque
+<h3>Méthode d'analyse</h3>
+<ul>
+  <li>Identifier les actifs comme serveurs, données et utilisateurs.</li>
+  <li>Identifier les menaces.</li>
+  <li>Identifier les vulnérabilités.</li>
+  <li>Évaluer la probabilité.</li>
+  <li>Évaluer l'impact.</li>
+  <li>Prioriser les risques.</li>
+</ul>
 
-Combinaison d’une menace + une vulnérabilité + un impact.
+<h3>Outils</h3>
+<ul>
+  <li>Matrice de risques.</li>
+  <li>Méthode EBIOS.</li>
+  <li>Méthode MEHARI.</li>
+</ul>
 
- Méthode d’analyse
+<h3>Exemple</h3>
+<p>
+Une matrice de risques montre qu'un serveur exposé sur Internet présente un risque élevé.
+</p>
 
-   -    Identifier les actifs (serveurs, données, utilisateurs).
-   -    Identifier les menaces.
+<h2>3. Utiliser des outils de diagnostic de sécurité</h2>
 
+<h3>Outils typiques</h3>
+<ul>
+  <li>Scanner de vulnérabilités comme Nessus, Qualys ou OpenVAS.</li>
+  <li>Analyse réseau comme Wireshark ou Nmap.</li>
+  <li>Audit de configuration comme Lynis ou CIS Benchmarks.</li>
+  <li>Système d'analyse des logs comme Splunk ou Sentinel.</li>
+  <li>Outils de détection et réponse comme Defender for Endpoint.</li>
+</ul>
 
-   -   Identifier les vulnérabilités.
-   -   Évaluer la probabilité.
-   -   Évaluer l’impact.
-   -   Prioriser les risques.
+<h3>Objectif</h3>
+<p>
+Obtenir une vision précise de l'état de sécurité.
+</p>
 
- Outils
+<h3>Exemple</h3>
+<p>
+Un scan Nessus détecte une faille critique sur un serveur web.
+</p>
 
-   -   Matrice de risques.
-   -   Méthode EBIOS (ANSSI).
-   -   Méthode MEHARI.
+<h2>4. Interpréter les résultats des outils de sécurité</h2>
 
+<h3>Ce que l'on analyse</h3>
+<ul>
+  <li>Vulnérabilités critiques.</li>
+  <li>Services exposés.</li>
+  <li>Ports ouverts.</li>
+  <li>Versions obsolètes.</li>
+  <li>Comportements anormaux.</li>
+  <li>Tentatives d'intrusion.</li>
+  <li>Alertes répétitives.</li>
+</ul>
 
-  3. Utiliser des outils de diagnostic de
-sécurité
- Outils typiques
-
-   -   Scanner de vulnérabilités : Nessus, Qualys, OpenVAS.
-   -   Analyse réseau : Wireshark, Nmap.
-   -   Audit de configuration : Lynis, CIS Benchmarks.
-   -   SIEM : Splunk, QRadar, Microsoft Sentinel.
-   -   EDR : Defender for Endpoint, CrowdStrike.
-
- Objectif
-
-Obtenir une vision précise de l’état de sécurité.
-
-
-  4. Interpréter les résultats des outils de
-sécurité
- Ce que l’on analyse
-
-   -   Vulnérabilités critiques.
-   -   Services exposés.
-   -   Ports ouverts.
-   -   Versions obsolètes.
-   -   Comportements anormaux.
-   -   Tentatives d’intrusion.
-   -   Alertes répétitives.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Comprendre ce qui doit être corrigé en priorité.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une alerte répétitive sur un port suspect indique une tentative d'accès non autorisée.
+</p>
 
-       5. Analyser les journaux de sécurité
- Types de logs
+<h2>5. Analyser les journaux de sécurité</h2>
 
-   -    Authentification.
-   -    Accès aux fichiers.
-   -    Événements système.
-   -    Alertes antivirus/EDR.
-   -    Logs réseau (firewall, IDS/IPS).
-   -    Syslog.
+<h3>Types de journaux</h3>
+<ul>
+  <li>Authentification.</li>
+  <li>Accès aux fichiers.</li>
+  <li>Événements système.</li>
+  <li>Alertes antivirus.</li>
+  <li>Logs réseau comme pare feu ou système de détection d'intrusion.</li>
+  <li>Syslog.</li>
+</ul>
 
- Objectif
+<h3>Objectif</h3>
+<p>
+Détecter les anomalies, les attaques ou les erreurs humaines.
+</p>
 
-Détecter les anomalies, les attaques, les erreurs humaines.
+<h3>Exemple</h3>
+<p>
+Un journal montre plusieurs tentatives de connexion échouées sur un compte administrateur.
+</p>
 
+<h2>6. Mesurer le niveau de sécurité</h2>
 
-       6. Mesurer le niveau de sécurité
- Indicateurs (KPI)
+<h3>Indicateurs</h3>
+<ul>
+  <li>Nombre de vulnérabilités critiques.</li>
+  <li>Taux de conformité.</li>
+  <li>Temps de correction.</li>
+  <li>Taux de mise à jour.</li>
+  <li>Nombre d'incidents détectés.</li>
+  <li>Taux d'authentification multifacteur.</li>
+  <li>Taux de chiffrement.</li>
+</ul>
 
-   -    Nombre de vulnérabilités critiques.
-   -    Taux de conformité (CIS, ANSSI).
-   -    Temps de correction (MTTR).
-   -    Taux de patching.
-   -    Nombre d’incidents détectés.
-   -    Taux d’authentification MFA.
-   -    Taux de chiffrement.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Évaluer la maturité de la sécurité.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Un faible taux de mise à jour indique un risque élevé d'exploitation de failles.
+</p>
 
-       7. Proposer des actions correctives
- Actions typiques
+<h2>7. Proposer des actions correctives</h2>
 
-   -    Mise à jour des systèmes.
-   -    Renforcement des mots de passe.
-   -    Activation du MFA.
-   -    Segmentation réseau.
-   -    Correction des configurations.
-   -    Déploiement d’un EDR.
-   -    Durcissement des serveurs (hardening).
-   -    Suppression des comptes inutiles.
+<h3>Actions typiques</h3>
+<ul>
+  <li>Mise à jour des systèmes.</li>
+  <li>Renforcement des mots de passe.</li>
+  <li>Activation de l'authentification multifacteur.</li>
+  <li>Segmentation réseau.</li>
+  <li>Correction des configurations.</li>
+  <li>Déploiement d'un outil de détection et réponse.</li>
+  <li>Durcissement des serveurs.</li>
+  <li>Suppression des comptes inutiles.</li>
+</ul>
 
- Objectif
-
-
+<h3>Objectif</h3>
+<p>
 Réduire les risques et améliorer la sécurité globale.
-
-
- Résumé de la fiche 21
-Ce module t’apprend à :
-
-   -   identifier les vulnérabilités,
-   -   analyser les risques,
-   -   utiliser des outils de diagnostic,
-   -   interpréter les résultats,
-   -   analyser les logs,
-   -   mesurer le niveau de sécurité,
-   -   proposer des actions correctives.
-
-
- FICHE 22 — Détecter et traiter les
-incidents de sécurité
-(Troisième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Savoir détecter un incident de sécurité, l’analyser, le qualifier, le traiter, le documenter, et
-mettre en place des mesures pour éviter qu’il ne se reproduise.
-
-
-        1. Définir un incident de sécurité
- Définition : Incident de sécurité
-
-Événement qui compromet ou tente de compromettre la confidentialité, intégrité ou
-disponibilité du système d’information.
-
- Exemples
-
-    -    Intrusion sur un serveur.
-    -    Malware détecté.
-    -    Tentative de phishing.
-    -    Compte compromis.
-    -    Fuite de données.
-    -    Comportement anormal d’un utilisateur.
-    -    Déni de service (DDoS).
-
-
-        2. Détecter un incident de sécurité
- Sources de détection
-
-    -    SIEM (Splunk, Sentinel, QRadar).
-    -    EDR (Defender for Endpoint, CrowdStrike).
-    -    IDS/IPS (Snort, Suricata).
-    -    Firewalls (alertes).
-    -    Supervision (Centreon, Zabbix).
-    -    Logs système (Windows Event Viewer, Syslog).
-    -    Utilisateurs (signalements).
-
- Signes typiques
-
-    -    Tentatives de connexion multiples.
-    -    Processus inconnus.
-    -    Trafic réseau anormal.
-
-
-   -    Fichiers modifiés sans raison.
-   -    Alertes antivirus/EDR.
-   -    Accès hors horaires habituels.
-
-
-       3. Qualifier l’incident
- Objectif
-
-Déterminer la gravité et la priorité.
-
- Critères
-
-   -    Impact sur les utilisateurs.
-   -    Impact sur les données.
-   -    Impact sur la production.
-   -    Niveau de compromission.
-   -    Rapidité de propagation.
-   -    Sensibilité des données touchées.
-
- Catégories
-
-   -    Mineur : impact faible.
-   -    Modéré : impact limité.
-   -    Majeur : impact important.
-   -    Critique : production arrêtée, fuite de données, ransomware.
-
-
-       4. Analyser l’incident
- Actions
-
-   -    Collecter les logs.
-   -    Identifier la source.
-   -    Comprendre le vecteur d’attaque.
-   -    Vérifier les machines touchées.
-   -    Évaluer l’étendue de la compromission.
-   -    Déterminer si des données ont été exfiltrées.
-
- Outils
-
-   -    SIEM.
-   -    EDR.
-   -    Analyse réseau (Wireshark).
-   -    Scripts de diagnostic.
-   -    Journaux Windows / Linux.
-
-
-       5. Traiter l’incident
- Actions typiques
-
-   -    Isoler la machine compromise.
-   -    Révoquer les comptes compromis.
-   -    Changer les mots de passe.
-   -    Supprimer le malware.
-   -    Restaurer les fichiers.
-   -    Appliquer les correctifs.
-   -    Réinstaller si nécessaire.
-
- Objectif
-
-Limiter l’impact et rétablir un fonctionnement normal.
-
-
-       6. Communiquer pendant l’incident
- Communication interne
-
-   -    Équipe IT.
-   -    Direction.
-   -    Utilisateurs impactés.
-
- Communication externe (si nécessaire)
-
-   -    Prestataires.
-   -    Hébergeurs.
-   -    Autorités (CNIL en cas de fuite de données).
-
- Objectif
-
-Éviter la panique et garder le contrôle.
-
-
-       7. Documenter l’incident
- Contenu du rapport d’incident
-
-   -    Description de l’incident.
-   -    Date / heure.
-   -    Systèmes touchés.
-   -    Analyse technique.
-   -    Actions réalisées.
-   -    Impact.
-   -    Recommandations.
-
-
-   -   Mesures préventives.
-
- Objectif
-
-Capitaliser et améliorer la sécurité.
-
-
-  8. Mettre en place des mesures
-préventives
- Actions
-
-   -   Mise à jour des systèmes.
-   -   Renforcement des mots de passe.
-   -   Activation du MFA.
-   -   Durcissement des serveurs (hardening).
-   -   Segmentation réseau.
-   -   Amélioration des règles firewall.
-   -   Formation des utilisateurs.
-   -   Amélioration de la supervision.
-
- Objectif
-
-Éviter que l’incident ne se reproduise.
-
-
- Résumé de la fiche 22
-Ce module t’apprend à :
-
-   -   détecter un incident,
-   -   qualifier sa gravité,
-   -   analyser les logs et les alertes,
-   -   traiter l’incident,
-   -   communiquer efficacement,
-   -   documenter l’incident,
-   -   mettre en place des mesures préventives.
-
-C’est une fiche essentielle pour travailler dans un environnement professionnel sécurisé.
-
-
- FICHE 23 — Participer à la politique de
-sécurité
-(Quatrième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre comment une entreprise définit, applique et améliore sa politique de sécurité :
-règles, procédures, conformité, sensibilisation, gestion des accès, audits, documentation et
-gouvernance.
-
-
-       1. Comprendre la politique de sécurité
- Définition : Politique de sécurité (PSSI)
-
-Document qui définit les règles, objectifs et exigences de sécurité du système d’information.
-
- Contenu typique
-
-   -    Objectifs de sécurité.
-   -    Règles d’accès.
-   -    Gestion des mots de passe.
-   -    Sauvegardes.
-   -    Mise à jour des systèmes.
-   -    Journalisation.
-   -    Gestion des incidents.
-   -    Conformité (RGPD, ISO 27001).
-
- Objectif
-
-Donner un cadre clair pour protéger le SI.
-
-
-  2. Participer à la mise en œuvre de la
-politique de sécurité
- Actions
-
-   -    Appliquer les règles de sécurité.
-   -    Configurer les systèmes selon les standards.
-   -    Mettre en place les outils (EDR, SIEM, MFA).
-   -    Documenter les procédures.
-   -    Vérifier la conformité des équipements.
-
-
- Objectif
-
-Assurer que la sécurité est réellement appliquée sur le terrain.
-
-
-  3. Participer à la sensibilisation des
-utilisateurs
- Thèmes essentiels
-
-   -    Phishing.
-   -    Mots de passe.
-   -    MFA.
-   -    Sécurité des emails.
-   -    Utilisation des clés USB.
-   -    Confidentialité des données.
-   -    Bonnes pratiques sur Internet.
-
- Actions
-
-   -    Sessions de formation.
-   -    Affiches / messages internes.
-   -    Simulations de phishing.
-   -    Guides utilisateurs.
-
- Objectif
-
-Réduire les risques humains (première cause d’incidents).
-
-
-       4. Participer à la gestion des accès
- Principes
-
-   -    Principe du moindre privilège.
-   -    Séparation des rôles.
-   -    Comptes nominatifs.
-   -    Comptes administrateurs séparés.
-   -    Révocation des comptes inactifs.
-   -    MFA obligatoire.
-
- Outils
-
-   -    Active Directory.
-   -    IAM (Identity Access Management).
-   -    PAM (Privileged Access Management).
-
-
- Objectif
-
-Limiter les risques de compromission.
-
-
-       5. Participer aux audits de sécurité
- Types d’audits
-
-   -    Audit de configuration.
-   -    Audit de conformité.
-   -    Audit de sécurité réseau.
-   -    Audit des accès.
-   -    Audit des journaux.
-
- Actions
-
-   -    Collecter les informations.
-   -    Vérifier les écarts.
-   -    Documenter les résultats.
-   -    Proposer des corrections.
-
- Objectif
-
-Améliorer la sécurité de manière continue.
-
-
-  6. Participer à la gestion documentaire de
-sécurité
- Documents essentiels
-
-   -    PSSI (politique de sécurité).
-   -    Procédures de sécurité.
-   -    Procédures d’incident.
-   -    Procédures de sauvegarde.
-   -    Procédures de mise à jour.
-   -    Procédures d’accès.
-   -    Registre RGPD.
-
- Objectif
-
-Assurer la cohérence et la traçabilité.
-
-
-  7. Participer à la conformité
-réglementaire
- Réglementations importantes
-
-   -   RGPD : protection des données personnelles.
-   -   ISO 27001 : gestion de la sécurité.
-   -   ANSSI : recommandations françaises.
-   -   NIS2 : sécurité des opérateurs essentiels.
-   -   PCI-DSS : paiements bancaires.
-
- Actions
-
-   -   Vérifier les obligations.
-   -   Documenter les traitements.
-   -   Appliquer les mesures de sécurité.
-   -   Participer aux audits.
-
- Objectif
-
-Éviter les sanctions et protéger les données.
-
-
- Résumé de la fiche 23
-Ce module t’apprend à :
-
-   -   comprendre la politique de sécurité,
-   -   appliquer les règles de sécurité,
-   -   sensibiliser les utilisateurs,
-   -   gérer les accès,
-   -   participer aux audits,
-   -   maintenir la documentation,
-   -   contribuer à la conformité réglementaire.
-
-C’est une fiche essentielle pour travailler dans un environnement professionnel sécurisé et
-conforme.
-
-
- FICHE 24 — Les bases de la sécurité
-opérationnelle
-(Cinquième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre les mécanismes de sécurité appliqués au quotidien dans une entreprise :
-durcissement des systèmes, gestion des correctifs, supervision de sécurité, segmentation
-réseau, sauvegardes, gestion des accès, et bonnes pratiques opérationnelles.
-
-
-  1. Le durcissement des systèmes
-(Hardening)
- Définition : Hardening
-
-Ensemble des actions visant à réduire la surface d’attaque d’un système.
-
- Actions typiques
-
-   -   Désactiver les services inutiles.
-   -   Fermer les ports non utilisés.
-   -   Appliquer les CIS Benchmarks.
-   -   Configurer les journaux de sécurité.
-   -   Activer le chiffrement (BitLocker, LUKS).
-   -   Renforcer les mots de passe.
-   -   Désactiver les comptes par défaut.
-
- Objectif
-
-Rendre les systèmes plus résistants aux attaques.
-
-
- 2. La gestion des correctifs (Patch
-Management)
- Définition
-
-Processus consistant à appliquer les mises à jour de sécurité sur les systèmes.
-
- Types de correctifs
-
-
-   -    Système (Windows Update, apt, yum).
-   -    Applications (Chrome, Adobe, Java).
-   -    Firmware (switches, routeurs).
-   -    Sécurité (EDR, antivirus).
-
- Objectif
-
-Corriger les vulnérabilités avant qu’elles ne soient exploitées.
-
-
-       3. La supervision de sécurité
- Définition
-
-Surveillance continue des événements de sécurité.
-
- Outils
-
-   -    SIEM (Sentinel, Splunk).
-   -    EDR (Defender, CrowdStrike).
-   -    IDS/IPS (Snort, Suricata).
-   -    Syslog.
-   -    Centreon / Zabbix.
-
- Ce que l’on surveille
-
-   -    Tentatives de connexion.
-   -    Comportements anormaux.
-   -    Trafic réseau suspect.
-   -    Alertes antivirus.
-   -    Modifications de fichiers sensibles.
-
-
-       4. La segmentation réseau
- Définition
-
-Séparation du réseau en zones pour limiter la propagation d’une attaque.
-
- Types de segmentation
-
-   -    VLAN.
-   -    DMZ.
-   -    Réseau utilisateur / réseau serveur.
-   -    Réseau production / réseau administration.
-
- Objectif
-
-
-Limiter les déplacements latéraux d’un attaquant.
-
-
-       5. La gestion des accès
- Principes essentiels
-
-   -    Principe du moindre privilège.
-   -    Comptes nominatifs.
-   -    Comptes administrateurs séparés.
-   -    MFA obligatoire.
-   -    Rotation des mots de passe.
-   -    Révocation des comptes inactifs.
-
- Outils
-
-   -    Active Directory.
-   -    IAM / PAM.
-   -    MFA (Microsoft Authenticator, Duo).
-
-
-       6. Les sauvegardes et la restauration
- Types de sauvegardes
-
-   -    Complète.
-   -    Incrémentale.
-   -    Différentielle.
-   -    Snapshot.
-
- Règles essentielles
-
-   -    Règle du 3-2-1 : 3 copies, 2 supports différents, 1 hors site.
-   -    Sauvegardes déconnectées (anti-ransomware).
-   -    Tests réguliers de restauration.
-
- Objectif
-
-Assurer la continuité en cas d’incident majeur.
-
-
-       7. La sécurité des postes de travail
- Actions
-
-   -    EDR obligatoire.
-   -    Chiffrement du disque.
-   -    MFA.
-
-
-    -    Mises à jour automatiques.
-    -    Désactivation des macros.
-    -    Restriction des clés USB.
-    -    Politique de verrouillage automatique.
-
- Objectif
-
-Protéger le point d’entrée le plus vulnérable : l’utilisateur.
-
-
-        8. La sécurité des serveurs
- Actions
-
-    -    Hardening (CIS Benchmarks).
-    -    Journalisation avancée.
-    -    Droits stricts.
-    -    Firewall local.
-    -    Supervision renforcée.
-    -    Mise à jour régulière.
-    -    Accès administrateur via bastion.
-
- Objectif
-
-Protéger les systèmes critiques de l’entreprise.
-
-
-        9. La sécurité des applications
- Actions
-
-    -    Mise à jour régulière.
-    -    Correction des vulnérabilités OWASP.
-    -    Tests de sécurité (pentest).
-    -    Journalisation des accès.
-    -    Protection WAF.
-
- Objectif
-
-Empêcher les attaques applicatives (SQLi, XSS, CSRF…).
-
-
- Résumé de la fiche 24
-Ce module t’apprend à :
-
-    -    durcir les systèmes (hardening),
-    -    gérer les correctifs,
-
-
-   -   superviser la sécurité,
-   -   segmenter le réseau,
-   -   gérer les accès,
-   -   sécuriser postes, serveurs et applications,
-   -   mettre en place des sauvegardes fiables.
-
-C’est une fiche essentielle pour la sécurité opérationnelle au quotidien.
-
-
- FICHE 25 — Les bases de la sécurité
-des réseaux
-(Sixième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre les mécanismes essentiels pour sécuriser un réseau : filtrage, segmentation,
-protocoles, détection d’intrusion, VPN, pare-feu, sécurisation du trafic, et bonnes pratiques.
-
-
-  1. Les principes fondamentaux de la
-sécurité réseau
- Objectifs principaux
-
-   -    Confidentialité : empêcher l’accès non autorisé.
-   -    Intégrité : empêcher la modification des données.
-   -    Disponibilité : garantir l’accès aux services.
-
- Menaces réseau typiques
-
-   -    Sniffing (écoute du trafic).
-   -    Spoofing (usurpation).
-   -    MITM (man-in-the-middle).
-   -    DDoS.
-   -    Scan de ports.
-   -    Exploitation de services vulnérables.
-
-
-       2. Le pare-feu (Firewall)
- Définition
-
-Équipement ou logiciel qui filtre le trafic réseau selon des règles.
-
- Types de firewall
-
-   -    Stateless : filtrage simple (ports, IP).
-   -    Stateful : analyse du contexte (sessions).
-   -    Next-Gen Firewall (NGFW) :
-           o inspection profonde (DPI),
-           o filtrage applicatif,
-           o détection d’intrusion intégrée.
-
-
- Règles typiques
-
-   -    Autoriser uniquement les ports nécessaires.
-   -    Bloquer les connexions entrantes non sollicitées.
-   -    Journaliser les accès.
-
-
-       3. La segmentation réseau
- Objectif
-
-Limiter la propagation d’une attaque.
-
- Méthodes
-
-   -    VLAN : séparation logique.
-   -    DMZ : zone pour les services exposés (web, mail).
-   -    Réseau admin / réseau utilisateur.
-   -    Réseau serveur / réseau production.
-
- Bonnes pratiques
-
-   -    Interdire les communications inutiles entre VLAN.
-   -    Filtrer les flux inter-zones via firewall.
-   -    Isoler les serveurs critiques.
-
-
-       4. Les protocoles sécurisés
- Protocoles à privilégier
-
-   -    HTTPS (TLS) → chiffrement des communications.
-   -    SSH → administration sécurisée.
-   -    SFTP / FTPS → transfert sécurisé.
-   -    IPsec → chiffrement réseau.
-   -    SMB signé → intégrité des fichiers.
-
- Protocoles à éviter
-
-   -    HTTP.
-   -    Telnet.
-   -    FTP.
-   -    SNMP v1/v2 (préférer v3).
-   -    SMBv1.
-
-
-       5. Les VPN
-
-
- Définition
-
-Tunnel chiffré permettant d’accéder au réseau de l’entreprise depuis l’extérieur.
-
- Types
-
-   -    Site-to-site : entre deux réseaux.
-   -    Client-to-site : utilisateur → entreprise.
-
- Protocoles
-
-   -    OpenVPN.
-   -    IPsec.
-   -    WireGuard.
-   -    SSL VPN.
-
- Objectif
-
-Sécuriser les connexions distantes.
-
-
-       6. Les IDS / IPS
- IDS (Intrusion Detection System)
-
-Détecte les attaques (analyse du trafic).
-
- IPS (Intrusion Prevention System)
-
+</p>
+
+<h3>Exemple</h3>
+<p>
+La segmentation réseau empêche un attaquant de se déplacer librement dans le système.
+</p>
+
+<h2>Résumé de la fiche 21</h2>
+<p>
+Cette fiche présente l'identification des vulnérabilités, l'analyse des risques, l'utilisation des outils de diagnostic, l'interprétation des résultats, l'analyse des journaux, la mesure du niveau de sécurité et les actions correctives.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 22 - Détecter et traiter les incidents de sécurité</title>
+</head>
+<body>
+
+<h1>FICHE 22 - Détecter et traiter les incidents de sécurité</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Savoir détecter un incident de sécurité, l'analyser, le qualifier, le traiter, le documenter et mettre en place des mesures pour éviter qu'il ne se reproduise.
+</p>
+
+<h2>1. Définir un incident de sécurité</h2>
+
+<h3>Definition : Incident de sécurité</h3>
+<p>
+Événement qui compromet ou tente de compromettre la confidentialité, l'intégrité ou la disponibilité du système d'information.
+</p>
+
+<h3>Exemples</h3>
+<ul>
+  <li>Intrusion sur un serveur.</li>
+  <li>Logiciel malveillant détecté.</li>
+  <li>Tentative de hameçonnage.</li>
+  <li>Compte compromis.</li>
+  <li>Fuite de données.</li>
+  <li>Comportement anormal d'un utilisateur.</li>
+  <li>Déni de service.</li>
+</ul>
+
+<h3>Exemple concret</h3>
+<p>
+Un compte administrateur utilisé depuis un pays inhabituel peut indiquer une compromission.
+</p>
+
+<h2>2. Détecter un incident de sécurité</h2>
+
+<h3>Sources de détection</h3>
+<ul>
+  <li>Système d'analyse des logs.</li>
+  <li>Outils de détection et réponse.</li>
+  <li>Systèmes de détection d'intrusion.</li>
+  <li>Pare feu.</li>
+  <li>Alertes antivirus.</li>
+  <li>Supervision.</li>
+  <li>Signalement utilisateur.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier rapidement les événements suspects.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un outil de détection signale un processus inconnu qui tente d'accéder à des fichiers sensibles.
+</p>
+
+<h2>3. Qualifier un incident de sécurité</h2>
+
+<h3>Definition : Qualification</h3>
+<p>
+Évaluation de la gravité, de l'impact et de la nature de l'incident.
+</p>
+
+<h3>Critères</h3>
+<ul>
+  <li>Gravité.</li>
+  <li>Impact sur les utilisateurs.</li>
+  <li>Impact sur les données.</li>
+  <li>Impact sur la disponibilité.</li>
+  <li>Étendue de l'incident.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Déterminer les actions à mener en priorité.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un malware isolé sur un poste utilisateur est moins critique qu'une intrusion sur un serveur de production.
+</p>
+
+<h2>4. Traiter un incident de sécurité</h2>
+
+<h3>Actions typiques</h3>
+<ul>
+  <li>Isoler la machine compromise.</li>
+  <li>Couper les accès suspects.</li>
+  <li>Analyser les journaux.</li>
+  <li>Supprimer le logiciel malveillant.</li>
+  <li>Changer les mots de passe.</li>
+  <li>Appliquer les correctifs.</li>
+  <li>Restaurer les données si nécessaire.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter l'impact et rétablir un fonctionnement normal.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur compromis est isolé du réseau puis analysé avant restauration.
+</p>
+
+<h2>5. Documenter un incident de sécurité</h2>
+
+<h3>Contenu de la documentation</h3>
+<ul>
+  <li>Description de l'incident.</li>
+  <li>Date et heure.</li>
+  <li>Équipements concernés.</li>
+  <li>Actions menées.</li>
+  <li>Résultat.</li>
+  <li>Recommandations.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Assurer un suivi et faciliter l'amélioration continue.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un rapport d'incident décrit les étapes de suppression d'un logiciel malveillant.
+</p>
+
+<h2>6. Mettre en place des mesures préventives</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Renforcer les mots de passe.</li>
+  <li>Activer l'authentification multifacteur.</li>
+  <li>Mettre à jour les systèmes.</li>
+  <li>Durcir les configurations.</li>
+  <li>Segmenter le réseau.</li>
+  <li>Former les utilisateurs.</li>
+  <li>Améliorer la supervision.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Éviter que l'incident ne se reproduise.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Après une attaque par hameçonnage, une formation est organisée pour sensibiliser les utilisateurs.
+</p>
+
+<h2>Résumé de la fiche 22</h2>
+<p>
+Cette fiche présente la définition d'un incident de sécurité, les sources de détection, la qualification, le traitement, la documentation et les mesures préventives pour renforcer la sécurité.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 23 - Assurer la conformité et la sécurité du système d'information</title>
+</head>
+<body>
+
+<h1>FICHE 23 - Assurer la conformité et la sécurité du système d'information</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les obligations légales, les normes de sécurité, les politiques internes, les audits, les contrôles, la gestion des accès, la protection des données et les bonnes pratiques permettant de garantir la conformité et la sécurité du système d'information.
+</p>
+
+<h2>1. Les obligations légales et réglementaires</h2>
+
+<h3>Definition : Conformité</h3>
+<p>
+Respect des lois, normes et règles applicables au système d'information.
+</p>
+
+<h3>Exemples d'obligations</h3>
+<ul>
+  <li>Protection des données personnelles.</li>
+  <li>Confidentialité des informations sensibles.</li>
+  <li>Traçabilité des actions.</li>
+  <li>Conservation des journaux.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Éviter les sanctions et garantir la sécurité des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une entreprise doit informer les utilisateurs de la collecte de leurs données.
+</p>
+
+<h2>2. Les normes de sécurité</h2>
+
+<h3>Normes importantes</h3>
+<ul>
+  <li>ISO 27001 pour la gestion de la sécurité de l'information.</li>
+  <li>ISO 27002 pour les bonnes pratiques.</li>
+  <li>Recommandations de l'agence nationale de sécurité des systèmes d'information.</li>
+  <li>Standards du National Institute of Standards and Technology.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Structurer la sécurité et garantir un niveau de protection élevé.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une entreprise applique ISO 27001 pour organiser sa politique de sécurité.
+</p>
+
+<h2>3. Les politiques internes de sécurité</h2>
+
+<h3>Definition : Politique de sécurité</h3>
+<p>
+Document définissant les règles de sécurité à respecter dans l'entreprise.
+</p>
+
+<h3>Contenu typique</h3>
+<ul>
+  <li>Gestion des mots de passe.</li>
+  <li>Gestion des accès.</li>
+  <li>Utilisation des équipements.</li>
+  <li>Protection des données.</li>
+  <li>Gestion des incidents.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Uniformiser les pratiques et réduire les risques.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une politique impose un mot de passe complexe renouvelé régulièrement.
+</p>
+
+<h2>4. Les audits et contrôles de sécurité</h2>
+
+<h3>Definition : Audit de sécurité</h3>
+<p>
+Évaluation du niveau de sécurité d'un système d'information.
+</p>
+
+<h3>Types d'audits</h3>
+<ul>
+  <li>Audit technique.</li>
+  <li>Audit organisationnel.</li>
+  <li>Audit de conformité.</li>
+  <li>Audit de configuration.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier les faiblesses et proposer des améliorations.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un audit révèle que certains serveurs ne sont pas mis à jour.
+</p>
+
+<h2>5. La gestion des accès</h2>
+
+<h3>Principes essentiels</h3>
+<ul>
+  <li>Authentification multifacteur.</li>
+  <li>Principe du moindre privilège.</li>
+  <li>Gestion des comptes.</li>
+  <li>Révocation des accès inutiles.</li>
+  <li>Traçabilité des actions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un compte utilisateur est désactivé immédiatement après un départ.
+</p>
+
+<h2>6. La protection des données</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Chiffrement des données.</li>
+  <li>Sauvegardes régulières.</li>
+  <li>Contrôle des accès.</li>
+  <li>Journalisation.</li>
+  <li>Sécurisation des transferts.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Garantir la confidentialité, l'intégrité et la disponibilité des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les sauvegardes sont chiffrées pour éviter toute fuite en cas de vol.
+</p>
+
+<h2>7. Les bonnes pratiques de sécurité</h2>
+
+<h3>Pratiques essentielles</h3>
+<ul>
+  <li>Mise à jour régulière des systèmes.</li>
+  <li>Durcissement des configurations.</li>
+  <li>Segmentation réseau.</li>
+  <li>Formation des utilisateurs.</li>
+  <li>Supervision continue.</li>
+  <li>Tests de sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques et améliorer la sécurité globale.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une formation sensibilise les utilisateurs aux tentatives de hameçonnage.
+</p>
+
+<h2>8. La gestion des incidents de sécurité</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Détection.</li>
+  <li>Qualification.</li>
+  <li>Traitement.</li>
+  <li>Documentation.</li>
+  <li>Mesures préventives.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réagir rapidement et éviter la répétition des incidents.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un incident de sécurité est documenté pour améliorer les procédures internes.
+</p>
+
+<h2>Résumé de la fiche 23</h2>
+<p>
+Cette fiche présente les obligations légales, les normes de sécurité, les politiques internes, les audits, la gestion des accès, la protection des données, les bonnes pratiques et la gestion des incidents pour assurer la conformité et la sécurité du système d'information.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 24 - Assurer la sécurité opérationnelle du système d'information</title>
+</head>
+<body>
+
+<h1>FICHE 24 - Assurer la sécurité opérationnelle du système d'information</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les actions quotidiennes nécessaires pour maintenir la sécurité du système d'information, incluant la supervision, la gestion des correctifs, la gestion des accès, la surveillance des journaux, la protection des données, la gestion des sauvegardes et la réponse aux incidents.
+</p>
+
+<h2>1. La sécurité opérationnelle</h2>
+
+<h3>Definition : Sécurité opérationnelle</h3>
+<p>
+Ensemble des actions quotidiennes permettant de maintenir un niveau de sécurité stable et efficace dans le système d'information.
+</p>
+
+<h3>Objectifs</h3>
+<ul>
+  <li>Prévenir les incidents.</li>
+  <li>Détecter les anomalies.</li>
+  <li>Réagir rapidement aux menaces.</li>
+  <li>Maintenir la conformité.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+La vérification quotidienne des journaux permet de détecter des tentatives de connexion suspectes.
+</p>
+
+<h2>2. La gestion des correctifs</h2>
+
+<h3>Definition : Correctif</h3>
+<p>
+Mise à jour visant à corriger une faille de sécurité ou un dysfonctionnement.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Identifier les mises à jour disponibles.</li>
+  <li>Tester les correctifs.</li>
+  <li>Déployer les correctifs.</li>
+  <li>Vérifier le bon fonctionnement après installation.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques d'exploitation de vulnérabilités.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un correctif critique est appliqué rapidement pour éviter une attaque connue.
+</p>
+
+<h2>3. La gestion des accès</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Création des comptes.</li>
+  <li>Modification des droits.</li>
+  <li>Suppression des comptes inutiles.</li>
+  <li>Contrôle des accès sensibles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un compte utilisateur est désactivé immédiatement après un départ de l'entreprise.
+</p>
+
+<h2>4. La surveillance des journaux</h2>
+
+<h3>Definition : Journal</h3>
+<p>
+Fichier contenant les événements générés par les systèmes, applications ou équipements.
+</p>
+
+<h3>Types de journaux</h3>
+<ul>
+  <li>Système.</li>
+  <li>Sécurité.</li>
+  <li>Application.</li>
+  <li>Réseau.</li>
+  <li>Supervision.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Détecter les anomalies et les tentatives d'intrusion.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un journal montre plusieurs tentatives de connexion échouées sur un compte administrateur.
+</p>
+
+<h2>5. La protection des données</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Chiffrement.</li>
+  <li>Contrôle des accès.</li>
+  <li>Journalisation.</li>
+  <li>Sécurisation des transferts.</li>
+  <li>Protection des données sensibles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Garantir la confidentialité, l'intégrité et la disponibilité des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les données sensibles sont chiffrées pour éviter toute fuite en cas de vol.
+</p>
+
+<h2>6. La gestion des sauvegardes</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Planification des sauvegardes.</li>
+  <li>Vérification des sauvegardes.</li>
+  <li>Tests de restauration.</li>
+  <li>Stockage sécurisé.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Assurer la récupération des données en cas d'incident.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un test de restauration est effectué chaque mois pour vérifier la fiabilité des sauvegardes.
+</p>
+
+<h2>7. La réponse aux incidents</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Détection.</li>
+  <li>Qualification.</li>
+  <li>Isolation.</li>
+  <li>Traitement.</li>
+  <li>Documentation.</li>
+  <li>Mesures préventives.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réagir rapidement pour limiter l'impact d'un incident.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un poste infecté est isolé du réseau pour éviter la propagation d'un logiciel malveillant.
+</p>
+
+<h2>8. La supervision de la sécurité</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Surveillance des alertes.</li>
+  <li>Analyse des événements.</li>
+  <li>Suivi des indicateurs.</li>
+  <li>Contrôle des équipements.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Maintenir une vision en temps réel de l'état de sécurité.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une alerte signale une activité inhabituelle sur un serveur de production.
+</p>
+
+<h2>Résumé de la fiche 24</h2>
+<p>
+Cette fiche présente la sécurité opérationnelle, la gestion des correctifs, la gestion des accès, la surveillance des journaux, la protection des données, la gestion des sauvegardes, la réponse aux incidents et la supervision de la sécurité.
+</p>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 25 - Gestion des sauvegardes et continuité d'activité</title>
+</head>
+<body>
+
+<h1>FICHE 25 - Participer à la gestion des sauvegardes et de la continuité d'activité</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les principes de sauvegarde, de restauration, de continuité d'activité et de reprise après sinistre. Savoir mettre en œuvre des stratégies de sauvegarde, vérifier leur bon fonctionnement, tester les restaurations et contribuer à la résilience du système d'information.
+</p>
+
+<h2>1. Les objectifs des sauvegardes</h2>
+
+<h3>Definition : Sauvegarde</h3>
+<p>
+Copie des données permettant de les restaurer en cas de perte, corruption ou incident.
+</p>
+
+<h3>Objectifs</h3>
+<ul>
+  <li>Protéger les données.</li>
+  <li>Assurer la continuité de service.</li>
+  <li>Permettre la restauration rapide.</li>
+  <li>Limiter l'impact des incidents.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Une sauvegarde quotidienne permet de restaurer les fichiers supprimés par erreur.
+</p>
+
+<h2>2. Les types de sauvegardes</h2>
+
+<h3>Sauvegarde complète</h3>
+<p>
+Copie intégrale de toutes les données.
+</p>
+
+<h3>Sauvegarde incrémentale</h3>
+<p>
+Copie uniquement des données modifiées depuis la dernière sauvegarde.
+</p>
+
+<h3>Sauvegarde différentielle</h3>
+<p>
+Copie des données modifiées depuis la dernière sauvegarde complète.
+</p>
+
+<h3>Objectif</h3>
+<p>
+Optimiser le temps de sauvegarde et l'espace de stockage.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une entreprise réalise une sauvegarde complète le dimanche et des sauvegardes incrémentales chaque jour.
+</p>
+
+<h2>3. Les stratégies de sauvegarde</h2>
+
+<h3>Règle trois deux un</h3>
+<p>
+Trois copies des données, deux supports différents, une copie hors site.
+</p>
+
+<h3>Rotation des sauvegardes</h3>
+<p>
+Organisation des supports pour garantir une conservation régulière.
+</p>
+
+<h3>Externalisation</h3>
+<p>
+Stockage des sauvegardes dans un site distant ou dans le cloud.
+</p>
+
+<h3>Objectif</h3>
+<p>
+Assurer la disponibilité des données même en cas de sinistre.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les sauvegardes sont copiées chaque nuit vers un site distant sécurisé.
+</p>
+
+<h2>4. Vérification des sauvegardes</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Contrôle des journaux de sauvegarde.</li>
+  <li>Vérification de l'intégrité des fichiers.</li>
+  <li>Contrôle de la durée des sauvegardes.</li>
+  <li>Surveillance des erreurs.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+S'assurer que les sauvegardes sont valides et exploitables.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un rapport signale une erreur de sauvegarde sur un serveur de fichiers.
+</p>
+
+<h2>5. Tester les restaurations</h2>
+
+<h3>Definition : Restauration</h3>
+<p>
+Processus permettant de récupérer des données à partir d'une sauvegarde.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Test de restauration de fichiers.</li>
+  <li>Test de restauration de bases de données.</li>
+  <li>Test de restauration de machines virtuelles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Vérifier que les sauvegardes permettent une reprise rapide en cas d'incident.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une restauration mensuelle est effectuée pour vérifier la fiabilité des sauvegardes.
+</p>
+
+<h2>6. La continuité d'activité</h2>
+
+<h3>Definition : Continuité d'activité</h3>
+<p>
+Capacité de l'entreprise à maintenir ses services essentiels en cas d'incident majeur.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Analyse des risques.</li>
+  <li>Définition des services critiques.</li>
+  <li>Plan de continuité.</li>
+  <li>Tests réguliers.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Assurer le fonctionnement minimal de l'entreprise même en cas de panne.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un site secondaire permet de maintenir les services essentiels en cas de panne du site principal.
+</p>
+
+<h2>7. La reprise après sinistre</h2>
+
+<h3>Definition : Reprise après sinistre</h3>
+<p>
+Processus permettant de restaurer l'ensemble du système d'information après un incident majeur.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Plan de reprise.</li>
+  <li>Priorisation des services.</li>
+  <li>Restauration des systèmes.</li>
+  <li>Tests de reprise.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Rétablir les services dans les meilleurs délais.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Après une panne majeure, les serveurs sont restaurés à partir des sauvegardes hors site.
+</p>
+
+<h2>Résumé de la fiche 25</h2>
+<p>
+Cette fiche présente les objectifs des sauvegardes, les types de sauvegardes, les stratégies, la vérification, les tests de restauration, la continuité d'activité et la reprise après sinistre.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 26 - Gérer les mises à jour et le durcissement des systèmes</title>
+</head>
+<body>
+
+<h1>FICHE 26 - Gérer les mises à jour, les correctifs et le durcissement des systèmes</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre comment maintenir un système d'information sécurisé en appliquant les mises à jour, les correctifs de sécurité, en durcissant les systèmes et en contrôlant régulièrement la conformité des configurations.
+</p>
+
+<h2>1. Les mises à jour des systèmes</h2>
+
+<h3>Definition : Mise à jour</h3>
+<p>
+Modification apportée à un logiciel ou un système pour améliorer ses fonctionnalités, corriger des erreurs ou renforcer la sécurité.
+</p>
+
+<h3>Types de mises à jour</h3>
+<ul>
+  <li>Mises à jour fonctionnelles.</li>
+  <li>Mises à jour de sécurité.</li>
+  <li>Mises à jour cumulatives.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Maintenir les systèmes stables, performants et protégés contre les vulnérabilités.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une mise à jour Windows corrige une faille critique permettant l'exécution de code à distance.
+</p>
+
+<h2>2. Les correctifs de sécurité</h2>
+
+<h3>Definition : Correctif</h3>
+<p>
+Mise à jour ciblée visant à corriger une vulnérabilité ou un dysfonctionnement précis.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Identifier les correctifs disponibles.</li>
+  <li>Tester les correctifs.</li>
+  <li>Déployer les correctifs.</li>
+  <li>Vérifier la stabilité après installation.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques d'exploitation de failles connues.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un correctif urgent est appliqué pour corriger une faille exploitée activement par des attaquants.
+</p>
+
+<h2>3. Le durcissement des systèmes</h2>
+
+<h3>Definition : Durcissement</h3>
+<p>
+Ensemble des actions visant à réduire la surface d'attaque d'un système en désactivant les services inutiles, en renforçant les configurations et en appliquant les bonnes pratiques de sécurité.
+</p>
+
+<h3>Actions de durcissement</h3>
+<ul>
+  <li>Désactivation des services inutiles.</li>
+  <li>Configuration stricte des accès.</li>
+  <li>Chiffrement des communications.</li>
+  <li>Journalisation renforcée.</li>
+  <li>Suppression des comptes inutiles.</li>
+  <li>Configuration des pare feux locaux.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques d'intrusion et limiter les vecteurs d'attaque.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur Windows est durci en désactivant les services non utilisés et en appliquant les recommandations de sécurité.
+</p>
+
+<h2>4. Les référentiels de durcissement</h2>
+
+<h3>Référentiels importants</h3>
+<ul>
+  <li>Recommandations de l'agence nationale de sécurité des systèmes d'information.</li>
+  <li>Recommandations du National Institute of Standards and Technology.</li>
+  <li>Benchmarks du Center for Internet Security.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Appliquer des configurations reconnues comme sûres et conformes aux bonnes pratiques.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur Linux est configuré selon les recommandations du Center for Internet Security.
+</p>
+
+<h2>5. La gestion automatisée des mises à jour</h2>
+
+<h3>Outils typiques</h3>
+<ul>
+  <li>Serveur de mise à jour Windows.</li>
+  <li>Gestionnaire de paquets Linux.</li>
+  <li>Solutions de gestion centralisée.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Automatiser le déploiement des mises à jour pour garantir une protection continue.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur de mise à jour Windows distribue automatiquement les correctifs aux postes de travail.
+</p>
+
+<h2>6. Contrôler la conformité des systèmes</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Audit des configurations.</li>
+  <li>Analyse des écarts.</li>
+  <li>Correction des non conformités.</li>
+  <li>Suivi régulier.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+S'assurer que les systèmes respectent les règles de sécurité définies.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un audit révèle que certains postes n'ont pas l'authentification multifacteur activée.
+</p>
+
+<h2>7. Tester les mises à jour et correctifs</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Tester sur un environnement de pré production.</li>
+  <li>Vérifier la compatibilité.</li>
+  <li>Analyser les impacts.</li>
+  <li>Valider avant déploiement global.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Éviter les interruptions de service liées à une mise à jour défectueuse.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une mise à jour est testée sur un serveur de test avant déploiement sur les serveurs de production.
+</p>
+
+<h2>Résumé de la fiche 26</h2>
+<p>
+Cette fiche présente les mises à jour, les correctifs de sécurité, le durcissement des systèmes, les référentiels de sécurité, la gestion automatisée des mises à jour, le contrôle de conformité et les tests de déploiement.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 27 - Gérer la sécurité des réseaux et des communications</title>
+</head>
+<body>
+
+<h1>FICHE 27 - Gérer la sécurité des réseaux et des communications</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les mécanismes de sécurité réseau, savoir protéger les communications, configurer les équipements de sécurité, surveiller le trafic, détecter les anomalies et appliquer les bonnes pratiques pour sécuriser les échanges au sein du système d'information.
+</p>
+
+<h2>1. Les principes de sécurité réseau</h2>
+
+<h3>Confidentialité</h3>
+<p>
+Garantir que seules les personnes autorisées peuvent accéder aux données.
+</p>
+
+<h3>Intégrité</h3>
+<p>
+Assurer que les données ne sont pas modifiées pendant leur transmission.
+</p>
+
+<h3>Disponibilité</h3>
+<p>
+Veiller à ce que les services réseau restent accessibles.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un pare feu protège la disponibilité en bloquant les attaques par déni de service.
+</p>
+
+<h2>2. Les équipements de sécurité réseau</h2>
+
+<h3>Pare feu</h3>
+<p>
+Équipement filtrant le trafic réseau selon des règles définies.
+</p>
+
+<h3>Système de détection d'intrusion</h3>
+<p>
+Analyse le trafic pour détecter des comportements suspects.
+</p>
+
+<h3>Système de prévention d'intrusion</h3>
+<p>
 Bloque automatiquement les attaques détectées.
+</p>
+
+<h3>Pare feu applicatif</h3>
+<p>
+Protège les applications web contre les attaques.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un pare feu applicatif bloque une tentative d'injection dans un formulaire web.
+</p>
+
+<h2>3. La segmentation réseau</h2>
+
+<h3>Definition : Segmentation</h3>
+<p>
+Séparation du réseau en zones distinctes pour limiter les déplacements d'un attaquant.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Créer des réseaux séparés.</li>
+  <li>Limiter les communications entre zones.</li>
+  <li>Appliquer des règles strictes.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire l'impact d'une intrusion.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les serveurs sensibles sont isolés dans un réseau dédié avec accès limité.
+</p>
+
+<h2>4. La sécurisation des communications</h2>
+
+<h3>Chiffrement</h3>
+<p>
+Protection des données pendant leur transmission.
+</p>
+
+<h3>Protocoles sécurisés</h3>
+<ul>
+  <li>HTTPS.</li>
+  <li>SSH.</li>
+  <li>TLS.</li>
+  <li>VPN.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Empêcher l'interception ou la modification des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un VPN chiffre les communications entre un utilisateur distant et l'entreprise.
+</p>
+
+<h2>5. La surveillance du trafic réseau</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Analyse des flux.</li>
+  <li>Détection des anomalies.</li>
+  <li>Surveillance des connexions.</li>
+  <li>Contrôle des ports ouverts.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier les comportements suspects ou les attaques.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une analyse de flux révèle un poste qui envoie un volume inhabituel de données vers l'extérieur.
+</p>
+
+<h2>6. La gestion des accès réseau</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Contrôle des accès aux ressources.</li>
+  <li>Authentification forte.</li>
+  <li>Gestion des droits.</li>
+  <li>Journalisation des connexions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un utilisateur doit s'authentifier via un certificat pour accéder au réseau interne.
+</p>
+
+<h2>7. Les bonnes pratiques de sécurité réseau</h2>
+
+<h3>Pratiques essentielles</h3>
+<ul>
+  <li>Mettre à jour les équipements réseau.</li>
+  <li>Durcir les configurations.</li>
+  <li>Limiter les ports ouverts.</li>
+  <li>Appliquer des règles strictes.</li>
+  <li>Surveiller les journaux.</li>
+  <li>Tester régulièrement la sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques et améliorer la sécurité globale.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un test de sécurité révèle un port inutile ouvert sur un routeur.
+</p>
+
+<h2>Résumé de la fiche 27</h2>
+<p>
+Cette fiche présente les principes de sécurité réseau, les équipements de protection, la segmentation, la sécurisation des communications, la surveillance du trafic, la gestion des accès et les bonnes pratiques pour sécuriser les réseaux et les communications.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 28 - Sécurité des postes de travail et équipements mobiles</title>
+</head>
+<body>
+
+<h1>FICHE 28 - Gérer la sécurité des postes de travail et des équipements mobiles</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les mesures nécessaires pour sécuriser les postes de travail, les ordinateurs portables, les smartphones et les tablettes. Savoir appliquer les bonnes pratiques, gérer les outils de protection, contrôler les accès, protéger les données et prévenir les menaces.
+</p>
+
+<h2>1. Les risques liés aux postes de travail</h2>
+
+<h3>Risques principaux</h3>
+<ul>
+  <li>Logiciels malveillants.</li>
+  <li>Phishing.</li>
+  <li>Vol de matériel.</li>
+  <li>Accès non autorisé.</li>
+  <li>Fuite de données.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier les menaces pour mieux protéger les équipements.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un poste non protégé peut être infecté par un logiciel malveillant via une pièce jointe.
+</p>
+
+<h2>2. Les outils de protection des postes</h2>
+
+<h3>Antivirus et outils de détection</h3>
+<p>
+Logiciels permettant de détecter et bloquer les menaces.
+</p>
+
+<h3>Pare feu local</h3>
+<p>
+Filtre le trafic entrant et sortant du poste.
+</p>
+
+<h3>Chiffrement du disque</h3>
+<p>
+Protège les données en cas de vol ou perte du matériel.
+</p>
+
+<h3>Objectif</h3>
+<p>
+Renforcer la sécurité des postes contre les attaques.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Le chiffrement du disque empêche l'accès aux données en cas de vol d'un ordinateur portable.
+</p>
+
+<h2>3. Le durcissement des postes de travail</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Désactivation des services inutiles.</li>
+  <li>Configuration stricte des accès.</li>
+  <li>Installation uniquement des logiciels autorisés.</li>
+  <li>Journalisation renforcée.</li>
+  <li>Suppression des comptes inutiles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire la surface d'attaque du poste.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un poste est durci en désactivant les services non utilisés et en limitant les droits administrateurs.
+</p>
+
+<h2>4. La gestion des mises à jour</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Installer les mises à jour système.</li>
+  <li>Mettre à jour les logiciels.</li>
+  <li>Appliquer les correctifs de sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Corriger les vulnérabilités et maintenir un niveau de sécurité élevé.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une mise à jour corrige une faille permettant l'exécution de code à distance.
+</p>
+
+<h2>5. La gestion des accès</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Authentification forte.</li>
+  <li>Gestion des mots de passe.</li>
+  <li>Contrôle des droits.</li>
+  <li>Verrouillage automatique des sessions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un poste se verrouille automatiquement après quelques minutes d'inactivité.
+</p>
+
+<h2>6. La sécurité des équipements mobiles</h2>
+
+<h3>Risques spécifiques</h3>
+<ul>
+  <li>Perte ou vol.</li>
+  <li>Réseaux non sécurisés.</li>
+  <li>Applications non fiables.</li>
+  <li>Synchronisation non sécurisée.</li>
+</ul>
+
+<h3>Actions de protection</h3>
+<ul>
+  <li>Chiffrement du stockage.</li>
+  <li>Authentification forte.</li>
+  <li>Gestion des applications.</li>
+  <li>Connexion via réseau privé virtuel.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Protéger les données et les communications sur les appareils mobiles.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un smartphone professionnel utilise un réseau privé virtuel pour accéder aux ressources internes.
+</p>
+
+<h2>7. Les bonnes pratiques utilisateur</h2>
+
+<h3>Pratiques essentielles</h3>
+<ul>
+  <li>Ne pas installer de logiciels non autorisés.</li>
+  <li>Ne pas cliquer sur des liens suspects.</li>
+  <li>Utiliser des mots de passe robustes.</li>
+  <li>Verrouiller son poste.</li>
+  <li>Signaler tout comportement anormal.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Renforcer la sécurité grâce à des comportements adaptés.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un utilisateur signale un message suspect reçu par courriel, évitant une attaque par hameçonnage.
+</p>
+
+<h2>Résumé de la fiche 28</h2>
+<p>
+Cette fiche présente les risques des postes de travail, les outils de protection, le durcissement, la gestion des mises à jour, la gestion des accès, la sécurité des équipements mobiles et les bonnes pratiques utilisateur.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 29 - Gérer la sécurité des serveurs et des services</title>
+</head>
+<body>
+
+<h1>FICHE 29 - Gérer la sécurité des serveurs et des services</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les mesures nécessaires pour sécuriser les serveurs, les services et les applications hébergées. Savoir appliquer les bonnes pratiques, gérer les accès, durcir les configurations, surveiller les journaux, protéger les données et prévenir les menaces.
+</p>
+
+<h2>1. Les risques liés aux serveurs</h2>
+
+<h3>Risques principaux</h3>
+<ul>
+  <li>Intrusions.</li>
+  <li>Exploitation de vulnérabilités.</li>
+  <li>Logiciels malveillants.</li>
+  <li>Accès non autorisé.</li>
+  <li>Fuite de données.</li>
+  <li>Déni de service.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier les menaces pour mieux protéger les serveurs.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur non mis à jour peut être compromis via une faille connue.
+</p>
+
+<h2>2. Le durcissement des serveurs</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Désactivation des services inutiles.</li>
+  <li>Configuration stricte des accès.</li>
+  <li>Chiffrement des communications.</li>
+  <li>Journalisation renforcée.</li>
+  <li>Suppression des comptes inutiles.</li>
+  <li>Configuration des pare feux locaux.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire la surface d'attaque du serveur.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un serveur Windows est durci en désactivant les services non utilisés et en limitant les droits administrateurs.
+</p>
+
+<h2>3. La gestion des mises à jour</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Installer les mises à jour système.</li>
+  <li>Mettre à jour les logiciels.</li>
+  <li>Appliquer les correctifs de sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Corriger les vulnérabilités et maintenir un niveau de sécurité élevé.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une mise à jour corrige une faille permettant l'exécution de code à distance.
+</p>
+
+<h2>4. La gestion des accès aux serveurs</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Authentification forte.</li>
+  <li>Gestion des mots de passe.</li>
+  <li>Contrôle des droits.</li>
+  <li>Accès administrateur limité.</li>
+  <li>Journalisation des connexions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les accès administrateurs sont réservés à un nombre limité de techniciens.
+</p>
+
+<h2>5. La sécurisation des services</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Configuration sécurisée des services.</li>
+  <li>Utilisation de protocoles sécurisés.</li>
+  <li>Chiffrement des communications.</li>
+  <li>Contrôle des ports ouverts.</li>
+  <li>Surveillance des services critiques.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Protéger les services contre les attaques et les intrusions.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un service web utilise le protocole HTTPS pour sécuriser les communications.
+</p>
+
+<h2>6. La surveillance des journaux serveurs</h2>
+
+<h3>Types de journaux</h3>
+<ul>
+  <li>Système.</li>
+  <li>Sécurité.</li>
+  <li>Application.</li>
+  <li>Réseau.</li>
+  <li>Supervision.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Détecter les anomalies et les tentatives d'intrusion.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un journal montre plusieurs tentatives de connexion échouées sur un compte administrateur.
+</p>
+
+<h2>7. La protection des données sur les serveurs</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Chiffrement.</li>
+  <li>Contrôle des accès.</li>
+  <li>Journalisation.</li>
+  <li>Sécurisation des transferts.</li>
+  <li>Protection des données sensibles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Garantir la confidentialité, l'intégrité et la disponibilité des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les bases de données sensibles sont chiffrées pour éviter toute fuite en cas d'intrusion.
+</p>
+
+<h2>8. Les bonnes pratiques de sécurité serveur</h2>
+
+<h3>Pratiques essentielles</h3>
+<ul>
+  <li>Mettre à jour les serveurs.</li>
+  <li>Durcir les configurations.</li>
+  <li>Limiter les ports ouverts.</li>
+  <li>Appliquer des règles strictes.</li>
+  <li>Surveiller les journaux.</li>
+  <li>Tester régulièrement la sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques et améliorer la sécurité globale.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un test de sécurité révèle un port inutile ouvert sur un serveur de production.
+</p>
+
+<h2>Résumé de la fiche 29</h2>
+<p>
+Cette fiche présente les risques des serveurs, le durcissement, la gestion des mises à jour, la gestion des accès, la sécurisation des services, la surveillance des journaux, la protection des données et les bonnes pratiques de sécurité serveur.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 30 - Gérer la sécurité des applications et des services web</title>
+</head>
+<body>
+
+<h1>FICHE 30 - Gérer la sécurité des applications et des services web</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les mesures nécessaires pour sécuriser les applications, les services web et les interfaces exposées. Savoir identifier les risques, appliquer les bonnes pratiques, protéger les données, contrôler les accès, surveiller les journaux et prévenir les attaques.
+</p>
+
+<h2>1. Les risques liés aux applications</h2>
+
+<h3>Risques principaux</h3>
+<ul>
+  <li>Injection de code.</li>
+  <li>Fuite de données.</li>
+  <li>Accès non autorisé.</li>
+  <li>Exploitation de vulnérabilités.</li>
+  <li>Déni de service.</li>
+  <li>Manipulation des sessions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Identifier les menaces pour mieux protéger les applications.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une application vulnérable à l'injection permet à un attaquant d'accéder à la base de données.
+</p>
+
+<h2>2. Le durcissement des applications</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Validation stricte des entrées.</li>
+  <li>Gestion sécurisée des erreurs.</li>
+  <li>Protection contre les injections.</li>
+  <li>Chiffrement des communications.</li>
+  <li>Gestion sécurisée des sessions.</li>
+  <li>Suppression des fonctions inutiles.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire la surface d'attaque des applications.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une application valide toutes les entrées pour éviter les injections SQL.
+</p>
+
+<h2>3. La sécurisation des services web</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Utilisation de protocoles sécurisés.</li>
+  <li>Chiffrement des données.</li>
+  <li>Protection des API.</li>
+  <li>Limitation des accès.</li>
+  <li>Contrôle des ports ouverts.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Protéger les services web contre les attaques et les intrusions.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une API utilise un jeton d'authentification pour limiter les accès.
+</p>
+
+<h2>4. La gestion des mises à jour applicatives</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Installer les mises à jour.</li>
+  <li>Appliquer les correctifs de sécurité.</li>
+  <li>Tester les mises à jour.</li>
+  <li>Vérifier la compatibilité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Corriger les vulnérabilités et maintenir un niveau de sécurité élevé.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une mise à jour corrige une faille permettant l'exécution de code à distance.
+</p>
+
+<h2>5. La gestion des accès aux applications</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Authentification forte.</li>
+  <li>Gestion des mots de passe.</li>
+  <li>Contrôle des droits.</li>
+  <li>Gestion des rôles.</li>
+  <li>Journalisation des connexions.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Limiter les accès aux seules personnes autorisées.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Une application limite l'accès à certaines fonctions selon le rôle de l'utilisateur.
+</p>
+
+<h2>6. La surveillance des journaux applicatifs</h2>
+
+<h3>Types de journaux</h3>
+<ul>
+  <li>Authentification.</li>
+  <li>Accès aux données.</li>
+  <li>Erreurs applicatives.</li>
+  <li>Actions utilisateur.</li>
+  <li>Alertes de sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Détecter les anomalies et les tentatives d'intrusion.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un journal montre plusieurs tentatives de connexion échouées sur un compte administrateur.
+</p>
+
+<h2>7. La protection des données applicatives</h2>
+
+<h3>Actions</h3>
+<ul>
+  <li>Chiffrement des données sensibles.</li>
+  <li>Contrôle des accès.</li>
+  <li>Journalisation.</li>
+  <li>Sécurisation des transferts.</li>
+  <li>Protection des bases de données.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Garantir la confidentialité, l'intégrité et la disponibilité des données.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Les mots de passe sont stockés sous forme chiffrée pour éviter toute fuite.
+</p>
+
+<h2>8. Les bonnes pratiques de sécurité applicative</h2>
+
+<h3>Pratiques essentielles</h3>
+<ul>
+  <li>Mettre à jour les applications.</li>
+  <li>Durcir les configurations.</li>
+  <li>Limiter les ports ouverts.</li>
+  <li>Appliquer des règles strictes.</li>
+  <li>Surveiller les journaux.</li>
+  <li>Tester régulièrement la sécurité.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
+Réduire les risques et améliorer la sécurité globale.
+</p>
+
+<h3>Exemple</h3>
+<p>
+Un test de sécurité révèle une faille dans un formulaire de connexion.
+</p>
+
+<h2>Résumé de la fiche 30</h2>
+<p>
+Cette fiche présente les risques des applications, le durcissement, la sécurisation des services web, la gestion des mises à jour, la gestion des accès, la surveillance des journaux, la protection des données et les bonnes pratiques de sécurité applicative.
+</p>
+
+</body>
+</html>
 
- Exemples
-
-   -    Snort.
-   -    Suricata.
-   -    Zeek.
-
- Ce que l’on détecte
-
-   -    Scans de ports.
-   -    Exploits connus.
-   -    Trafic anormal.
-   -    Tentatives d’intrusion.
-
-
-       7. Le filtrage web et applicatif
-
-
- WAF (Web Application Firewall)
-
-Protège les applications web contre :
-
-   -    SQL injection,
-   -    XSS,
-   -    CSRF,
-   -    attaques OWASP.
-
- Proxy filtrant
-
-   -    Bloque les sites malveillants.
-   -    Analyse les téléchargements.
-   -    Applique des politiques d’accès.
-
-
-       8. La sécurité du Wi-Fi
- Bonnes pratiques
-
-   -    WPA2-Enterprise ou WPA3.
-   -    Désactiver WPS.
-   -    SSID non critique.
-   -    VLAN séparé pour le Wi-Fi invité.
-   -    Authentification via RADIUS.
-
- Risques
-
-   -    Usurpation de point d’accès.
-   -    Sniffing.
-   -    Attaques de déauthentification.
-
-
-       9. La supervision réseau
- Ce que l’on surveille
-
-   -    Trafic anormal.
-   -    Débits élevés.
-   -    Erreurs sur interfaces.
-   -    Tentatives de scan.
-   -    Connexions suspectes.
-
- Outils
-
-   -    NetFlow / sFlow.
-   -    SIEM.
-   -    Centreon / Zabbix.
-
-
-   -   Wireshark.
-
-
- Résumé de la fiche 25
-Ce module t’apprend à :
-
-   -   sécuriser un réseau avec firewall, segmentation et protocoles,
-   -   utiliser VPN, IDS/IPS, WAF, proxy,
-   -   sécuriser le Wi-Fi,
-   -   surveiller le trafic réseau,
-   -   appliquer les bonnes pratiques de sécurité réseau.
-
-C’est une fiche essentielle pour comprendre la protection du réseau en entreprise.
-
-
- FICHE 26 — Les bases de la sécurité
-des systèmes
-(Septième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre comment sécuriser les systèmes d’exploitation (Windows, Linux), les services,
-les configurations, les comptes, les journaux, les mises à jour et les environnements critiques.
-
-
-       1. Les objectifs de la sécurité des systèmes
- Objectifs principaux
-
-   -    Confidentialité : empêcher l’accès non autorisé.
-   -    Intégrité : empêcher la modification non autorisée.
-   -    Disponibilité : garantir le fonctionnement du système.
-
- Menaces typiques
-
-   -    Malware.
-   -    Exploits de vulnérabilités.
-   -    Escalade de privilèges.
-   -    Mauvaises configurations.
-   -    Comptes compromis.
-
-
-  2. Le durcissement des systèmes
-(Hardening)
- Définition
-
-Réduction de la surface d’attaque d’un système.
-
- Actions Windows
-
-   -    Désactiver SMBv1.
-   -    Activer BitLocker.
-   -    Configurer les GPO de sécurité.
-   -    Désactiver les services inutiles.
-   -    Activer le firewall Windows.
-   -    Journalisation avancée.
-
-
- Actions Linux
-
-   -    Désactiver root SSH.
-   -    Utiliser sudo.
-   -    Configurer SSH (clé, pas de mot de passe).
-   -    Activer le firewall (UFW, firewalld).
-   -    Désactiver les services inutiles.
-   -    Appliquer les CIS Benchmarks.
-
-
-       3. La gestion des comptes et des privilèges
- Principes essentiels
-
-   -    Comptes nominatifs.
-   -    Comptes administrateurs séparés.
-   -    Principe du moindre privilège.
-   -    Rotation des mots de passe.
-   -    MFA obligatoire.
-   -    Révocation des comptes inactifs.
-
- Outils
-
-   -    Active Directory.
-   -    sudoers (Linux).
-   -    IAM / PAM.
-
-
-       4. La gestion des mises à jour
- Types de mises à jour
-
-   -    Système (Windows Update, apt, yum).
-   -    Applications.
-   -    Drivers.
-   -    Firmware.
-
- Objectif
-
-Corriger les vulnérabilités avant qu’elles ne soient exploitées.
-
- Bonnes pratiques
-
-   -    Automatiser les mises à jour.
-   -    Tester avant déploiement (serveurs).
-   -    Planifier les redémarrages.
-   -    Suivre les bulletins de sécurité (Microsoft, RedHat, Debian).
-
-
-       5. La journalisation et l’audit
- Ce que l’on journalise
-
-   -    Connexions.
-   -    Éléments système.
-   -    Modifications de fichiers.
-   -    Éléments de sécurité.
-   -    Échecs d’authentification.
-
- Outils
-
-   -    Windows Event Viewer.
-   -    Syslog.
-   -    auditd (Linux).
-   -    SIEM (Sentinel, Splunk).
-
- Objectif
-
-Détecter les comportements anormaux et les attaques.
-
-
-       6. La sécurité des services
- Services critiques
-
-   -    Active Directory.
-   -    DNS.
-   -    DHCP.
-   -    Serveurs web.
-   -    Bases de données.
-
- Bonnes pratiques
-
-   -    Limiter les accès.
-   -    Séparer les rôles.
-   -    Chiffrer les communications.
-   -    Journaliser les accès.
-   -    Mettre à jour régulièrement.
-   -    Protéger via firewall / WAF.
-
-
-   7. La sécurité des environnements
-virtualisés
- Risques
-
-
-   -    VM compromise.
-   -    Hyperviseur vulnérable.
-   -    Mauvaise isolation.
-   -    Snapshots non sécurisés.
-
- Actions
-
-   -    Mettre à jour l’hyperviseur.
-   -    Séparer les réseaux VM / management.
-   -    Limiter les accès au vCenter / Hyper-V Manager.
-   -    Chiffrer les disques VM.
-   -    Journaliser les actions administratives.
-
-
-       8. La sécurité des environnements cloud
- Risques
-
-   -    Mauvaise configuration (S3 public).
-   -    Clés API exposées.
-   -    Droits trop élevés.
-   -    Absence de MFA.
-
- Actions
-
-   -    MFA obligatoire.
-   -    IAM strict.
-   -    Journalisation (CloudTrail, Azure Logs).
-   -    Chiffrement des données.
-   -    Segmentation réseau (VPC, NSG).
-   -    Scanner les configurations (Azure Defender, AWS Inspector).
-
-
- Résumé de la fiche 26
-Ce module t’apprend à :
-
-   -    durcir Windows et Linux,
-   -    gérer les comptes et privilèges,
-   -    appliquer les mises à jour,
-   -    journaliser et auditer,
-   -    sécuriser les services critiques,
-   -    sécuriser les environnements virtualisés et cloud.
-
-C’est une fiche essentielle pour protéger les systèmes d’exploitation et les services en
-entreprise.
-
-
- FICHE 27 — Les bases de la sécurité
-des applications
-(Huitième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre comment sécuriser les applications : vulnérabilités OWASP, authentification,
-autorisation, API, bases de données, logs, mises à jour, tests de sécurité, et bonnes pratiques
-de développement sécurisé.
-
-
-  1. Les vulnérabilités applicatives
-(OWASP Top 10)
- OWASP Top 10 (principales failles)
-
-   1. Injection (SQL, LDAP, OS)
-   2. Broken Authentication
-   3. Sensitive Data Exposure
-   4. XML External Entities (XXE)
-   5. Broken Access Control
-   6. Security Misconfiguration
-   7. Cross-Site Scripting (XSS)
-   8. Insecure Deserialization
-   9. Using Components with Known Vulnerabilities
-   10. Insufficient Logging &amp; Monitoring
-
- Objectif
-
-Connaître les failles les plus exploitées pour mieux les prévenir.
-
-
-       2. L’authentification et l’autorisation
- Authentification
-
-Vérifie l’identité de l’utilisateur. Bonnes pratiques :
-
-   -    MFA obligatoire.
-   -    Mots de passe robustes.
-   -    Limitation des tentatives.
-   -    Captcha si nécessaire.
-
- Autorisation
-
-
-Détermine ce que l’utilisateur peut faire. Bonnes pratiques :
-
-   -    Rôles (RBAC).
-   -    Principe du moindre privilège.
-   -    Vérification côté serveur (jamais côté client).
-
-
-       3. La sécurité des API
- Risques
-
-   -    Exposition de données sensibles.
-   -    Appels non authentifiés.
-   -    Injection via paramètres.
-   -    Bruteforce.
-
- Bonnes pratiques
-
-   -    Authentification (OAuth2, JWT).
-   -    Limitation de débit (rate limiting).
-   -    Validation stricte des entrées.
-   -    Chiffrement (HTTPS obligatoire).
-   -    Journalisation des appels.
-   -    Versioning pour éviter les API obsolètes.
-
-
-       4. La sécurité des bases de données
- Risques
-
-   -    Injection SQL.
-   -    Droits trop élevés.
-   -    Fuite de données.
-   -    Mauvaise configuration.
-
- Bonnes pratiques
-
-   -    Requêtes préparées (paramétrées).
-   -    Comptes SQL avec droits limités.
-   -    Chiffrement des données sensibles.
-   -    Sauvegardes régulières.
-   -    Journalisation des accès.
-   -    Séparation des environnements (dev / test / prod).
-
-
-       5. La gestion des sessions
- Risques
-
-
-   -    Vol de session.
-   -    Session non expirée.
-   -    Cookies non sécurisés.
-
- Bonnes pratiques
-
-   -    Cookies HttpOnly et Secure.
-   -    Expiration automatique.
-   -    Regénération du token après login.
-   -    Stockage sécurisé côté serveur.
-
-
-       6. La sécurité du code
- Bonnes pratiques
-
-   -    Validation stricte des entrées.
-   -    Pas de données sensibles dans le code.
-   -    Pas de logs contenant des mots de passe.
-   -    Pas de clés API en clair.
-   -    Utilisation de librairies à jour.
-   -    Analyse statique du code (SonarQube).
-
-
-       7. Les tests de sécurité
- Types de tests
-
-   -    Pentest (test d’intrusion).
-   -    Analyse statique (SAST).
-   -    Analyse dynamique (DAST).
-   -    Fuzzing (tests aléatoires).
-   -    Scan de vulnérabilités.
-
- Objectif
-
-Détecter les failles avant les attaquants.
-
-
-  8. La journalisation et la supervision
-applicative
- Ce que l’on journalise
-
-   -    Erreurs.
-   -    Accès.
-   -    Tentatives de connexion.
-
-
-   -   Appels API.
-   -   Actions sensibles.
-
- Outils
-
-   -   SIEM.
-   -   APM (Application Performance Monitoring).
-   -   Logs applicatifs.
-
- Objectif
-
-Détecter les comportements anormaux et les attaques.
-
-
- Résumé de la fiche 27
-Ce module t’apprend à :
-
-   -   connaître les vulnérabilités OWASP,
-   -   sécuriser authentification et autorisation,
-   -   sécuriser les API,
-   -   protéger les bases de données,
-   -   gérer les sessions,
-   -   écrire du code sécurisé,
-   -   réaliser des tests de sécurité,
-   -   superviser les applications.
-
-C’est une fiche essentielle pour comprendre la sécurité applicative moderne.
-
-
- FICHE 28 — Les bases de la sécurité
-des données
-(Neuvième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre comment protéger les données : classification, chiffrement, sauvegardes, gestion
-des accès, confidentialité, intégrité, disponibilité, conformité RGPD, et bonnes pratiques de
-sécurité.
-
-
-       1. La classification des données
- Pourquoi classifier ?
-
-Toutes les données n’ont pas la même sensibilité. La classification permet de définir le niveau
-de protection nécessaire.
-
- Niveaux typiques
-
-   -    Public : aucune restriction.
-   -    Interne : usage interne uniquement.
-   -    Confidentiel : accès limité.
-   -    Très sensible : données critiques (RH, finance, santé).
-
- Objectif
-
-Appliquer les bonnes protections selon la sensibilité.
-
-
-       2. La confidentialité des données
- Objectif
-
-Empêcher l’accès non autorisé.
-
- Moyens
-
-   -    Chiffrement (AES, RSA).
-   -    MFA.
-   -    Gestion des accès (IAM, RBAC).
-   -    Cloisonnement des environnements.
-   -    VPN pour les accès distants.
-   -    Masquage des données sensibles.
-
-
-       3. L’intégrité des données
- Objectif
-
-Empêcher la modification non autorisée.
-
- Moyens
-
-   -    Hash (SHA-256).
-   -    Signature numérique.
-   -    Contrôles d’intégrité.
-   -    Journalisation des modifications.
-   -    Droits stricts sur les fichiers.
-
-
-       4. La disponibilité des données
-       
-Objectif
-
-Garantir l’accès aux données quand nécessaire.
-
- Moyens
-
-   -    Sauvegardes régulières.
-   -    Réplication.
-   -    RAID.
-   -    Haute disponibilité (cluster).
-   -    Plan de reprise (PRA).
-   -    Plan de continuité (PCI).
-
-
-       5. Le chiffrement des données
- Types de chiffrement
-
-   -    Au repos : disques, bases de données (BitLocker, LUKS).
-   -    En transit : HTTPS, TLS, SSH, IPsec.
-   -    Applicatif : champs sensibles (numéro de carte, mot de passe).
-
- Bonnes pratiques
-
-   -    Ne jamais stocker un mot de passe en clair.
-   -    Utiliser des algorithmes modernes (AES-256, RSA-2048).
-   -    Utiliser des clés fortes et renouvelées.
-
-
-       6. La gestion des accès aux données
-
-
- Principes
-
-  -    Principe du moindre privilège.
-  -    Séparation des rôles.
-  -    Comptes nominatifs.
-  -    MFA obligatoire.
-  -    Révocation des comptes inactifs.
-
- Outils
-
-  -    IAM (Identity Access Management).
-  -    RBAC (Role Based Access Control).
-  -    PAM (Privileged Access Management).
-
-
-      7. Les sauvegardes et la restauration
-       
- Types de sauvegardes
-
-  -    Complète.
-  -    Incrémentale.
-  -    Différentielle.
-  -    Snapshot.
-
- Règle du 3-2-1
-
-  -    3 copies
-  -    2 supports différents
-  -    1 hors site
-
- Bonnes pratiques
-
-  -    Sauvegardes déconnectées (anti-ransomware).
-  -    Tests réguliers de restauration.
-  -    Chiffrement des sauvegardes.
-
-
-  8. La protection contre les fuites de
-données (DLP)
- Risques
-
-  -    Envoi de données sensibles par email.
-  -    Copie sur clé USB.
-  -    Upload vers des services cloud non autorisés.
-  -    Exfiltration par malware.
-
-
- Moyens
-
-   -    Solutions DLP (Data Loss Prevention).
-   -    Blocage des périphériques USB.
-   -    Filtrage des emails.
-   -    Journalisation des transferts.
-
-
-       9. La conformité RGPD
- Obligations principales
-
-   -    Minimisation des données.
-   -    Consentement.
-   -    Droit d’accès / rectification / suppression.
-   -    Registre des traitements.
-   -    Sécurisation des données personnelles.
-   -    Notification des violations à la CNIL.
-
- Objectif
-
-Protéger les données personnelles et éviter les sanctions.
-
-
- Résumé de la fiche 28
-Ce module t’apprend à :
-
-   -    classifier les données,
-   -    garantir confidentialité, intégrité et disponibilité,
-   -    chiffrer les données,
-   -    gérer les accès,
-   -    mettre en place des sauvegardes fiables,
-   -    prévenir les fuites de données (DLP),
-   -    respecter le RGPD.
-
-C’est une fiche essentielle pour comprendre la protection des données en entreprise.
-
-
- FICHE 29 — Les bases de la sécurité
-opérationnelle avancée
-(Dixième fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Approfondir la sécurité opérationnelle : détection avancée, réponse automatisée, durcissement
-renforcé, sécurité des identités, sécurité des environnements hybrides, surveillance continue,
-et gestion proactive des menaces.
-
-
-  1. La détection avancée des menaces
-(EDR / XDR)
- EDR (Endpoint Detection &amp; Response)
-
-Surveille les postes et serveurs pour détecter :
-
-   -   comportements suspects,
-   -   exécutions anormales,
-   -   scripts malveillants,
-   -   ransomwares,
-   -   mouvements latéraux.
-
- XDR (Extended Detection &amp; Response)
-
-Corrèle les données de :
-
-   -   endpoints,
-   -   réseau,
-   -   cloud,
-   -   identités,
-   -   emails.
-
- Objectif
-
-Détecter les attaques modernes, même sans signature.
-
-
-  2. La réponse automatisée aux incidents
-(SOAR)
- Définition
-
-
-Automatisation des actions de réponse aux incidents.
-
- Actions automatisables
-
-   -    Isolation d’une machine.
-   -    Révocation d’un compte.
-   -    Analyse automatique des logs.
-   -    Envoi d’alertes.
-   -    Création de tickets.
-   -    Application de correctifs.
-
- Objectif
-
-Réduire le temps de réaction (MTTR).
-
-
-       3. Le durcissement avancé des systèmes
- Windows
-
-   -    GPO de sécurité renforcées.
-   -    AppLocker / WDAC (contrôle des applications).
-   -    Credential Guard.
-   -    LAPS (gestion des mots de passe locaux).
-   -    Sécurisation d’Active Directory.
-
- Linux
-
-   -    SELinux / AppArmor.
-   -    Auditd avancé.
-   -    SSH renforcé (FIPS, clés fortes).
-   -    Kernel hardening.
-
- Objectif
-
-Rendre les systèmes résistants aux attaques complexes.
-
-
-       4. La sécurité des identités (IAM / PAM)
- IAM (Identity Access Management)
-
-Gestion des identités et des droits.
-
- PAM (Privileged Access Management)
-
-Gestion des comptes à privilèges.
-
-
- Bonnes pratiques
-
-   -   Comptes admin séparés.
-   -   MFA obligatoire.
-   -   Rotation automatique des mots de passe.
-   -   Coffre-fort à secrets.
-   -   Session enregistrée pour les admins.
-
- Objectif
-
-Empêcher l’escalade de privilèges.
-
-
-  5. La sécurité des environnements
-hybrides (Cloud + On-Premise)
- Risques
-
-   -   Mauvaise configuration cloud.
-   -   Clés API exposées.
-   -   Droits trop élevés.
-   -   Absence de segmentation.
-
- Actions
-
-   -   MFA obligatoire pour le cloud.
-   -   IAM strict (Azure AD, AWS IAM).
-   -   Journalisation cloud (CloudTrail, Azure Logs).
-   -   Scanner les configurations (Defender, Inspector).
-   -   Séparer les environnements (prod / dev / test).
-
- Objectif
-
-Éviter les failles de configuration, première cause d’incidents cloud.
-
-
-  6. La surveillance continue (SIEM
-avancé)
- Ce que l’on corrèle
-
-   -   Logs système.
-   -   Logs réseau.
-   -   Logs cloud.
-   -   Logs applicatifs.
-   -   Alertes EDR.
-
-
-   -    Alertes firewall / IDS.
-
- Objectif
-
-Détecter les attaques complexes (APT, mouvements latéraux).
-
-
-  7. La gestion proactive des menaces
-(Threat Intelligence)
- Sources
-
-   -    ANSSI.
-   -    CERT-FR.
-   -    Microsoft Threat Intelligence.
-   -    VirusTotal.
-   -    MISP.
-
- Actions
-
-   -    Surveiller les nouvelles vulnérabilités.
-   -    Identifier les campagnes d’attaque.
-   -    Bloquer les IP malveillantes.
-   -    Mettre à jour les règles de détection.
-
- Objectif
-
-Anticiper les attaques avant qu’elles n’arrivent.
-
-
-       8. La sécurité des emails
- Risques
-
-   -    Phishing.
-   -    Malware.
-   -    Ransomware.
-   -    Fraude au président.
-
- Actions
-
-   -    SPF / DKIM / DMARC.
-   -    Filtrage anti-phishing.
-   -    Sandbox des pièces jointes.
-   -    MFA obligatoire.
-   -    Sensibilisation des utilisateurs.
-
-
- Objectif
-
-Protéger le premier vecteur d’attaque en entreprise.
-
-
- Résumé de la fiche 29
-Ce module t’apprend à :
-
-   -   utiliser EDR/XDR pour détecter les menaces,
-   -   automatiser la réponse aux incidents (SOAR),
-   -   durcir les systèmes de manière avancée,
-   -   sécuriser les identités (IAM/PAM),
-   -   sécuriser les environnements hybrides,
-   -   surveiller le SI en continu (SIEM avancé),
-   -   utiliser la threat intelligence,
-   -   sécuriser les emails.
-
-C’est une fiche essentielle pour comprendre la sécurité moderne dans les entreprises.
-
-
- FICHE 30 — Les bases de la gestion des
-vulnérabilités
-(Dixième et dernière fiche de l’Activité Type 3 : Participer à la gestion de la cybersécurité)
-
- Objectif du module
-Comprendre comment identifier, analyser, prioriser et corriger les vulnérabilités dans un
-système d’information, en utilisant des outils, des méthodes et des processus structurés.
-
-
-       1. Qu’est-ce qu’une vulnérabilité ?
- Définition
-
-Une vulnérabilité est une faiblesse technique ou organisationnelle pouvant être exploitée par
-une menace.
-
- Types
-
-   -    Logiciels non mis à jour.
-   -    Mauvaises configurations.
-   -    Ports ouverts inutiles.
-   -    Droits trop élevés.
-   -    Services obsolètes.
-   -    Protocoles non sécurisés.
-   -    Failles applicatives (OWASP).
-
-
-       2. Le cycle de gestion des vulnérabilités
- Étapes principales
-
-   1.   Découverte
-   2.   Analyse
-   3.   Priorisation
-   4.   Correction
-   5.   Vérification
-   6.   Documentation
-
- Objectif
-
-Réduire le risque global du système d’information.
-
-
-       3. La découverte des vulnérabilités
-
-
- Outils de scan
-
-    -    Nessus
-    -    Qualys
-    -    OpenVAS
-    -    Microsoft Defender Vulnerability Management
-    -    Rapid7 InsightVM
-
- Ce que l’on détecte
-
-    -    Versions obsolètes.
-    -    Services vulnérables.
-    -    Ports ouverts.
-    -    Mauvaises configurations.
-    -    Failles connues (CVE).
-
-
-        4. Les CVE et le scoring CVSS
- CVE
-
-Catalogue public des vulnérabilités connues.
-
- CVSS
-
-Score de gravité de 0 à 10.
-
- Interprétation
-
-    -    0–3.9 : faible
-    -    4–6.9 : moyen
-    -    7–8.9 : élevé
-    -    9–10 : critique
-
- Objectif
-
-Prioriser les corrections.
-
-
-        5. La priorisation des vulnérabilités
- Critères
-
-    -    Gravité (CVSS).
-    -    Exposition (interne / externe).
-    -    Importance du système.
-    -    Exploits disponibles.
-    -    Données sensibles présentes.
-
-
-   -    Impact métier.
-
- Objectif
-
-Corriger d’abord ce qui représente le plus grand risque.
-
-
-       6. La correction des vulnérabilités
- Actions typiques
-
-   -    Mise à jour des systèmes.
-   -    Mise à jour des applications.
-   -    Correction des configurations.
-   -    Désactivation des services inutiles.
-   -    Renforcement des mots de passe.
-   -    Activation du MFA.
-   -    Segmentation réseau.
-   -    Hardening.
-
- Objectif
-
-Réduire la surface d’attaque.
-
-
-       7. La vérification
- Actions
-
-   -    Re-scanner les systèmes.
-   -    Vérifier que la vulnérabilité est corrigée.
-   -    Vérifier qu’aucun effet secondaire n’est apparu.
-
- Objectif
-
-S’assurer que la correction est effective.
-
-
-       8. La documentation
- Ce que l’on documente
-
-   -    Vulnérabilité détectée.
-   -    Gravité.
-   -    Systèmes concernés.
-   -    Actions réalisées.
-   -    Date de correction.
-   -    Responsable.
-
-
-   -    Preuves (captures, logs).
-
- Objectif
-
-Assurer la traçabilité et la conformité.
-
-
-       9. La gestion continue des vulnérabilités
- Bonnes pratiques
-
-   -    Scans réguliers (hebdo / mensuel).
-   -    Mise à jour automatique.
-   -    Suivi des bulletins de sécurité.
-   -    Processus de patch management.
-   -    Supervision des nouvelles CVE.
-   -    Intégration avec SIEM / EDR.
-
- Objectif
-
-Maintenir un niveau de sécurité élevé dans le temps.
-
-
- Résumé de la fiche 30
-Ce module t’apprend à :
-
-   -    comprendre les vulnérabilités,
-   -    utiliser les scanners de vulnérabilités,
-   -    interpréter CVE et CVSS,
-   -    prioriser les corrections,
-   -    corriger les failles,
-   -    vérifier les corrections,
-   -    documenter et maintenir un processus continu.
-
-C’est la dernière fiche de la cybersécurité et la dernière fiche du programme AIS.
-
-
-
-</pre>
-</body></html>
