@@ -751,152 +751,165 @@ Cette fiche couvre l'administration complète d'un réseau, incluant le Wi Fi, l
 
 
 
- FICHE 5 — Automatiser les tâches
-d’administration
-(Matière : Administrer et sécuriser les infrastructures — Module 5)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 5 - Automatiser les tâches d'administration</title>
+</head>
+<body>
 
- Objectif du module
-Comprendre les langages de script, identifier les tâches automatisables, créer des scripts
-simples, sécuriser l’automatisation et manipuler des données via des requêtes.
+<h1>FICHE 5 - Automatiser les tâches d'administration</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre les langages de script, identifier les tâches automatisables, créer des scripts simples, sécuriser l'automatisation et manipuler des données via des requêtes.
+</p>
 
-  1. Les langages de script en
-environnement Windows et Unix/Linux
- Définition : Script
+<h2>1. Les langages de script en environnement Windows et Linux</h2>
 
-Programme simple, souvent court, permettant d’automatiser une tâche répétitive.
+<h3>Definition : Script</h3>
+<p>
+Un script est un programme simple permettant d'automatiser une tâche répétitive.
+</p>
 
- Principaux langages
+<h3>Principaux langages</h3>
 
-   -    Windows : PowerShell
-           o Administration système.
-           o Automatisation AD, réseau, fichiers.
-           o Cmdlets puissantes.
-   -    Linux : Bash / Shell
-           o Manipulation de fichiers.
-           o Automatisation de tâches système.
-           o Gestion des services.
+<h4>Windows : PowerShell</h4>
+<ul>
+  <li>Administration système.</li>
+  <li>Automatisation Active Directory, réseau et fichiers.</li>
+  <li>Cmdlets puissantes.</li>
+</ul>
 
+<h4>Linux : Bash ou Shell</h4>
+<ul>
+  <li>Manipulation de fichiers.</li>
+  <li>Automatisation de tâches système.</li>
+  <li>Gestion des services.</li>
+</ul>
 
- Pourquoi utiliser des scripts ?
+<h3>Pourquoi utiliser des scripts</h3>
+<ul>
+  <li>Gain de temps.</li>
+  <li>Réduction des erreurs humaines.</li>
+  <li>Standardisation des actions.</li>
+  <li>Automatisation des tâches répétitives.</li>
+</ul>
 
-   -    Gain de temps.
-   -    Réduction des erreurs humaines.
-   -    Standardisation des actions.
-   -    Automatisation des tâches répétitives.
+<h2>2. Bien créer son script sous Linux</h2>
 
+<h3>Bonnes pratiques</h3>
+<ul>
+  <li>Utiliser la ligne shebang comme dièse point d'exclamation slash bin slash bash.</li>
+  <li>Commenter chaque étape.</li>
+  <li>Tester sur un environnement non production.</li>
+  <li>Vérifier les permissions avec chmod.</li>
+  <li>Utiliser des variables pour éviter les répétitions.</li>
+  <li>Gérer les erreurs avec des conditions et des codes retour.</li>
+</ul>
 
-       2. Bien créer son script sous Linux
- Bonnes pratiques
-
-   -    Utiliser #!/bin/bash en en-tête.
-   -    Commenter chaque étape.
-   -    Tester sur un environnement non-production.
-   -    Vérifier les permissions (chmod).
-
-
-   -    Utiliser des variables pour éviter les répétitions.
-   -    Gérer les erreurs (if, exit, codes retour).
-
- Exemple simple
-
-bash
+<h3>Exemple simple</h3>
+<pre>
 #!/bin/bash
-echo &quot;Sauvegarde en cours...&quot;
+echo "Sauvegarde en cours..."
 cp /source /destination
-echo &quot;Terminé.&quot;
+echo "Terminé."
+</pre>
 
+<h2>3. Identifier les tâches automatisables</h2>
 
-  3. Identifier les tâches qui peuvent être
-automatisées
- Exemples typiques
+<h3>Exemples typiques</h3>
+<ul>
+  <li>Sauvegardes.</li>
+  <li>Nettoyage de logs.</li>
+  <li>Création d'utilisateurs.</li>
+  <li>Déploiement de logiciels.</li>
+  <li>Surveillance de services.</li>
+  <li>Redémarrage automatique en cas de panne.</li>
+</ul>
 
-   -    Sauvegardes.
-   -    Nettoyage de logs.
-   -    Création d’utilisateurs.
-   -    Déploiement de logiciels.
-   -    Surveillance de services.
-   -    Redémarrage automatique en cas de panne.
+<h3>Critères</h3>
+<ul>
+  <li>Tâche répétitive.</li>
+  <li>Tâche chronophage.</li>
+  <li>Tâche sensible aux erreurs humaines.</li>
+  <li>Tâche nécessitant une exécution régulière.</li>
+</ul>
 
- Critères
+<h2>4. Automatiser un traitement simple</h2>
 
-   -    Tâche répétitive.
-   -    Tâche chronophage.
-   -    Tâche sensible aux erreurs humaines.
-   -    Tâche nécessitant une exécution régulière.
+<h3>Definition</h3>
+<p>
+Un traitement automatisé est une action programmée pour s'exécuter sans intervention humaine.
+</p>
 
+<h3>Exemples</h3>
+<ul>
+  <li>Script de sauvegarde quotidienne.</li>
+  <li>Script de vérification d'espace disque.</li>
+  <li>Script de redémarrage d'un service.</li>
+</ul>
 
-       4. Automatiser un traitement simple
- Définition : Traitement automatisé
+<h3>Outils</h3>
+<ul>
+  <li>Linux : cron.</li>
+  <li>Windows : Task Scheduler.</li>
+</ul>
 
-Action programmée pour s’exécuter sans intervention humaine.
+<h2>5. Rechercher des scripts et sécuriser leur utilisation</h2>
 
- Exemples
+<h3>Ou trouver des scripts</h3>
+<ul>
+  <li>GitHub.</li>
+  <li>Documentation officielle.</li>
+  <li>Communautés comme StackOverflow.</li>
+  <li>Scripts internes à l'entreprise.</li>
+</ul>
 
-   -    Script de sauvegarde quotidienne.
-   -    Script de vérification d’espace disque.
-   -    Script de redémarrage d’un service.
+<h3>Mesures de sécurité</h3>
+<ul>
+  <li>Vérifier la source du script.</li>
+  <li>Lire le contenu avant exécution.</li>
+  <li>Éviter les scripts téléchargés sans contrôle.</li>
+  <li>Ne jamais exécuter en administrateur sans validation.</li>
+  <li>Journaliser les actions automatisées.</li>
+</ul>
 
- Outils
+<h2>6. Utiliser des requêtes de définition et de manipulation de données</h2>
 
-   -    Linux : cron
-   -    Windows : Task Scheduler
+<h3>Definition : Requête</h3>
+<p>
+Une requête est une instruction permettant de lire, modifier ou supprimer des données dans une base.
+</p>
 
+<h3>Types de requêtes</h3>
+<ul>
+  <li>DDL ou Data Definition Language pour créer des tables et structures.</li>
+  <li>DML ou Data Manipulation Language pour insérer, mettre à jour ou supprimer des données.</li>
+</ul>
 
-  5. Rechercher des scripts
-d’automatisation et les mesures de sécurité
-associées
- Où trouver des scripts ?
+<h3>Exemples</h3>
+<pre>
+SELECT * FROM utilisateurs;
+INSERT INTO logs VALUES (...);
+UPDATE machines SET statut = 'OK';
+</pre>
 
-   -   GitHub.
-   -   Documentation officielle.
-   -   Communautés (StackOverflow, forums Linux).
-   -   Scripts internes à l’entreprise.
+<h3>Utilité</h3>
+<ul>
+  <li>Automatiser des rapports.</li>
+  <li>Mettre à jour des données.</li>
+  <li>Intégrer des scripts avec des bases de données.</li>
+</ul>
 
- Sécurité
+<h2>Résumé de la fiche 5</h2>
+<p>
+Cette fiche explique l'utilisation de PowerShell et Bash, la création de scripts propres et sécurisés, l'identification des tâches automatisables, l'automatisation de traitements simples, la sécurité des scripts et la manipulation de données via des requêtes.
+</p>
 
-   -   Vérifier la source du script.
-   -   Lire le contenu avant exécution.
-   -   Éviter les scripts téléchargés sans contrôle.
-   -   Ne jamais exécuter en administrateur sans validation.
-   -   Journaliser les actions automatisées.
-
-
- 6. Utiliser des requêtes de définition et de
-manipulation de données
- Définition : Requête
-
-Instruction permettant de lire, modifier ou supprimer des données dans une base.
-
- Types
-
-   -   DDL (Data Definition Language) : création de tables, structures.
-   -   DML (Data Manipulation Language) : insertion, mise à jour, suppression.
-
- Exemples
-   -   SELECT * FROM utilisateurs;
-   -   INSERT INTO logs VALUES (...);
-   -   UPDATE machines SET statut=&#x27;OK&#x27;;
-
-
- Utilité
-
-   -   Automatiser des rapports.
-   -   Mettre à jour des données.
-   -   Intégrer des scripts avec des bases de données.
-
-
- Résumé de la fiche 5
-Ce module t’apprend à :
-
-   -   utiliser PowerShell et Bash,
-   -   créer des scripts propres et sécurisés,
-   -   identifier les tâches automatisables,
-   -   automatiser des traitements simples,
-   -   sécuriser l’automatisation,
-   -   manipuler des données via des requêtes.
-
-C’est un module essentiel pour devenir un administrateur efficace et productif.
+</body>
+</html>
 
 
  FICHE 6 — Administrer et sécuriser les
