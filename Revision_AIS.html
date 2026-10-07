@@ -507,234 +507,248 @@ Cette fiche couvre les bases du reseau, le role des equipements, la configuratio
 
 
 
- FICHE 4 — Administrer et sécuriser le
-réseau
-(Matière : Administrer et sécuriser les infrastructures — Module 4)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 4 - Administrer et sécuriser le réseau</title>
+</head>
+<body>
 
- Objectif du module
-Savoir administrer, sécuriser et surveiller un réseau d’entreprise : Wi-Fi, pare-feux, proxies,
-bastions, IDS/IPS, VPN, interconnexions, BYOD, QoS, documentation et résolution des
-incidents.
+<h1>FICHE 4 - Administrer et sécuriser le réseau</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Savoir administrer, sécuriser et surveiller un réseau d'entreprise. Comprendre le fonctionnement du Wi Fi, des pare feux, des proxies, des bastions, des IDS et IPS, des VPN, des interconnexions, du BYOD, de la QoS, de la documentation et de la résolution des incidents.
+</p>
 
-  1. Administrer des réseaux sans fil
-(Wi-Fi)
- Définition : Wi-Fi
+<h2>1. Administrer des réseaux sans fil</h2>
 
-Technologie permettant une connexion réseau sans fil via des points d’accès.
+<h3>Definition : Wi Fi</h3>
+<p>
+Technologie permettant une connexion réseau sans fil via des points d'accès.
+</p>
 
- Points clés
+<h3>Points importants</h3>
+<ul>
+  <li>Choix du mode de sécurité comme WPA2 Enterprise ou WPA3.</li>
+  <li>Gestion des SSID pour séparer les réseaux internes et invités.</li>
+  <li>Contrôle de la puissance d'émission.</li>
+  <li>Isolation des clients.</li>
+  <li>Authentification via un serveur RADIUS.</li>
+</ul>
 
-   -    Choix du mode de sécurité : WPA2-Enterprise, WPA3.
-   -    Gestion des SSID (réseaux séparés : invités, internes).
-   -    Contrôle de la puissance d’émission.
-   -    Isolation des clients.
-   -    Authentification via RADIUS.
+<h3>Risques</h3>
+<ul>
+  <li>Intrusions.</li>
+  <li>Usurpation de point d'accès.</li>
+  <li>Mauvaise segmentation.</li>
+</ul>
 
- Risques
+<h2>2. Administrer des pare feux</h2>
 
-   -    Intrusions.
-   -    Usurpation de point d’accès (Evil Twin).
-   -    Mauvaise segmentation.
+<h3>Definition : Pare feu</h3>
+<p>
+Equipement ou logiciel qui filtre le trafic réseau selon des règles.
+</p>
 
+<h3>Types de pare feux</h3>
+<ul>
+  <li>Pare feu réseau comme Cisco ASA ou Fortinet.</li>
+  <li>Pare feu applicatif ou WAF.</li>
+  <li>Pare feu local comme Windows Firewall.</li>
+</ul>
 
-       2. Administrer des pare-feux (firewalls)
- Définition : Pare-feu
+<h3>Fonctions</h3>
+<ul>
+  <li>Listes de contrôle d'accès ou ACL.</li>
+  <li>NAT et PAT.</li>
+  <li>Inspection de paquets.</li>
+  <li>Filtrage des ports et des URL.</li>
+  <li>Détection d'anomalies.</li>
+</ul>
 
-Équipement ou logiciel qui filtre le trafic réseau selon des règles.
+<h2>3. Administrer des proxies</h2>
 
- Types
+<h3>Definition : Proxy</h3>
+<p>
+Serveur intermédiaire entre l'utilisateur et Internet permettant le filtrage, la journalisation et le contrôle.
+</p>
 
-   -    Firewall réseau (Cisco ASA, Fortinet).
-   -    Firewall applicatif (WAF).
+<h3>Utilité</h3>
+<ul>
+  <li>Filtrage web.</li>
+  <li>Contrôle d'accès.</li>
+  <li>Cache pour optimiser la bande passante.</li>
+  <li>Journalisation des activités.</li>
+</ul>
 
+<h2>4. Administrer des bastions</h2>
 
-   -    Firewall local (Windows Firewall).
+<h3>Definition : Bastion</h3>
+<p>
+Serveur sécurisé servant de point d'accès unique pour administrer les ressources sensibles.
+</p>
 
- Fonctions
+<h3>Objectifs</h3>
+<ul>
+  <li>Centraliser les connexions administrateurs.</li>
+  <li>Enregistrer les sessions.</li>
+  <li>Appliquer le principe du moindre privilège.</li>
+</ul>
 
-   -    ACL (Access Control Lists).
-   -    NAT / PAT.
-   -    Inspection de paquets.
-   -    Filtrage URL / ports.
-   -    Détection d’anomalies.
+<h2>5. Administrer un IDS</h2>
 
+<h3>Definition : IDS</h3>
+<p>
+Un IDS est un système qui détecte les tentatives d'intrusion ou les comportements suspects.
+</p>
 
-       3. Administrer des proxies
- Définition : Proxy
+<h3>Fonctionnement</h3>
+<ul>
+  <li>Analyse des paquets.</li>
+  <li>Détection par signatures ou par comportement.</li>
+  <li>Alertes en cas d'anomalie.</li>
+</ul>
 
-Serveur intermédiaire entre l’utilisateur et Internet, permettant filtrage, journalisation et
-contrôle.
+<h2>6. Administrer un IPS</h2>
 
- Utilité
+<h3>Definition : IPS</h3>
+<p>
+Un IPS est une évolution de l'IDS. Il détecte et bloque les attaques en temps réel.
+</p>
 
-   -    Filtrage web.
-   -    Contrôle d’accès.
-   -    Cache pour optimiser la bande passante.
-   -    Journalisation des activités.
+<h3>Exemples</h3>
+<ul>
+  <li>Snort.</li>
+  <li>Suricata.</li>
+  <li>Cisco Firepower.</li>
+</ul>
 
+<h2>7. Administrer des accès distants sécurisés</h2>
 
-       4. Administrer des bastions
- Définition : Bastion
+<h3>Definition : VPN</h3>
+<p>
+Un VPN est un tunnel chiffré permettant un accès sécurisé au réseau interne depuis l'extérieur.
+</p>
 
-Serveur sécurisé servant de point d’accès unique pour administrer les ressources sensibles.
+<h3>Types de VPN</h3>
+<ul>
+  <li>SSL VPN.</li>
+  <li>IPsec VPN.</li>
+  <li>Site to site.</li>
+  <li>Client to site.</li>
+</ul>
 
- Objectifs
+<h2>8. Administrer des connexions intersites</h2>
 
-   -    Centraliser les connexions administrateurs.
-   -    Enregistrer les sessions.
-   -    Appliquer le principe du moindre privilège.
+<h3>Objectif</h3>
+<p>
+Relier plusieurs sites d'une entreprise.
+</p>
 
+<h3>Solutions</h3>
+<ul>
+  <li>MPLS.</li>
+  <li>VPN IPsec.</li>
+  <li>Fibre dédiée.</li>
+  <li>SD WAN.</li>
+</ul>
 
-  5. Administrer un IDS (Intrusion
-Detection System)
- Définition : IDS
+<h2>9. Solutions d'interconnexion proposées par les opérateurs</h2>
 
-Système qui détecte les tentatives d’intrusion ou comportements suspects.
+<ul>
+  <li>MPLS.</li>
+  <li>Fibre professionnelle.</li>
+  <li>Liaisons point à point.</li>
+  <li>4G ou 5G entreprise.</li>
+</ul>
 
- Fonctionnement
+<h2>10. Administrer des périphériques BYOD</h2>
 
+<h3>Definition : BYOD</h3>
+<p>
+Bring Your Own Device signifie utilisation d'appareils personnels dans l'entreprise.
+</p>
 
-   -    Analyse des paquets.
-   -    Détection par signatures ou comportement.
-   -    Alertes en cas d’anomalie.
+<h3>Risques</h3>
+<ul>
+  <li>Perte de données.</li>
+  <li>Absence de contrôle.</li>
+  <li>Malware.</li>
+</ul>
 
+<h3>Solutions</h3>
+<ul>
+  <li>MDM ou Mobile Device Management.</li>
+  <li>Conteneurisation.</li>
+  <li>Politiques de sécurité.</li>
+</ul>
 
-  6. Administrer un IPS (Intrusion
-Prevention System)
- Définition : IPS
+<h2>11. Mettre en oeuvre la QoS</h2>
 
-Évolution de l’IDS : détecte ET bloque les attaques en temps réel.
-
- Exemples
-
-   -    Snort.
-   -    Suricata.
-   -    Cisco Firepower.
-
-
-  7. Administrer des accès distants
-sécurisés (VPN)
- Définition : VPN
-
-Tunnel chiffré permettant un accès sécurisé au réseau interne depuis l’extérieur.
-
- Types
-
-   -    SSL VPN.
-   -    IPsec VPN.
-   -    Site-to-site.
-   -    Client-to-site.
-
-       8. Administrer des connexions intersites
-       
- Objectif
-
-Relier plusieurs sites d’une entreprise via :
-
-   -    MPLS,
-   -    VPN IPsec,
-   -    Fibre dédiée,
-   -    SD-WAN.
-
-
-  9. Solutions d’interconnexion proposées
-par les opérateurs
- Exemples
-
-   -    MPLS (réseau privé virtuel).
-   -    Fibre pro.
-   -    Liaisons point-à-point.
-   -    4G/5G entreprise.
-
-
-       10. Administrer des périphériques BYOD
- Définition : BYOD (Bring Your Own Device)
-
-Utilisation d’appareils personnels dans l’entreprise.
-
- Risques
-
-   -    Perte de données.
-   -    Absence de contrôle.
-   -    Malware.
-
- Solutions
-
-   -    MDM (Mobile Device Management).
-   -    Conteneurisation.
-   -    Politiques de sécurité.
-
-
-  11. Mettre en œuvre la QoS (Quality of
-Service)
- Définition : QoS
-
+<h3>Definition : QoS</h3>
+<p>
 Technique permettant de prioriser certains flux réseau.
+</p>
 
- Utilité
+<h3>Utilité</h3>
+<ul>
+  <li>VoIP.</li>
+  <li>Vidéoconférence.</li>
+  <li>Applications critiques.</li>
+</ul>
 
-   -    VoIP.
-   -    Vidéoconférence.
-   -    Applications critiques.
+<h3>Méthodes</h3>
+<ul>
+  <li>Marquage DSCP.</li>
+  <li>Files d'attente.</li>
+  <li>Limitation de bande passante.</li>
+</ul>
 
- Méthodes
+<h2>12. Analyser et résoudre les dysfonctionnements réseau</h2>
 
+<h3>Méthodes</h3>
+<ul>
+  <li>Ping et traceroute.</li>
+  <li>Analyse des logs.</li>
+  <li>Analyse des ports comme errors et drops.</li>
+  <li>Vérification des VLAN.</li>
+  <li>Contrôle des ACL.</li>
+</ul>
 
-   -   Marquage DSCP.
-   -   Files d’attente.
-   -   Limitation de bande passante.
+<h2>13. Rédiger et mettre à jour la documentation d'exploitation</h2>
 
+<h3>Contenu</h3>
+<ul>
+  <li>Schémas réseau.</li>
+  <li>Procédures.</li>
+  <li>Inventaire des équipements.</li>
+  <li>Historique des incidents.</li>
+</ul>
 
-  12. Analyser et résoudre les
-dysfonctionnements réseau
- Méthodes
+<h2>14. Collecte et mise à jour dans l'outil de gestion des configurations</h2>
 
-   -   Ping, traceroute.
-   -   Analyse des logs.
-   -   Analyse des ports (errors, drops).
-   -   Vérification des VLAN.
-   -   Contrôle des ACL.
+<h3>Definition : CMDB</h3>
+<p>
+La CMDB est une base de données contenant les informations sur les équipements, leurs versions et leurs relations.
+</p>
 
+<h3>Objectifs</h3>
+<ul>
+  <li>Maintenir une vision claire du système d'information.</li>
+  <li>Faciliter les diagnostics.</li>
+  <li>Préparer les changements.</li>
+</ul>
 
-  13. Rédiger et mettre à jour la
-documentation d’exploitation
- Contenu
+<h2>Résumé de la fiche 4</h2>
+<p>
+Cette fiche couvre l'administration complète d'un réseau, incluant le Wi Fi, les pare feux, les proxies, les bastions, les IDS et IPS, les VPN, les interconnexions, le BYOD, la QoS, la documentation, la CMDB et la résolution des incidents.
+</p>
 
-   -   Schémas réseau.
-   -   Procédures.
-   -   Inventaire des équipements.
-   -   Historique des incidents.
+</body>
+</html>
 
-
-  14. Collecte et mise à jour dans l’outil de
-gestion des configurations
- Définition : CMDB (Configuration Management Database)
-
-Base de données contenant les informations sur les équipements, leurs versions, leurs
-relations.
-
- Objectif
-
-   -   Maintenir une vision claire du SI.
-   -   Faciliter les diagnostics.
-   -   Préparer les changements.
-
-
- Résumé de la fiche 4
-
-
-Ce module couvre l’administration complète d’un réseau :
-
-   -   Wi-Fi, pare-feux, proxies, bastions
-   -   IDS / IPS
-   -   VPN et interconnexions
-   -   BYOD
-   -   QoS
-   -   Documentation et CMDB
-   -   Analyse et résolution des incidents
-
-C’est un pilier essentiel pour tout administrateur réseau ou sécurité.
 
 
  FICHE 5 — Automatiser les tâches
