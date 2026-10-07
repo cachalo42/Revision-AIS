@@ -1166,194 +1166,207 @@ Cette fiche couvre Windows, Linux et Azure AD, les services réseau, les annuair
 
 
 
- FICHE 7 — Les bases des serveurs
-virtualisés
-(Matière : Administrer et sécuriser les infrastructures — Module 7)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 7 - Les bases des serveurs virtualisés</title>
+</head>
+<body>
 
- Objectif du module
-Comprendre les principes de la virtualisation, les solutions existantes, les fonctions avancées,
-les architectures convergentes, les data centers, les clusters, les licences, et les bases du cloud
-(Azure, AWS).
+<h1>FICHE 7 - Les bases des serveurs virtualisés</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre les principes de la virtualisation, les solutions existantes, les fonctions avancées, les architectures convergées, les data centers, les clusters, les licences et les bases du cloud comme Azure et AWS.
+</p>
 
-  1. Les principales solutions de gestion
-d’environnements virtualisés
- Définition : Virtualisation
+<h2>1. Definition de la virtualisation</h2>
+<p>
+La virtualisation est une technique permettant d'exécuter plusieurs machines virtuelles sur un même serveur physique grâce à un hyperviseur.
+</p>
 
-Technique permettant d’exécuter plusieurs systèmes (machines virtuelles) sur un même
-serveur physique grâce à un hyperviseur.
+<h3>Exemple</h3>
+<p>
+Un serveur physique héberge dix machines virtuelles, chacune avec son propre système d'exploitation.
+</p>
 
- Hyperviseurs principaux
+<h2>2. Les hyperviseurs</h2>
 
-   -   VMware ESXi : leader du marché, très complet.
-   -   Microsoft Hyper-V : intégré à Windows Server.
-   -   Proxmox VE : open-source, très utilisé en formation.
-   -   KVM/QEMU : hyperviseur Linux performant.
-   -   VirtualBox : usage personnel / test.
+<h3>Definition : Hyperviseur</h3>
+<p>
+Logiciel permettant de créer, gérer et exécuter des machines virtuelles.
+</p>
 
- Définition : Hyperviseur
+<h3>Hyperviseurs principaux</h3>
+<ul>
+  <li>VMware ESXi.</li>
+  <li>Microsoft Hyper V.</li>
+  <li>Proxmox VE.</li>
+  <li>KVM ou QEMU.</li>
+  <li>VirtualBox.</li>
+</ul>
 
-Logiciel qui permet de créer, gérer et exécuter des machines virtuelles.
+<h3>Exemple</h3>
+<p>
+Proxmox VE permet de gérer plusieurs hôtes et machines virtuelles via une interface web.
+</p>
 
+<h2>3. Fonctions avancées de la virtualisation</h2>
 
-  2. Les fonctions avancées de la gestion des
-environnements virtualisés
- Fonctions clés
+<h3>Fonctions clés</h3>
+<ul>
+  <li>Live Migration pour déplacer une machine virtuelle sans interruption.</li>
+  <li>High Availability pour redémarrer automatiquement les machines virtuelles en cas de panne.</li>
+  <li>Fault Tolerance pour dupliquer une machine virtuelle en temps réel.</li>
+  <li>Snapshots pour capturer l'état d'une machine virtuelle.</li>
+  <li>Clonage pour dupliquer rapidement une machine virtuelle.</li>
+</ul>
 
-   -   vMotion / Live Migration : déplacer une VM d’un hôte à un autre sans interruption.
-   -   High Availability (HA) : redémarrage automatique des VMs en cas de panne d’un
-       hôte.
-   -   Fault Tolerance (FT) : duplication en temps réel d’une VM pour éviter toute
-       interruption.
-   -   Snapshots : capture de l’état d’une VM à un instant T.
+<h3>Exemple</h3>
+<p>
+Une machine virtuelle est déplacée automatiquement vers un autre hôte lors d'une maintenance.
+</p>
 
+<h2>4. Infrastructures convergées et hyper convergées</h2>
 
-   -    Clonage : duplication rapide d’une VM.
+<h3>Definition : Infrastructure convergée</h3>
+<p>
+Regroupe serveurs, stockage et réseau dans une solution unique.
+</p>
 
- Utilité
+<h3>Definition : Hyper convergence</h3>
+<p>
+Architecture où le calcul, le stockage et le réseau sont intégrés dans les mêmes noeuds et gérés par un logiciel central.
+</p>
 
-   -    Continuité de service.
-   -    Maintenance sans interruption.
-   -    Sécurisation des environnements.
+<h3>Exemples</h3>
+<ul>
+  <li>VMware vSAN.</li>
+  <li>Nutanix.</li>
+  <li>Azure Stack HCI.</li>
+</ul>
 
+<h3>Avantages</h3>
+<ul>
+  <li>Scalabilité simple.</li>
+  <li>Administration centralisée.</li>
+  <li>Réduction des coûts matériels.</li>
+</ul>
 
-  3. Les solutions convergentes et
-hyper-convergentes
- Définition : Infrastructure convergée
+<h2>5. Impact de la virtualisation</h2>
 
-Serveurs + stockage + réseau regroupés dans une solution unique.
+<h3>Avantages</h3>
+<ul>
+  <li>Réduction des coûts.</li>
+  <li>Optimisation des ressources.</li>
+  <li>Isolation des environnements.</li>
+  <li>Déploiement rapide.</li>
+  <li>Haute disponibilité.</li>
+</ul>
 
- Définition : Hyper-convergence (HCI)
+<h3>Inconvénients</h3>
+<ul>
+  <li>Dépendance à l'hyperviseur.</li>
+  <li>Besoin de compétences avancées.</li>
+  <li>Risques de surallocation.</li>
+</ul>
 
-Architecture où le calcul, le stockage et le réseau sont intégrés dans les mêmes nœuds, gérés
-par un logiciel central.
+<h2>6. Definition : Data center</h2>
+<p>
+Site physique regroupant les serveurs, le stockage, le réseau, la climatisation, la sécurité et l'alimentation électrique.
+</p>
 
- Exemples
+<h3>Elements clés</h3>
+<ul>
+  <li>Baies ou racks.</li>
+  <li>Serveurs physiques.</li>
+  <li>Switches et routeurs.</li>
+  <li>Onduleurs.</li>
+  <li>Systèmes anti incendie.</li>
+  <li>Contrôle d'accès.</li>
+</ul>
 
-   -    VMware vSAN.
-   -    Nutanix.
-   -    Azure Stack HCI.
+<h3>Exemple</h3>
+<p>
+Un data center héberge cent serveurs physiques répartis dans plusieurs baies.
+</p>
 
- Avantages
-
-   -    Scalabilité simple.
-   -    Administration centralisée.
-   -    Réduction des coûts matériels.
-
-
-       4. L’impact de la virtualisation
- Avantages
-
-   -    Réduction des coûts.
-   -    Optimisation des ressources.
-   -    Isolation des environnements.
-   -    Déploiement rapide.
-   -    Haute disponibilité.
-
- Inconvénients
-
-   -    Dépendance à l’hyperviseur.
-
-
-   -    Besoin de compétences avancées.
-   -    Risques de surallocation (overcommit).
-
-
-       5. Les data centers
- Définition : Data center
-
-Site physique regroupant les serveurs, le stockage, le réseau, la climatisation, la sécurité et
-l’alimentation électrique.
-
- Éléments clés
-
-   -    Baies (racks).
-   -    Serveurs physiques.
-   -    Switches / routeurs.
-   -    Onduleurs (UPS).
-   -    Systèmes anti-incendie.
-   -    Contrôle d’accès.
-
-
-       6. Les équipements matériels du cluster
- Définition : Cluster
-
+<h2>7. Definition : Cluster</h2>
+<p>
 Groupe de serveurs physiques travaillant ensemble pour héberger des machines virtuelles.
+</p>
 
- Composants
+<h3>Composants</h3>
+<ul>
+  <li>Noeuds ou serveurs.</li>
+  <li>Stockage partagé comme SAN ou NAS.</li>
+  <li>Réseau dédié pour management, migration et stockage.</li>
+  <li>Hyperviseur installé sur chaque noeud.</li>
+</ul>
 
-   -    Nœuds (serveurs).
-   -    Stockage partagé (SAN, NAS).
-   -    Réseau dédié (management, migration, stockage).
-   -    Hyperviseur installé sur chaque nœud.
+<h3>Exemple</h3>
+<p>
+Un cluster Proxmox composé de trois noeuds permet la migration automatique des machines virtuelles.
+</p>
 
+<h2>8. Licences en virtualisation</h2>
 
-  7. Règles de gestion des licences logicielles
-en virtualisation
- Points importants
+<h3>Points importants</h3>
+<ul>
+  <li>Licences par hôte.</li>
+  <li>Licences par machine virtuelle.</li>
+  <li>Licences par processeur ou coeur.</li>
+  <li>Licences cloud à l'usage.</li>
+</ul>
 
-   -    Licences par hôte (ex : VMware).
-   -    Licences par VM (ex : Windows Server).
-   -    Licences par CPU / core.
-   -    Licences cloud à l’usage.
+<h3>Risques</h3>
+<ul>
+  <li>Non conformité.</li>
+  <li>Surcoûts.</li>
+  <li>Audit logiciel.</li>
+</ul>
 
- Risques
+<h2>9. Introduction à Azure</h2>
 
+<h3>Services Azure</h3>
+<ul>
+  <li>Machines virtuelles.</li>
+  <li>Stockage.</li>
+  <li>Réseaux virtuels.</li>
+  <li>Services managés.</li>
+  <li>Sécurité IAM et MFA.</li>
+</ul>
 
-   -    Non-conformité.
-   -    Surcoûts.
-   -    Audit logiciel.
+<h3>Exemple</h3>
+<p>
+Une machine virtuelle Azure peut être redimensionnée sans interruption.
+</p>
 
+<h2>10. Introduction à AWS</h2>
 
-       8. Introduction à Azure
- Azure
+<h3>Services AWS</h3>
+<ul>
+  <li>EC2 pour les machines virtuelles.</li>
+  <li>S3 pour le stockage objet.</li>
+  <li>RDS pour les bases de données.</li>
+  <li>VPC pour les réseaux virtuels.</li>
+  <li>IAM pour la gestion des identités.</li>
+</ul>
 
-Plateforme cloud de Microsoft proposant :
+<h3>Exemple</h3>
+<p>
+Un bucket S3 permet de stocker des fichiers avec une haute disponibilité.
+</p>
 
-   -    Machines virtuelles (Azure VM).
-   -    Stockage.
-   -    Réseaux virtuels (VNet).
-   -    Services managés (SQL, AD, Kubernetes).
-   -    Sécurité (IAM, MFA).
+<h2>Résumé de la fiche 7</h2>
+<p>
+Cette fiche présente les hyperviseurs, les fonctions avancées, les architectures convergées et hyper convergées, les data centers, les clusters, les licences en virtualisation et les bases du cloud Azure et AWS.
+</p>
 
- Avantages
+</body>
+</html>
 
-   -    Scalabilité.
-   -    Paiement à l’usage.
-   -    Haute disponibilité mondiale.
-
-
-  9. Introduction à Amazon Web Services
-(AWS)
- AWS
-
-Plateforme cloud leader du marché proposant :
-
-   -    EC2 (machines virtuelles).
-   -    S3 (stockage objet).
-   -    RDS (bases de données).
-   -    VPC (réseaux virtuels).
-   -    IAM (gestion des identités).
-
- Avantages
-
-   -    Très large catalogue de services.
-   -    Fiabilité.
-   -    Flexibilité.
-
-
- Résumé de la fiche 7
-Ce module t’apprend :
-
-
-   -   les hyperviseurs (VMware, Hyper-V, Proxmox),
-   -   les fonctions avancées (HA, FT, migration),
-   -   les architectures convergées / hyper-convergées,
-   -   les data centers et clusters,
-   -   les licences en virtualisation,
-   -   les bases du cloud Azure et AWS.
-
-C’est un module fondamental pour comprendre les infrastructures modernes.
 
 
  FICHE 8 — Administrer et sécuriser
