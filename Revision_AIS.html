@@ -1723,761 +1723,942 @@ Cette fiche couvre l'administration complète d'un cluster virtualisé, la haute
 
 
 
- FICHE 9 — Gérer les containers
-(Matière : Administrer et sécuriser les infrastructures — Module 9)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 9 - Gérer les conteneurs</title>
+</head>
+<body>
 
- Objectif du module
-Comprendre les technologies de conteneurisation, maîtriser Docker, automatiser la création de
-containers, utiliser Docker Compose, et comprendre l’orchestration pour les environnements
-modernes.
+<h1>FICHE 9 - Gérer les conteneurs</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre les technologies de conteneurisation, maîtriser Docker, automatiser la création de conteneurs, utiliser Docker Compose et comprendre l'orchestration pour les environnements modernes.
+</p>
 
-  1. Les techniques de virtualisation basées
-sur les conteneurs
- Définition : Conteneur
+<h2>1. Les techniques de virtualisation basées sur les conteneurs</h2>
 
-Environnement isolé permettant d’exécuter une application avec toutes ses dépendances, sans
-avoir besoin d’une machine virtuelle complète.
+<h3>Definition : Conteneur</h3>
+<p>
+Un conteneur est un environnement isolé permettant d'exécuter une application avec toutes ses dépendances, sans avoir besoin d'une machine virtuelle complète.
+</p>
 
- Différence VM / Conteneur
+<h3>Différence entre machine virtuelle et conteneur</h3>
+<ul>
+  <li>Machine virtuelle : virtualise un système complet, ce qui est plus lourd.</li>
+  <li>Conteneur : partage le noyau de l'hôte, ce qui est plus léger et rapide.</li>
+</ul>
 
-   -    VM : virtualise un OS complet → lourd.
-   -    Conteneur : partage le noyau de l’hôte → léger, rapide.
+<h3>Avantages des conteneurs</h3>
+<ul>
+  <li>Déploiement rapide.</li>
+  <li>Isolation des applications.</li>
+  <li>Scalabilité.</li>
+  <li>Reproductibilité.</li>
+</ul>
 
- Avantages
+<h3>Exemple</h3>
+<p>
+Un conteneur exécute une application web sans nécessiter un système d'exploitation complet.
+</p>
 
-   -    Déploiement rapide.
-   -    Isolation des applications.
-   -    Scalabilité.
-   -    Reproductibilité.
+<h2>2. L'orchestration des conteneurs</h2>
 
+<h3>Definition : Orchestration</h3>
+<p>
+Gestion automatisée de plusieurs conteneurs incluant le déploiement, la mise à l'échelle, le redémarrage, le réseau et la supervision.
+</p>
 
-       2. L’orchestration des conteneurs
- Définition : Orchestration
+<h3>Outils d'orchestration</h3>
+<ul>
+  <li>Kubernetes.</li>
+  <li>Docker Swarm.</li>
+  <li>OpenShift.</li>
+</ul>
 
-Gestion automatisée de plusieurs conteneurs : déploiement, mise à l’échelle, redémarrage,
-réseau, supervision.
+<h3>Utilité</h3>
+<ul>
+  <li>Haute disponibilité.</li>
+  <li>Mise à l'échelle automatique.</li>
+  <li>Gestion centralisée.</li>
+</ul>
 
- Outils d’orchestration
+<h3>Exemple</h3>
+<p>
+Kubernetes redémarre automatiquement un conteneur en cas de panne.
+</p>
 
-   -    Kubernetes (K8s) : standard du marché.
-   -    Docker Swarm : plus simple, intégré à Docker.
-   -    OpenShift : Kubernetes + outils Red Hat.
+<h2>3. Docker : principes, objectifs et solutions</h2>
 
+<h3>Definition : Docker</h3>
+<p>
+Docker est une plateforme permettant de créer, déployer et exécuter des conteneurs.
+</p>
 
- Utilité
+<h3>Concepts clés</h3>
+<ul>
+  <li>Image : modèle d'un conteneur.</li>
+  <li>Conteneur : instance d'une image.</li>
+  <li>Registry : dépôt d'images.</li>
+  <li>Dockerfile : fichier décrivant la construction d'une image.</li>
+</ul>
 
-   -    Haute disponibilité.
-   -    Mise à l’échelle automatique.
-   -    Gestion centralisée.
+<h3>Objectifs</h3>
+<ul>
+  <li>Standardiser les environnements.</li>
+  <li>Simplifier le déploiement.</li>
+  <li>Faciliter l'intégration continue.</li>
+</ul>
 
+<h3>Exemple</h3>
+<p>
+Une image Docker permet de déployer la même application sur plusieurs serveurs sans modification.
+</p>
 
-  3. Docker : principes, objectifs et
-solutions
- Définition : Docker
+<h2>4. Le Dockerfile et ses instructions</h2>
 
-Plateforme permettant de créer, déployer et exécuter des conteneurs.
-
- Concepts clés
-
-   -    Image : modèle d’un conteneur.
-   -    Container : instance d’une image.
-   -    Registry : dépôt d’images (Docker Hub).
-   -    Dockerfile : fichier décrivant la construction d’une image.
-
- Objectifs
-
-   -    Standardiser les environnements.
-   -    Simplifier le déploiement.
-   -    Faciliter la CI/CD.
-
-
-       4. Le Dockerfile et ses instructions
- Définition : Dockerfile
-
+<h3>Definition : Dockerfile</h3>
+<p>
 Fichier texte contenant les instructions pour construire une image Docker.
+</p>
 
- Instructions principales
+<h3>Instructions principales</h3>
+<ul>
+  <li>FROM pour définir l'image de base.</li>
+  <li>RUN pour exécuter une commande.</li>
+  <li>COPY pour ajouter des fichiers.</li>
+  <li>EXPOSE pour ouvrir un port.</li>
+  <li>CMD pour définir la commande exécutée au démarrage.</li>
+  <li>ENTRYPOINT pour définir le point d'entrée du conteneur.</li>
+</ul>
 
-   -    FROM : image de base.
-   -    RUN : exécuter une commande.
-   -    COPY / ADD : ajouter des fichiers.
-   -    EXPOSE : ouvrir un port.
-   -    CMD : commande exécutée au démarrage.
-   -    ENTRYPOINT : point d’entrée du conteneur.
-
-
- Exemple simple
-
-dockerfile
+<h3>Exemple simple</h3>
+<pre>
 FROM ubuntu
+RUN apt update && apt install -y nginx
+CMD ["nginx", "-g", "daemon off;"]
+</pre>
 
+<h2>5. Docker Compose : introduction</h2>
 
-RUN apt update &amp;&amp; apt install -y nginx
-CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+<h3>Definition : Docker Compose</h3>
+<p>
+Outil permettant de définir et lancer plusieurs conteneurs via un fichier docker compose yml.
+</p>
 
+<h3>Utilité</h3>
+<ul>
+  <li>Déploiement multi conteneurs.</li>
+  <li>Réseau automatique.</li>
+  <li>Gestion des volumes.</li>
+  <li>Simplification du lancement.</li>
+</ul>
 
-       5. Docker Compose : introduction
- Définition : Docker Compose
+<h3>Exemple</h3>
+<p>
+Une application web et une base de données peuvent être lancées ensemble via un fichier compose.
+</p>
 
-Outil permettant de définir et lancer plusieurs conteneurs via un fichier docker-
-compose.yml.
+<h2>6. Docker Compose : étude de cas</h2>
 
-
- Utilité
-
-   -    Déploiement multi-conteneurs.
-   -    Réseau automatique.
-   -    Gestion des volumes.
-   -    Simplification du lancement.
-
-
-       6. Docker Compose : étude de cas
- Exemple : application web + base de données
-
-yaml
-version: &#x27;3&#x27;
+<h3>Exemple</h3>
+<pre>
+version: '3'
 services:
   web:
     image: nginx
     ports:
-       - &quot;80:80&quot;
+      - "80:80"
   db:
     image: mysql
     environment:
-       MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+</pre>
 
+<h3>Avantages</h3>
+<ul>
+  <li>Déploiement en une commande.</li>
+  <li>Environnements reproductibles.</li>
+  <li>Isolation des services.</li>
+</ul>
 
- Avantages
+<h2>7. Automatiser la création des conteneurs</h2>
 
-   -    Déploiement en une commande : docker-compose up -d.
-   -    Environnements reproductibles.
-   -    Isolation des services.
+<h3>Méthodes</h3>
+<ul>
+  <li>Scripts Bash ou PowerShell.</li>
+  <li>Intégration continue.</li>
+  <li>Dockerfile et Compose.</li>
+  <li>Infrastructure as Code.</li>
+</ul>
 
+<h3>Objectifs</h3>
+<ul>
+  <li>Déploiement rapide.</li>
+  <li>Standardisation.</li>
+  <li>Réduction des erreurs.</li>
+</ul>
 
-  7. Automatiser la création des containers
-avec Docker
- Méthodes
+<h3>Exemple</h3>
+<p>
+Un script Bash peut créer automatiquement dix conteneurs identiques.
+</p>
 
-   -    Scripts Bash / PowerShell.
-   -    CI/CD (GitLab CI, GitHub Actions).
+<h2>8. Utiliser les conteneurs pour sécuriser les mises à jour</h2>
 
-
-   -   Dockerfile + Compose.
-   -   Infrastructure as Code (Terraform).
-
- Objectifs
-
-   -   Déploiement rapide.
-   -   Standardisation.
-   -   Réduction des erreurs.
-
-
-   8. Utiliser des conteneurs pour protéger
-les mises à jour applicatives
- Principe
-
+<h3>Principe</h3>
+<p>
 Tester une mise à jour dans un conteneur isolé avant de la déployer en production.
-
- Avantages
-
-   -   Aucun impact sur l’environnement réel.
-   -   Tests rapides.
-   -   Retour arrière simple (rollback).
-   -   Sécurisation des mises à jour.
-
-
- Résumé de la fiche 9
-Ce module t’apprend :
-
-   -   les bases des conteneurs,
-   -   Docker et ses concepts,
-   -   Dockerfile, images, containers, registry,
-   -   Docker Compose,
-   -   l’orchestration (Kubernetes),
-   -   l’automatisation,
-   -   l’utilisation des conteneurs pour sécuriser les mises à jour.
-
-C’est un module essentiel pour les infrastructures modernes, DevOps et cloud.
-
-
- FICHE 10 — Les bases des solutions
-techniques
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 1)
-
- Objectif du module
-Comprendre les nouveaux besoins dans l’IT, les méthodes de gestion de projet, les méthodes
-de test, le Proof of Concept, le TCO et quelques notions comptables essentielles pour
-proposer et concevoir une solution technique adaptée.
-
-
-       1. Les besoins nouveaux dans l’IT
- Définition : Besoin IT
-
-Demande d’évolution ou de transformation du système d’information pour répondre à un
-objectif métier.
-
- Exemples de besoins modernes
-
-   -    Cloud (Azure, AWS).
-   -    Virtualisation / conteneurs.
-   -    Sécurité renforcée (MFA, Zero Trust).
-   -    Mobilité (VPN, télétravail).
-   -    Automatisation (DevOps, IaC).
-   -    Supervision avancée.
-   -    Haute disponibilité.
-
- Pourquoi ces besoins évoluent
-
-   -    Croissance de l’entreprise.
-   -    Nouveaux usages.
-   -    Contraintes réglementaires.
-   -    Risques cyber.
-   -    Optimisation des coûts.
-
-
-       2. Les méthodes de gestion de projet
- Définition : Gestion de projet
-
-Ensemble des techniques permettant de planifier, organiser et piloter un projet IT.
-
- Méthodes principales
-
-
-   -    Cycle en V
-           o Séquentiel.
-           o Très documenté.
-           o Tests prévus à la fin.
-   -    Agile (Scrum)
-           o Itératif.
-           o Adaptation continue.
-           o Livraisons fréquentes.
-   -    Kanban
-           o Flux continu.
-           o Visualisation des tâches.
-
-
- Rôles clés
-
-   -    Chef de projet.
-   -    Product Owner.
-   -    Scrum Master.
-   -    Équipe technique.
-
-
-       3. Les méthodes de test et de recette
- Définition : Recette
-
-Phase où l’on vérifie que la solution répond au besoin avant mise en production.
-
- Types de tests
-
-   -    Tests unitaires.
-   -    Tests d’intégration.
-   -    Tests de charge.
-   -    Tests de sécurité.
-   -    Tests utilisateurs (UAT).
-
- Objectifs
-
-   -    Vérifier la conformité.
-   -    Détecter les anomalies.
-   -    Valider la solution.
-
-
-  4. Les principes du Proof of Concept
-(PoC)
- Définition : PoC
-
-Prototype permettant de démontrer la faisabilité d’une solution avant un déploiement complet.
-
-
- Objectifs
-
-   -    Tester une idée.
-   -    Évaluer les risques.
-   -    Vérifier la compatibilité.
-   -    Obtenir un retour rapide.
-
- Avantages
-
-   -    Limite les coûts.
-   -    Permet de comparer plusieurs solutions.
-   -    Réduit les risques de mauvais choix.
-
-
-  5. Les éléments constitutifs du TCO
-(Total Cost of Ownership)
- Définition : TCO
-
-Coût total d’une solution sur toute sa durée de vie.
-
- Composants du TCO
-
-   -    Coût d’achat (matériel, licences).
-   -    Coût d’exploitation (maintenance, énergie).
-   -    Coût de support (techniciens, formation).
-   -    Coût de mise à jour.
-   -    Coût de fin de vie (migration, remplacement).
-
- Pourquoi c’est important
-
-   -    Permet de comparer objectivement les solutions.
-   -    Évite les mauvaises surprises financières.
-   -    Aide à convaincre la direction.
-
-
-       6. Quelques notions comptables
- CAPEX
-
-Dépenses d’investissement (achat de serveurs, licences perpétuelles).
-
- OPEX
-
-Dépenses opérationnelles (abonnements cloud, maintenance).
-
-
- Amortissement
-
-Répartition du coût d’un équipement sur plusieurs années.
-
- Budget IT
-
-Prévision des dépenses nécessaires pour maintenir ou faire évoluer le SI.
-
-
- Résumé de la fiche 10
-Ce module t’apprend :
-
-   -   à comprendre les nouveaux besoins IT,
-   -   à maîtriser les méthodes de gestion de projet (V, Agile, Kanban),
-   -   à réaliser des tests et une recette,
-   -   à construire un PoC,
-   -   à calculer un TCO,
-   -   à intégrer des notions comptables (CAPEX, OPEX, amortissement).
-
-C’est la base pour concevoir une solution technique cohérente, réaliste et adaptée au besoin
-métier.
-
-
- FICHE 11 — Proposer une solution
-informatique répondant à des besoins
-nouveaux
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 2)
-
- Objectif du module
-Savoir analyser un besoin, reformuler la demande, proposer une solution technique
-argumentée, évaluer son impact, intégrer la sécurité, maquetter, benchmarker, et convaincre
-un client ou un responsable.
-
-
-  1. Faire une proposition commerciale
-d&#x27;une solution IT
- Définition : Proposition commerciale IT
-
-Document qui présente une solution technique, son coût, ses avantages, son planning et ses
-garanties.
-
- Contenu typique
-
-   -    Contexte et besoin.
-   -    Solution proposée.
-   -    Architecture technique.
-   -    Planning de réalisation.
-   -    Coûts (CAPEX / OPEX).
-   -    SLA et engagements.
-   -    Avantages pour le client.
-
- Objectif
-
+</p>
+
+<h3>Avantages</h3>
+<ul>
+  <li>Aucun impact sur l'environnement réel.</li>
+  <li>Tests rapides.</li>
+  <li>Retour arrière simple.</li>
+  <li>Sécurisation des mises à jour.</li>
+</ul>
+
+<h3>Exemple</h3>
+<p>
+Une nouvelle version d'une application est testée dans un conteneur avant d'être déployée sur les serveurs.
+</p>
+
+<h2>Résumé de la fiche 9</h2>
+<p>
+Cette fiche présente les bases des conteneurs, Docker et ses concepts, Dockerfile, Docker Compose, l'orchestration avec Kubernetes, l'automatisation et l'utilisation des conteneurs pour sécuriser les mises à jour.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 10 - Les bases des solutions techniques</title>
+</head>
+<body>
+
+<h1>FICHE 10 - Les bases des solutions techniques</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Comprendre les nouveaux besoins dans l'informatique, les méthodes de gestion de projet, les méthodes de test, le concept de preuve de faisabilité, le coût total de possession et quelques notions comptables essentielles pour proposer et concevoir une solution technique adaptée.
+</p>
+
+<h2>1. Les besoins nouveaux dans l'informatique</h2>
+
+<h3>Definition : Besoin informatique</h3>
+<p>
+Demande d'évolution ou de transformation du système d'information pour répondre à un objectif métier.
+</p>
+
+<h3>Exemples de besoins modernes</h3>
+<ul>
+  <li>Cloud comme Azure ou AWS.</li>
+  <li>Virtualisation et conteneurs.</li>
+  <li>Sécurité renforcée comme authentification multifacteur.</li>
+  <li>Mobilité comme VPN et télétravail.</li>
+  <li>Automatisation comme DevOps et infrastructure as code.</li>
+  <li>Supervision avancée.</li>
+  <li>Haute disponibilité.</li>
+</ul>
+
+<h3>Pourquoi ces besoins évoluent</h3>
+<ul>
+  <li>Croissance de l'entreprise.</li>
+  <li>Nouveaux usages.</li>
+  <li>Contraintes réglementaires.</li>
+  <li>Risques cyber.</li>
+  <li>Optimisation des coûts.</li>
+</ul>
+
+<h2>2. Les méthodes de gestion de projet</h2>
+
+<h3>Definition : Gestion de projet</h3>
+<p>
+Ensemble des techniques permettant de planifier, organiser et piloter un projet informatique.
+</p>
+
+<h3>Méthodes principales</h3>
+
+<h4>Cycle en V</h4>
+<ul>
+  <li>Approche séquentielle.</li>
+  <li>Très documentée.</li>
+  <li>Tests prévus à la fin.</li>
+</ul>
+
+<h4>Agile ou Scrum</h4>
+<ul>
+  <li>Approche itérative.</li>
+  <li>Adaptation continue.</li>
+  <li>Livraisons fréquentes.</li>
+</ul>
+
+<h4>Kanban</h4>
+<ul>
+  <li>Flux continu.</li>
+  <li>Visualisation des tâches.</li>
+</ul>
+
+<h3>Rôles clés</h3>
+<ul>
+  <li>Chef de projet.</li>
+  <li>Product Owner.</li>
+  <li>Scrum Master.</li>
+  <li>Équipe technique.</li>
+</ul>
+
+<h2>3. Les méthodes de test et de recette</h2>
+
+<h3>Definition : Recette</h3>
+<p>
+Phase où l'on vérifie que la solution répond au besoin avant la mise en production.
+</p>
+
+<h3>Types de tests</h3>
+<ul>
+  <li>Tests unitaires.</li>
+  <li>Tests d'intégration.</li>
+  <li>Tests de charge.</li>
+  <li>Tests de sécurité.</li>
+  <li>Tests utilisateurs.</li>
+</ul>
+
+<h3>Objectifs</h3>
+<ul>
+  <li>Vérifier la conformité.</li>
+  <li>Détecter les anomalies.</li>
+  <li>Valider la solution.</li>
+</ul>
+
+<h2>4. Le concept de preuve de faisabilité</h2>
+
+<h3>Definition : Preuve de faisabilité</h3>
+<p>
+Prototype permettant de démontrer la faisabilité d'une solution avant un déploiement complet.
+</p>
+
+<h3>Objectifs</h3>
+<ul>
+  <li>Tester une idée.</li>
+  <li>Évaluer les risques.</li>
+  <li>Vérifier la compatibilité.</li>
+  <li>Obtenir un retour rapide.</li>
+</ul>
+
+<h3>Avantages</h3>
+<ul>
+  <li>Limite les coûts.</li>
+  <li>Permet de comparer plusieurs solutions.</li>
+  <li>Réduit les risques de mauvais choix.</li>
+</ul>
+
+<h2>5. Le coût total de possession</h2>
+
+<h3>Definition : Coût total de possession</h3>
+<p>
+Coût total d'une solution sur toute sa durée de vie.
+</p>
+
+<h3>Composants du coût total de possession</h3>
+<ul>
+  <li>Coût d'achat comme matériel et licences.</li>
+  <li>Coût d'exploitation comme maintenance et énergie.</li>
+  <li>Coût de support comme techniciens et formation.</li>
+  <li>Coût de mise à jour.</li>
+  <li>Coût de fin de vie comme migration et remplacement.</li>
+</ul>
+
+<h3>Importance</h3>
+<ul>
+  <li>Permet de comparer objectivement les solutions.</li>
+  <li>Évite les mauvaises surprises financières.</li>
+  <li>Aide à convaincre la direction.</li>
+</ul>
+
+<h2>6. Notions comptables essentielles</h2>
+
+<h3>Definition : Dépenses d'investissement</h3>
+<p>
+Dépenses liées à l'achat de matériel ou de licences perpétuelles.
+</p>
+
+<h3>Definition : Dépenses opérationnelles</h3>
+<p>
+Dépenses liées à l'abonnement cloud ou à la maintenance.
+</p>
+
+<h3>Definition : Amortissement</h3>
+<p>
+Répartition du coût d'un équipement sur plusieurs années.
+</p>
+
+<h3>Definition : Budget informatique</h3>
+<p>
+Prévision des dépenses nécessaires pour maintenir ou faire évoluer le système d'information.
+</p>
+
+<h2>Résumé de la fiche 10</h2>
+<p>
+Cette fiche présente les nouveaux besoins informatiques, les méthodes de gestion de projet, les tests et la recette, la preuve de faisabilité, le coût total de possession et les notions comptables essentielles pour concevoir une solution technique cohérente et adaptée au besoin métier.
+</p>
+
+</body>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 11 - Proposer une solution informatique répondant à des besoins nouveaux</title>
+</head>
+<body>
+
+<h1>FICHE 11 - Proposer une solution informatique répondant à des besoins nouveaux</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Savoir analyser un besoin, reformuler la demande, proposer une solution technique argumentée, évaluer son impact, intégrer la sécurité, maquetter, comparer les solutions et convaincre un client ou un responsable.
+</p>
+
+<h2>1. Faire une proposition commerciale d'une solution informatique</h2>
+
+<h3>Definition : Proposition commerciale informatique</h3>
+<p>
+Document qui présente une solution technique, son coût, ses avantages, son planning et ses garanties.
+</p>
+
+<h3>Contenu typique</h3>
+<ul>
+  <li>Contexte et besoin.</li>
+  <li>Solution proposée.</li>
+  <li>Architecture technique.</li>
+  <li>Planning de réalisation.</li>
+  <li>Coûts incluant dépenses d'investissement et dépenses opérationnelles.</li>
+  <li>Niveaux de service et engagements.</li>
+  <li>Avantages pour le client.</li>
+</ul>
+
+<h3>Objectif</h3>
+<p>
 Convaincre le client que la solution répond parfaitement à son besoin.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Proposer une migration vers Microsoft 365 pour améliorer la collaboration et la sécurité.
+</p>
 
-       2. Maquetter une solution IT
- Définition : Maquette
+<h2>2. Maquetter une solution informatique</h2>
 
-Représentation visuelle ou technique d’une solution avant sa mise en œuvre.
+<h3>Definition : Maquette</h3>
+<p>
+Représentation visuelle ou technique d'une solution avant sa mise en œuvre.
+</p>
 
- Types de maquettes
+<h3>Types de maquettes</h3>
+<ul>
+  <li>Schéma réseau.</li>
+  <li>Diagramme d'architecture.</li>
+  <li>Prototype fonctionnel.</li>
+  <li>Interface utilisateur simplifiée.</li>
+</ul>
 
+<h3>Utilité</h3>
+<ul>
+  <li>Clarifier la solution.</li>
+  <li>Faciliter la compréhension.</li>
+  <li>Valider les choix techniques.</li>
+</ul>
 
-   -    Schéma réseau.
-   -    Diagramme d’architecture.
-   -    Prototype fonctionnel.
-   -    Interface utilisateur simplifiée.
+<h3>Exemple</h3>
+<p>
+Créer un schéma montrant les serveurs, les réseaux et les flux pour une nouvelle infrastructure.
+</p>
 
- Utilité
+<h2>3. Faire un benchmark des solutions informatiques</h2>
 
-   -    Clarifier la solution.
-   -    Faciliter la compréhension.
-   -    Valider les choix techniques.
-
-
-       3. Faire un benchmark des solutions IT
- Définition : Benchmark
-
+<h3>Definition : Benchmark</h3>
+<p>
 Comparaison objective de plusieurs solutions techniques pour choisir la meilleure.
+</p>
 
- Critères de comparaison
+<h3>Critères de comparaison</h3>
+<ul>
+  <li>Performance.</li>
+  <li>Sécurité.</li>
+  <li>Coût.</li>
+  <li>Scalabilité.</li>
+  <li>Compatibilité.</li>
+  <li>Support et maintenance.</li>
+</ul>
 
-   -    Performance.
-   -    Sécurité.
-   -    Coût.
-   -    Scalabilité.
-   -    Compatibilité.
-   -    Support / maintenance.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Choisir la solution la plus adaptée au besoin métier.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Comparer VMware, Hyper V et Proxmox pour choisir une plateforme de virtualisation.
+</p>
 
-       4. Terminer / finaliser une solution
- Actions
+<h2>4. Finaliser une solution informatique</h2>
 
-   -    Finalisation des choix techniques.
-   -    Validation des composants.
-   -    Documentation complète.
-   -    Préparation du déploiement.
+<h3>Actions</h3>
+<ul>
+  <li>Finalisation des choix techniques.</li>
+  <li>Validation des composants.</li>
+  <li>Documentation complète.</li>
+  <li>Préparation du déploiement.</li>
+</ul>
 
+<h3>Exemple</h3>
+<p>
+Documenter l'architecture finale d'un cluster virtualisé avant installation.
+</p>
 
-       5. Évaluer un impact
- Définition : Impact
+<h2>5. Évaluer un impact</h2>
 
-Conséquence d’une solution sur l’entreprise, les utilisateurs, le budget ou la sécurité.
+<h3>Definition : Impact</h3>
+<p>
+Conséquence d'une solution sur l'entreprise, les utilisateurs, le budget ou la sécurité.
+</p>
 
+<h3>Types d'impacts</h3>
+<ul>
+  <li>Technique comme compatibilité et performance.</li>
+  <li>Organisationnel comme formation et changement d'habitudes.</li>
+  <li>Financier comme coûts.</li>
+  <li>Sécurité comme risques et conformité.</li>
+</ul>
 
- Types d’impacts
-
-    -   Technique (compatibilité, performance).
-    -   Organisationnel (formation, changement d’habitudes).
-    -   Financier (coûts).
-    -   Sécurité (risques, conformité).
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Anticiper les risques et ajuster la solution.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Une migration vers le cloud nécessite une formation des équipes internes.
+</p>
 
-  6. Prendre en compte les aspects de la
-sécurité
- Points clés
+<h2>6. Prendre en compte les aspects de la sécurité</h2>
 
-    -   Confidentialité des données.
-    -   Authentification (MFA).
-    -   Chiffrement.
-    -   Journalisation.
-    -   Gestion des accès (RBAC).
-    -   Conformité (RGPD, ANSSI).
+<h3>Points clés</h3>
+<ul>
+  <li>Confidentialité des données.</li>
+  <li>Authentification multifacteur.</li>
+  <li>Chiffrement.</li>
+  <li>Journalisation.</li>
+  <li>Gestion des accès via RBAC.</li>
+  <li>Conformité réglementaire.</li>
+</ul>
 
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Proposer une solution fiable et sécurisée.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Ajouter une authentification multifacteur pour sécuriser l'accès aux applications.
+</p>
 
-  7. Rédiger une proposition de solution
-argumentée
- Contenu
+<h2>7. Rédiger une proposition de solution argumentée</h2>
 
-    -   Analyse du besoin.
-    -   Choix techniques justifiés.
-    -   Avantages de la solution.
-    -   Risques identifiés.
-    -   Coûts et TCO.
-    -   Planning.
-    -   Sécurité intégrée.
+<h3>Contenu</h3>
+<ul>
+  <li>Analyse du besoin.</li>
+  <li>Choix techniques justifiés.</li>
+  <li>Avantages de la solution.</li>
+  <li>Risques identifiés.</li>
+  <li>Coûts et coût total de possession.</li>
+  <li>Planning.</li>
+  <li>Sécurité intégrée.</li>
+</ul>
 
- Objectif
+<h3>Objectif</h3>
+<p>
+Convaincre avec des arguments techniques et économiques.
+</p>
 
-Convaincre avec des arguments techniques et business.
+<h3>Exemple</h3>
+<p>
+Justifier le choix d'une solution cloud pour réduire les coûts d'infrastructure.
+</p>
 
+<h2>8. S'informer sur l'évolution des techniques</h2>
 
-   8. S&#x27;informer sur l&#x27;évolution des
-techniques
- Sources
+<h3>Sources</h3>
+<ul>
+  <li>Veille technologique.</li>
+  <li>Blogs spécialisés.</li>
+  <li>ANSSI et NIST.</li>
+  <li>Documentation éditeurs.</li>
+  <li>Formations continues.</li>
+</ul>
 
-   -    Veille technologique.
-   -    Blogs spécialisés.
-   -    ANSSI / NIST.
-   -    Documentation éditeurs (Microsoft, VMware…).
-   -    Formations continues.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Proposer des solutions modernes et pertinentes.
+</p>
 
+<h2>9. Intégrer une solution informatique</h2>
 
-       9. Intégrer une solution IT
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Préparation de l'environnement.</li>
+  <li>Installation des composants.</li>
+  <li>Configuration.</li>
+  <li>Tests.</li>
+  <li>Documentation.</li>
+  <li>Mise en production.</li>
+</ul>
 
-   -    Préparation de l’environnement.
-   -    Installation des composants.
-   -    Configuration.
-   -    Tests.
-   -    Documentation.
-   -    Mise en production.
+<h3>Exemple</h3>
+<p>
+Installer un serveur de fichiers puis tester les accès avant mise en production.
+</p>
 
+<h2>10. Repérer les grandes fonctions de l'entreprise</h2>
 
-   10. Repérer les grandes fonctions de
-l&#x27;entreprise et son fonctionnement
- Fonctions typiques
+<h3>Fonctions typiques</h3>
+<ul>
+  <li>Production.</li>
+  <li>Finance.</li>
+  <li>Ressources humaines.</li>
+  <li>Logistique.</li>
+  <li>Direction générale.</li>
+  <li>Informatique.</li>
+</ul>
 
-   -    Production.
-   -    Finance.
-   -    RH.
-   -    Logistique.
-   -    Direction générale.
-   -    IT.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Adapter la solution aux besoins réels des métiers.
+</p>
 
+<h2>11. Reformuler la demande de l'utilisateur</h2>
 
-   11. Reformuler la demande de
-l’utilisateur
- Définition
+<h3>Definition</h3>
+<p>
+Technique permettant de vérifier que l'on a bien compris le besoin.
+</p>
 
-Technique permettant de vérifier que l’on a bien compris le besoin.
+<h3>Exemple</h3>
+<p>
+Demande utilisateur : Nous voulons un serveur plus rapide.  
+Reformulation : Vous souhaitez améliorer les performances de l'application pour réduire les temps de réponse.
+</p>
 
- Exemple
-
-Utilisateur : “On veut un serveur plus rapide.” Reformulation : “Vous souhaitez améliorer les
-performances de l’application X pour réduire les temps de réponse ?”
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Éviter les malentendus.
+</p>
 
+<h2>12. Argumenter auprès d'un client</h2>
 
-     12. Argumenter auprès d&#x27;un client
- Techniques
+<h3>Techniques</h3>
+<ul>
+  <li>Mettre en avant les bénéfices.</li>
+  <li>Justifier les choix techniques.</li>
+  <li>Comparer avec les alternatives.</li>
+  <li>Utiliser des chiffres comme coût total de possession et niveaux de service.</li>
+  <li>Rester simple et clair.</li>
+</ul>
 
-   -    Mettre en avant les bénéfices.
-   -    Justifier les choix techniques.
-   -    Comparer avec les alternatives.
-   -    Utiliser des chiffres (TCO, SLA).
-   -    Rester simple et clair.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Convaincre avec pédagogie et professionnalisme.
+</p>
+
+<h2>Résumé de la fiche 11</h2>
+<p>
+Cette fiche présente l'analyse du besoin, la comparaison des solutions, la maquette, l'évaluation des impacts, l'intégration de la sécurité, la rédaction d'une proposition argumentée et les techniques pour convaincre un client ou un responsable.
+</p>
+
+</body>
+</html>
 
 
- Résumé de la fiche 11
-Ce module t’apprend à :
 
-   -    analyser un besoin,
-   -    benchmarker les solutions,
-   -    maquetter,
-   -    évaluer les impacts,
-   -    intégrer la sécurité,
-   -    rédiger une proposition argumentée,
-   -    convaincre un client ou un responsable.
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 12 - Mettre en production des évolutions de l'infrastructure</title>
+</head>
+<body>
 
+<h1>FICHE 12 - Mettre en production des évolutions de l'infrastructure</h1>
 
- FICHE 12 — Mettre en production des
-évolutions de l’infrastructure
-(Matière : Concevoir et mettre en œuvre une réponse à un besoin d’évolution — Module 3)
+<h2>Objectif du module</h2>
+<p>
+Savoir préparer, tester, valider, planifier et déployer une évolution de l'infrastructure. Gérer les changements, piloter les intervenants, documenter, gérer les incidents et les crises, et maintenir les plans de reprise et de continuité.
+</p>
 
- Objectif du module
-Savoir préparer, tester, valider, planifier et déployer une évolution de l’infrastructure, gérer
-les changements, piloter les intervenants, documenter, gérer les incidents et les crises, et
-maintenir les plans PRA/PCI.
+<h2>1. Élaborer les procédures de test et de validation</h2>
 
+<h3>Definition : Procédure de test</h3>
+<p>
+Document décrivant les étapes pour vérifier qu'une solution fonctionne correctement avant sa mise en production.
+</p>
 
-  1. Élaborer les procédures de test et de
-validation
- Définition : Procédure de test
+<h3>Contenu typique</h3>
+<ul>
+  <li>Objectifs du test.</li>
+  <li>Pré requis.</li>
+  <li>Étapes détaillées.</li>
+  <li>Résultats attendus.</li>
+  <li>Critères de validation.</li>
+</ul>
 
-Document décrivant les étapes pour vérifier qu’une solution fonctionne correctement avant sa
-mise en production.
-
- Contenu typique
-
-   -    Objectifs du test.
-   -    Pré-requis.
-   -    Étapes détaillées.
-   -    Résultats attendus.
-   -    Critères de validation.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Garantir que la solution est stable, fonctionnelle et conforme au besoin.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Tester une mise à jour de serveur sur un environnement de pré production avant déploiement.
+</p>
 
-       2. Évaluer et valider la solution proposée
- Actions
+<h2>2. Évaluer et valider la solution proposée</h2>
 
-   -    Vérifier la conformité avec le cahier des charges.
-   -    Tester les performances.
-   -    Tester la sécurité.
-   -    Vérifier la compatibilité avec l’existant.
-   -    Obtenir la validation du responsable ou du client.
+<h3>Actions</h3>
+<ul>
+  <li>Vérifier la conformité avec le cahier des charges.</li>
+  <li>Tester les performances.</li>
+  <li>Tester la sécurité.</li>
+  <li>Vérifier la compatibilité avec l'existant.</li>
+  <li>Obtenir la validation du responsable ou du client.</li>
+</ul>
 
- Définition : Validation
-
-
+<h3>Definition : Validation</h3>
+<p>
 Accord officiel permettant de passer à la mise en production.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Le responsable informatique valide la migration vers une nouvelle version de base de données.
+</p>
 
-  3. Planifier et gérer les tâches de mise en
-production
- Définition : Mise en production
+<h2>3. Planifier et gérer les tâches de mise en production</h2>
 
-Déploiement d’une solution dans l’environnement réel de l’entreprise.
+<h3>Definition : Mise en production</h3>
+<p>
+Déploiement d'une solution dans l'environnement réel de l'entreprise.
+</p>
 
- Actions
+<h3>Actions</h3>
+<ul>
+  <li>Définir une fenêtre d'intervention.</li>
+  <li>Identifier les risques.</li>
+  <li>Prévoir un plan de retour arrière.</li>
+  <li>Informer les utilisateurs.</li>
+  <li>Coordonner les équipes.</li>
+</ul>
 
-   -   Définir une fenêtre d’intervention.
-   -   Identifier les risques.
-   -   Prévoir un plan de retour arrière (rollback).
-   -   Informer les utilisateurs.
-   -   Coordonner les équipes.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Déployer sans interruption ou avec un impact minimal.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Planifier une mise à jour de serveur le samedi matin pour limiter l'impact.
+</p>
 
-   4. Créer et mettre à jour les informations
-et procédures
- Documents à produire
+<h2>4. Créer et mettre à jour les informations et procédures</h2>
 
-   -   Procédures d’installation.
-   -   Procédures d’exploitation.
-   -   Schémas d’architecture.
-   -   Documentation utilisateur.
-   -   Journal des modifications (change log).
+<h3>Documents à produire</h3>
+<ul>
+  <li>Procédures d'installation.</li>
+  <li>Procédures d'exploitation.</li>
+  <li>Schémas d'architecture.</li>
+  <li>Documentation utilisateur.</li>
+  <li>Journal des modifications.</li>
+</ul>
 
- Importance
+<h3>Importance</h3>
+<p>
+Une documentation claire permet une exploitation stable et durable.
+</p>
 
-Une documentation claire = une exploitation stable et durable.
+<h3>Exemple</h3>
+<p>
+Mettre à jour le schéma réseau après l'ajout d'un nouveau pare feu.
+</p>
 
+<h2>5. Les processus de gestion des changements</h2>
 
-  5. Les processus de gestion des
-changements
- Définition : Changement (Change)
+<h3>Definition : Changement</h3>
+<p>
+Modification apportée à l'infrastructure comme une mise à jour, un ajout ou une suppression.
+</p>
 
-Modification apportée à l’infrastructure (mise à jour, ajout, suppression).
+<h3>Types de changements</h3>
+<ul>
+  <li>Standard pour les actions répétées et à faible risque.</li>
+  <li>Normal nécessitant une validation.</li>
+  <li>Urgent lié à un incident critique.</li>
+</ul>
 
+<h3>Processus de gestion des changements</h3>
+<ul>
+  <li>Demande de changement.</li>
+  <li>Analyse d'impact.</li>
+  <li>Validation par comité de changement.</li>
+  <li>Planification.</li>
+  <li>Mise en production.</li>
+  <li>Documentation.</li>
+</ul>
 
- Types de changements
+<h3>Exemple</h3>
+<p>
+Une mise à jour de sécurité urgente est validée par le comité de changement avant déploiement.
+</p>
 
-   -   Standard : répété, faible risque.
-   -   Normal : nécessite validation.
-   -   Urgent : lié à un incident critique.
+<h2>6. Piloter les intervenants internes et externes</h2>
 
- Processus ITIL
+<h3>Intervenants internes</h3>
+<ul>
+  <li>Équipe informatique.</li>
+  <li>Chef de projet.</li>
+  <li>Direction.</li>
+  <li>Utilisateurs clés.</li>
+</ul>
 
-   -   Demande de changement (RFC).
-   -   Analyse d’impact.
-   -   Validation CAB (Change Advisory Board).
-   -   Planification.
-   -   Mise en production.
-   -   Documentation.
+<h3>Intervenants externes</h3>
+<ul>
+  <li>Prestataires.</li>
+  <li>Intégrateurs.</li>
+  <li>Fournisseurs.</li>
+</ul>
 
+<h3>Actions</h3>
+<ul>
+  <li>Coordination.</li>
+  <li>Communication.</li>
+  <li>Suivi des tâches.</li>
+  <li>Vérification des livrables.</li>
+</ul>
 
-  6. Piloter les intervenants internes et
-externes
- Intervenants internes
+<h3>Exemple</h3>
+<p>
+Coordonner un prestataire pour installer un nouveau serveur de stockage.
+</p>
 
-   -   Équipe IT.
-   -   Chef de projet.
-   -   Direction.
-   -   Utilisateurs clés.
+<h2>7. Assurer le transfert de compétences</h2>
 
- Intervenants externes
-
-   -   Prestataires.
-   -   Intégrateurs.
-   -   Fournisseurs.
-
- Actions
-
-   -   Coordination.
-   -   Communication.
-   -   Suivi des tâches.
-   -   Vérification des livrables.
-
-
-  7. Assurer le transfert de compétences et
-accompagner
- Définition : Transfert de compétences
-
+<h3>Definition : Transfert de compétences</h3>
+<p>
 Transmission des connaissances nécessaires pour exploiter la solution.
+</p>
 
+<h3>Actions</h3>
+<ul>
+  <li>Formation des équipes.</li>
+  <li>Documentation.</li>
+  <li>Sessions de démonstration.</li>
+  <li>Support initial.</li>
+</ul>
 
- Actions
-
-   -   Formation des équipes.
-   -   Documentation.
-   -   Sessions de démonstration.
-   -   Support initial.
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Rendre les équipes autonomes.
+</p>
 
+<h3>Exemple</h3>
+<p>
+Former les techniciens à l'utilisation d'un nouvel outil de supervision.
+</p>
 
-  8. Gérer les incidents et les situations de
-crise
- Définition : Incident
+<h2>8. Gérer les incidents et les situations de crise</h2>
 
-Interruption ou dégradation d’un service.
+<h3>Definition : Incident</h3>
+<p>
+Interruption ou dégradation d'un service.
+</p>
 
- Définition : Crise
+<h3>Definition : Crise</h3>
+<p>
+Incident majeur impactant fortement l'activité.
+</p>
 
-Incident majeur impactant fortement l’activité.
+<h3>Actions</h3>
+<ul>
+  <li>Détection rapide.</li>
+  <li>Communication claire.</li>
+  <li>Mobilisation des équipes.</li>
+  <li>Application des procédures d'urgence.</li>
+  <li>Analyse post incident.</li>
+</ul>
 
- Actions
+<h3>Exemple</h3>
+<p>
+Une panne de stockage est traitée en urgence et analysée après résolution.
+</p>
 
-   -   Détection rapide.
-   -   Communication claire.
-   -   Mobilisation des équipes.
-   -   Application des procédures d’urgence.
-   -   Analyse post-incident (RETEX).
+<h2>9. Tester et valider les plans de reprise et de continuité</h2>
 
-
-  9. Tester et valider les plans de reprise et
-de continuité
- Définition : PRA (Plan de Reprise d’Activité)
-
+<h3>Definition : Plan de reprise d'activité</h3>
+<p>
 Plan permettant de redémarrer après un sinistre.
+</p>
 
- Définition : PCI (Plan de Continuité Informatique)
+<h3>Definition : Plan de continuité informatique</h3>
+<p>
+Plan permettant de maintenir l'activité même en cas de panne.
+</p>
 
-Plan permettant de maintenir l’activité même en cas de panne.
+<h3>Tests</h3>
+<ul>
+  <li>Simulation de panne.</li>
+  <li>Mesure du temps de reprise.</li>
+  <li>Mesure de la perte de données acceptable.</li>
+  <li>Ajustements.</li>
+</ul>
 
- Tests
+<h3>Exemple</h3>
+<p>
+Simuler la perte d'un serveur pour vérifier le temps de reprise.
+</p>
 
+<h2>10. Mettre à jour les plans de reprise et de continuité</h2>
 
-   -    Simulation de panne.
-   -    Mesure du RTO (temps de reprise).
-   -    Mesure du RPO (perte de données acceptable).
-   -    Ajustements.
+<h3>Actions</h3>
+<ul>
+  <li>Intégrer les nouvelles solutions.</li>
+  <li>Mettre à jour les contacts.</li>
+  <li>Mettre à jour les procédures.</li>
+  <li>Tester régulièrement.</li>
+  <li>Documenter les évolutions.</li>
+</ul>
 
+<h3>Exemple</h3>
+<p>
+Mettre à jour le plan de reprise après l'ajout d'un nouveau cluster de virtualisation.
+</p>
 
-       10. Mettre à jour les plans de PRA et PCI
- Actions
+<h2>Résumé de la fiche 12</h2>
+<p>
+Cette fiche présente la préparation et la validation d'une solution, la planification de la mise en production, la gestion des changements, la coordination des intervenants, la gestion des incidents et crises, les tests de reprise et de continuité et la documentation des évolutions.
+</p>
 
-   -    Intégrer les nouvelles solutions.
-   -    Mettre à jour les contacts.
-   -    Mettre à jour les procédures.
-   -    Tester régulièrement.
-   -    Documenter les évolutions.
+</body>
+</html>
 
-
- Résumé de la fiche 12
-Ce module t’apprend à :
-
-   -    préparer et valider une solution,
-   -    planifier une mise en production,
-   -    gérer les changements (ITIL),
-   -    piloter les intervenants,
-   -    gérer les incidents et crises,
-   -    tester et maintenir les plans PRA/PCI,
-   -    documenter et accompagner les équipes.
 
 
  FICHE 13 — Les bases de la supervision
