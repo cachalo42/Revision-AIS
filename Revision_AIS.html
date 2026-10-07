@@ -345,153 +345,166 @@
 
 
 
- FICHE 3 — Configurer le routage
-(Matière : Administrer et sécuriser les infrastructures — Module 3)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 3 - Configurer le routage</title>
+</head>
+<body>
 
- Objectif du module
-Comprendre, configurer et sécuriser les équipements réseau (routeurs, commutateurs), mettre en place le routage, les VLAN, la redondance et la supervision des équipements.
+<h1>FICHE 3 - Configurer le routage</h1>
 
+<h2>Objectif du module</h2>
+<p>
+Comprendre, configurer et sécuriser les équipements réseau comme les routeurs et les commutateurs. Mettre en place le routage, les VLAN, la redondance et la supervision des équipements.
+</p>
 
-       1. Les équipements d’interconnexion
- Définition : Équipement d’interconnexion
+<h2>1. Les équipements d'interconnexion</h2>
 
-Matériel permettant de relier plusieurs réseaux ou segments réseau entre eux.
+<h3>Definition : Equipement d'interconnexion</h3>
+<p>
+Materiel permettant de relier plusieurs reseaux ou segments reseau entre eux.
+</p>
 
- Types principaux
+<h3>Types principaux</h3>
+<ul>
+  <li>Commutateur ou switch : relie des machines dans un reseau local.</li>
+  <li>Routeur : relie plusieurs reseaux differents.</li>
+  <li>Passerelle ou gateway : point de sortie d'un reseau vers un autre.</li>
+  <li>Pare feu : filtre le trafic entre reseaux.</li>
+  <li>Point d'acces Wi Fi : interconnexion sans fil.</li>
+</ul>
 
-   -    Commutateur (switch) : relie des machines dans un même réseau local (LAN).
-   -    Routeur : relie plusieurs réseaux différents (LAN ↔ WAN).
-   -    Passerelle (gateway) : point de sortie d’un réseau vers un autre.
-   -    Pare-feu : filtre le trafic entre réseaux.
-   -    Point d’accès Wi-Fi : interconnexion sans fil.
+<h2>2. Configuration d'un routeur et d'un commutateur</h2>
 
+<h3>Routeur</h3>
+<ul>
+  <li>Configuration des interfaces avec adresse IP et masque.</li>
+  <li>Definition des routes statiques.</li>
+  <li>Activation du routage dynamique comme OSPF, RIP ou BGP.</li>
+  <li>Securisation avec ACL, filtrage et SSH.</li>
+</ul>
 
-  2. Configuration d’un routeur et d’un
-commutateur
-       
- Routeur
+<h3>Commutateur</h3>
+<ul>
+  <li>Configuration des ports.</li>
+  <li>Activation des VLAN.</li>
+  <li>Gestion du spanning tree.</li>
+  <li>Securisation avec port security et storm control.</li>
+</ul>
 
-   -    Configuration des interfaces (IP, masque).
-   -    Définition des routes statiques.
-   -    Activation du routage dynamique (OSPF, RIP, BGP).
-   -    Sécurisation (ACL, filtrage, SSH).
+<h2>3. Les VLAN et le routage inter VLAN</h2>
 
- Commutateur
+<h3>Definition : VLAN</h3>
+<p>
+Un VLAN est un reseau local virtuel. Il permet de segmenter un reseau en plusieurs reseaux logiques independants, meme si les machines sont sur le meme switch.
+</p>
 
-   -    Configuration des ports.
-   -    Activation des VLAN.
-   -    Gestion du spanning-tree.
-   -    Sécurisation (port-security, storm-control).
+<h3>Avantages</h3>
+<ul>
+  <li>Amelioration de la securite.</li>
+  <li>Meilleure organisation.</li>
+  <li>Reduction du broadcast.</li>
+</ul>
 
+<h3>Routage inter VLAN</h3>
+<p>
+Permet aux VLAN de communiquer entre eux via un routeur ou un switch de couche 3.
+</p>
 
-       3. Les VLAN et le routage inter-VLAN
+<h2>4. Commutation de couche 3</h2>
 
+<h3>Definition</h3>
+<p>
+Fonction d'un switch capable de faire du routage en plus de la commutation.
+</p>
 
- Définition : VLAN (Virtual Local Area Network)
+<h3>Utilite</h3>
+<ul>
+  <li>Routage inter VLAN.</li>
+  <li>Meilleure performance pour le trafic interne.</li>
+</ul>
 
-Technique permettant de segmenter un réseau en plusieurs réseaux logiques indépendants,
-même si les machines sont sur le même switch.
+<h2>5. Configurer la redondance d'un commutateur</h2>
 
- Avantages
+<h3>Objectif</h3>
+<p>
+Assurer la continuite de service en cas de panne d'un equipement.
+</p>
 
-   -    Sécurité.
-   -    Organisation.
-   -    Réduction du broadcast.
+<h3>Techniques</h3>
+<ul>
+  <li>Spanning Tree Protocol ou STP pour eviter les boucles reseau.</li>
+  <li>RSTP et MSTP pour des versions plus rapides.</li>
+  <li>Empilement ou stacking pour regrouper plusieurs switches en un seul equipement logique.</li>
+</ul>
 
- Routage inter-VLAN
+<h2>6. Mise en oeuvre d'un protocole de routage</h2>
 
-Permet aux VLAN de communiquer entre eux via :
+<h3>Routage statique</h3>
+<p>
+Routes definies manuellement. Simple mais non automatique.
+</p>
 
-   -    un routeur (router-on-a-stick),
-   -    un switch de couche 3.
+<h3>Routage dynamique</h3>
+<p>
+Routes apprises automatiquement via des protocoles.
+</p>
 
+<ul>
+  <li>RIP : simple et ancien.</li>
+  <li>OSPF : performant et utilise en entreprise.</li>
+  <li>BGP : utilise entre operateurs sur Internet.</li>
+</ul>
 
-       4. Commutation de couche 3
- Définition
+<h2>7. Configurer la redondance d'un routeur</h2>
 
-Fonction d’un switch capable de faire du routage (L3), en plus de la commutation (L2).
+<h3>Protocoles de redondance</h3>
+<ul>
+  <li>HSRP pour Cisco.</li>
+  <li>VRRP pour les equipements standards.</li>
+  <li>GLBP.</li>
+</ul>
 
- Utilité
-
-   -    Routage inter-VLAN.
-   -    Meilleure performance que le routeur pour le trafic interne.
-
-
-  5. Configurer la redondance d’un
-commutateur
- Objectif
-
-Assurer la continuité de service en cas de panne d’un équipement.
-
- Techniques
-
-   -    Spanning Tree Protocol (STP) : évite les boucles réseau.
-   -    RSTP / MSTP : versions améliorées.
-   -    Empilement (stacking) : plusieurs switches → un seul équipement logique.
-
-
-  6. Mise en œuvre d’un protocole de
-routage
- Routage statique
-
-Routes définies manuellement → simple mais non automatique.
-
- Routage dynamique
-
-Routes apprises automatiquement via protocoles :
-
-   -    RIP : simple, ancien.
-   -    OSPF : performant, utilisé en entreprise.
-   -    BGP : utilisé entre opérateurs (Internet).
-
-
-       7. Configurer la redondance d’un routeur
- Protocoles de redondance
-
-   -    HSRP (Cisco)
-   -    VRRP (standard)
-   -    GLBP
-
- Objectif
-
+<h3>Objectif</h3>
+<p>
 Assurer une passerelle de secours en cas de panne du routeur principal.
+</p>
 
+<h2>8. Monitorer les commutateurs et routeurs</h2>
 
-  8. Monitorer les commutateurs et
-routeurs
- Définition : Monitorer
+<h3>Definition : Monitorer</h3>
+<p>
+Surveiller l'etat, les performances et les alertes des equipements reseau.
+</p>
 
-Surveiller l’état, les performances et les alertes des équipements réseau.
+<h3>Outils</h3>
+<ul>
+  <li>SNMP.</li>
+  <li>Syslog.</li>
+  <li>ICMP.</li>
+  <li>Solutions de supervision comme Centreon, Zabbix ou PRTG.</li>
+</ul>
 
- Outils
+<h3>Elements surveilles</h3>
+<ul>
+  <li>Utilisation du processeur et de la memoire.</li>
+  <li>Temperature.</li>
+  <li>Erreurs sur les ports.</li>
+  <li>Debit.</li>
+  <li>Disponibilite.</li>
+  <li>Latence.</li>
+</ul>
 
-   -    SNMP
-   -    Syslog
-   -    ICMP
-   -    Solutions de supervision (Centreon, Zabbix, PRTG)
+<h2>Resume de la fiche 3</h2>
+<p>
+Cette fiche couvre les bases du reseau, le role des equipements, la configuration des routeurs et des commutateurs, les VLAN et le routage inter VLAN, la redondance, les protocoles de routage et la supervision reseau.
+</p>
 
- Ce qu’on surveille
+</body>
+</html>
 
-
-   -   CPU / RAM
-   -   Température
-   -   Erreurs sur les ports
-   -   Débit
-   -   Disponibilité
-   -   Latence
-
-
- Résumé de la fiche 3
-Cette fiche couvre les bases essentielles du réseau :
-
-   -   rôle des équipements,
-   -   configuration des routeurs et switches,
-   -   VLAN et routage inter-VLAN,
-   -   redondance,
-   -   protocoles de routage,
-   -   supervision réseau.
-
-C’est un module clé pour l’AIS et pour tout poste en administration réseau.
 
 
  FICHE 4 — Administrer et sécuriser le
