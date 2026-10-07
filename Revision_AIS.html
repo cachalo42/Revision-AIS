@@ -912,248 +912,258 @@ Cette fiche explique l'utilisation de PowerShell et Bash, la création de script
 </html>
 
 
- FICHE 6 — Administrer et sécuriser les
-systèmes
-(Matière : Administrer et sécuriser les infrastructures — Module 6)
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche 6 - Administrer et sécuriser les systèmes</title>
+</head>
+<body>
+
+<h1>FICHE 6 - Administrer et sécuriser les systèmes</h1>
+
+<h2>Objectif du module</h2>
+<p>
+Maîtriser l'administration des systèmes Windows, Linux et cloud. Comprendre leurs spécificités, sécuriser les services, gérer les annuaires, les mises à jour, les journaux, la haute disponibilité et les performances.
+</p>
+
+<h2>1. Les spécificités de chaque environnement système</h2>
+
+<h3>Windows Server</h3>
+<ul>
+  <li>Interface graphique.</li>
+  <li>Active Directory intégré.</li>
+  <li>Automatisation via PowerShell.</li>
+  <li>Services comme DHCP, DNS et IIS.</li>
+</ul>
+
+<h3>Linux</h3>
+<ul>
+  <li>Administration en ligne de commande.</li>
+  <li>Gestion des services via systemd.</li>
+  <li>Droits et permissions strictes.</li>
+  <li>Très utilisé pour les serveurs web et bases de données.</li>
+</ul>
+
+<h3>Cloud comme Azure ou AWS</h3>
+<ul>
+  <li>Services managés.</li>
+  <li>Scalabilité automatique.</li>
+  <li>Sécurité basée sur IAM.</li>
+  <li>Facturation à l'usage.</li>
+</ul>
+
+<h2>2. Règles de gestion des licences logicielles</h2>
+
+<h3>Definition : Licence</h3>
+<p>
+Droit d'utiliser un logiciel selon des conditions définies.
+</p>
+
+<h3>Types de licences</h3>
+<ul>
+  <li>OEM : liée au matériel.</li>
+  <li>Volume : pour les entreprises.</li>
+  <li>Subscription : abonnement comme Microsoft 365.</li>
+  <li>Open source : libre mais avec conditions comme GPL ou MIT.</li>
+</ul>
+
+<h3>Importance</h3>
+<ul>
+  <li>Conformité légale.</li>
+  <li>Audit interne ou externe.</li>
+  <li>Gestion des coûts.</li>
+</ul>
+
+<h2>3. Configurer et paramétrer un serveur Linux</h2>
+
+<ul>
+  <li>Configuration réseau via les fichiers ou nmcli.</li>
+  <li>Gestion des utilisateurs avec adduser et passwd.</li>
+  <li>Gestion des services avec systemctl.</li>
+  <li>Installation de paquets avec apt ou yum.</li>
+  <li>Sécurisation via SSH et firewall comme UFW ou iptables.</li>
+  <li>Gestion des permissions avec chmod et chown.</li>
+</ul>
+
+<h2>4. Configurer et paramétrer un serveur Windows</h2>
+
+<ul>
+  <li>Gestion des rôles via Server Manager.</li>
+  <li>Configuration réseau IPv4 et IPv6.</li>
+  <li>Gestion des utilisateurs via Active Directory.</li>
+  <li>Sécurisation via GPO.</li>
+  <li>Services comme DNS, DHCP et IIS.</li>
+  <li>Automatisation via PowerShell.</li>
+</ul>
+
+<h2>5. Les services réseau</h2>
+
+<ul>
+  <li>DNS pour la résolution de noms.</li>
+  <li>DHCP pour l'attribution automatique d'adresses IP.</li>
+  <li>NTP pour la synchronisation horaire.</li>
+  <li>SMB ou NFS pour le partage de fichiers.</li>
+  <li>FTP ou SFTP pour le transfert de fichiers.</li>
+</ul>
+
+<h2>6. Mettre en place un annuaire de réseau</h2>
+
+<h3>Active Directory</h3>
+<ul>
+  <li>Gestion centralisée des utilisateurs, groupes et machines.</li>
+  <li>GPO pour appliquer des politiques.</li>
+  <li>Authentification Kerberos.</li>
+</ul>
+
+<h3>LDAP</h3>
+<ul>
+  <li>Protocole d'annuaire standard.</li>
+  <li>Utilisé pour authentifier des services.</li>
+</ul>
+
+<h3>Azure Active Directory</h3>
+<ul>
+  <li>Annuaire cloud.</li>
+  <li>Authentification moderne comme OAuth2.</li>
+  <li>Intégration avec Microsoft 365.</li>
+</ul>
+
+<h2>7. Gérer les annuaires sur le cloud</h2>
+
+<ul>
+  <li>Gestion des utilisateurs.</li>
+  <li>Gestion des groupes.</li>
+  <li>Authentification multifacteur.</li>
+  <li>Politiques de sécurité.</li>
+  <li>Applications d'entreprise.</li>
+</ul>
+
+<h2>8. Installer des connexions au réseau</h2>
+
+<ul>
+  <li>Connexion VPN.</li>
+  <li>Connexion à un domaine Active Directory.</li>
+  <li>Configuration d'une interface réseau.</li>
+  <li>Connexion à un stockage réseau comme un NAS.</li>
+</ul>
+
+<h2>9. Principes de haute disponibilité</h2>
+
+<h3>Definition : Haute disponibilité</h3>
+<p>
+Capacité d'un système à rester disponible même en cas de panne.
+</p>
+
+<h3>Techniques</h3>
+<ul>
+  <li>Cluster.</li>
+  <li>Répartition de charge ou load balancing.</li>
+  <li>Réplication.</li>
+  <li>Redondance matérielle.</li>
+</ul>
+
+<h2>10. Prendre le contrôle à distance des serveurs</h2>
+
+<ul>
+  <li>SSH pour Linux.</li>
+  <li>RDP pour Windows.</li>
+  <li>Bastion pour sécuriser l'accès.</li>
+  <li>VPN pour accès interne.</li>
+</ul>
+
+<h2>11. Administrer et sécuriser une solution SaaS</h2>
+
+<h3>Definition : SaaS</h3>
+<p>
+Software as a Service signifie application accessible via Internet et hébergée par un fournisseur.
+</p>
+
+<h3>Actions</h3>
+<ul>
+  <li>Gestion des accès.</li>
+  <li>Authentification multifacteur obligatoire.</li>
+  <li>Journalisation.</li>
+  <li>Politiques de sécurité.</li>
+  <li>Sauvegarde des données.</li>
+</ul>
+
+<h2>12. Administrer des serveurs en ligne de commande</h2>
+
+<h3>Linux</h3>
+<ul>
+  <li>Bash.</li>
+  <li>SSH.</li>
+  <li>Commandes système.</li>
+</ul>
+
+<h3>Windows</h3>
+<ul>
+  <li>PowerShell.</li>
+  <li>WinRM.</li>
+</ul>
+
+<h2>13. Administrer une solution de gestion des mises à jour</h2>
+
+<h3>Windows</h3>
+<ul>
+  <li>WSUS.</li>
+  <li>Windows Update for Business.</li>
+</ul>
+
+<h3>Linux</h3>
+<ul>
+  <li>apt update et apt upgrade.</li>
+  <li>yum update.</li>
+</ul>
+
+<h3>Objectifs</h3>
+<ul>
+  <li>Corriger les vulnérabilités.</li>
+  <li>Maintenir la stabilité.</li>
+  <li>Automatiser les déploiements.</li>
+</ul>
+
+<h2>14. Lire les messages d'erreur et journaux</h2>
+
+<h3>Linux</h3>
+<ul>
+  <li>/var/log/syslog</li>
+  <li>/var/log/auth.log</li>
+  <li>journalctl</li>
+</ul>
+
+<h3>Windows</h3>
+<ul>
+  <li>Observateur d'événements.</li>
+  <li>Journaux système, sécurité et application.</li>
+</ul>
+
+<h2>15. Évaluer les performances des systèmes</h2>
+
+<h3>Indicateurs</h3>
+<ul>
+  <li>Utilisation du processeur.</li>
+  <li>Utilisation de la mémoire.</li>
+  <li>Entrées sorties disque.</li>
+  <li>Réseau.</li>
+  <li>Processus.</li>
+</ul>
+
+<h3>Outils</h3>
+<ul>
+  <li>Windows : Task Manager et Performance Monitor.</li>
+  <li>Linux : top, htop, iostat et vmstat.</li>
+</ul>
+
+<h2>Résumé de la fiche 6</h2>
+<p>
+Cette fiche couvre Windows, Linux et Azure AD, les services réseau, les annuaires, la haute disponibilité, la sécurisation des systèmes, les mises à jour, les journaux et l'évaluation des performances.
+</p>
+
+</body>
+</html>
 
- Objectif du module
-Maîtriser l’administration des systèmes Windows, Linux et cloud, comprendre leurs
-spécificités, sécuriser les services, gérer les annuaires, les mises à jour, les journaux, la haute
-disponibilité et les performances.
-
-
-  1. Les spécificités de chaque
-environnement système
- Windows Server
-
-    -    Interface graphique.
-    -    Active Directory intégré.
-    -    PowerShell pour l’automatisation.
-    -    Services comme DHCP, DNS, IIS.
-
- Linux (Debian, Ubuntu, CentOS…)
-
-    -    Administration en ligne de commande.
-    -    Gestion des services via systemd.
-    -    Droits et permissions strictes.
-    -    Très utilisé pour les serveurs web, bases de données, conteneurs.
-
- Cloud (Azure, AWS)
-
-    -    Services managés.
-    -    Scalabilité automatique.
-    -    Sécurité basée sur IAM (Identity and Access Management).
-    -    Facturation à l’usage.
-
-
-        2. Règles de gestion des licences logicielles
- Définition : Licence
-
-Droit d’utiliser un logiciel selon des conditions définies.
-
- Types
-
-
-  -    OEM : liée au matériel.
-  -    Volume : entreprises.
-  -    Subscription : abonnement (Microsoft 365, Azure).
-  -    Open-source : libre mais avec conditions (GPL, MIT).
-
- Importance
-
-  -    Conformité légale.
-  -    Audit interne / externe.
-  -    Gestion des coûts.
-
-
-  3. Configurer et paramétrer un serveur
-Linux
- Actions typiques
-
-  -    Configuration réseau (/etc/network/interfaces, nmcli).
-  -    Gestion des utilisateurs (adduser, passwd).
-  -    Gestion des services (systemctl).
-  -    Installation de paquets (apt, yum).
-  -    Sécurisation (SSH, firewall UFW/iptables).
-  -    Gestion des permissions (chmod, chown).
-
-
- 4. Configurer et paramétrer un serveur
-Windows
- Actions typiques
-
-  -    Gestion des rôles et fonctionnalités (Server Manager).
-  -    Configuration réseau (IPv4/IPv6).
-  -    Gestion des utilisateurs via AD.
-  -    Sécurisation via GPO.
-  -    Services (DNS, DHCP, IIS).
-  -    Automatisation via PowerShell.
-
-
-      5. Les services réseau
- Exemples
-
-  -    DNS : résolution de noms.
-  -    DHCP : attribution automatique d’IP.
-  -    NTP : synchronisation horaire.
-  -    SMB/NFS : partage de fichiers.
-  -    FTP/SFTP : transfert de fichiers.
-
-
-      6. Mettre en place un annuaire de réseau
- Active Directory (Windows)
-
-  -    Gestion centralisée des utilisateurs, groupes, machines.
-  -    GPO pour appliquer des politiques.
-  -    Authentification Kerberos.
-
- LDAP (Linux / multi-OS)
-
-  -    Protocole d’annuaire standard.
-  -    Utilisé pour authentifier des services.
-
- Azure AD (Cloud)
-
-  -    Annuaire cloud.
-  -    Authentification moderne (OAuth2, OpenID Connect).
-  -    Intégration avec Microsoft 365.
-
-
- 7. Gérer les annuaires sur le cloud (Azure
-AD)
- Actions
-
-  -    Gestion des utilisateurs.
-  -    Gestion des groupes.
-  -    MFA (authentification multifacteur).
-  -    Politiques de sécurité.
-  -    Applications d’entreprise.
-
-
-      8. Installer des connexions au réseau
- Exemples
-
-  -    Connexion VPN.
-  -    Connexion à un domaine AD.
-  -    Configuration d’une interface réseau.
-  -    Connexion à un stockage réseau (NAS).
-
-
-  9. Principes de haute disponibilité et
-systèmes redondants
-
-
- Définition : Haute disponibilité (HA)
-
-Capacité d’un système à rester disponible même en cas de panne.
-
- Techniques
-
-   -   Cluster.
-   -   Load balancing.
-   -   Réplication.
-   -   Redondance matérielle.
-
-
-  10. Prendre le contrôle à distance des
-serveurs en mode sécurisé
- Outils
-
-   -   SSH (Linux).
-   -   RDP (Windows).
-   -   Bastion (sécurité renforcée).
-   -   VPN pour accès interne.
-
-
-  11. Administrer et sécuriser une solution
-SaaS
- Définition : SaaS (Software as a Service)
-
-Application accessible via Internet, hébergée par un fournisseur.
-
- Actions
-
-   -   Gestion des accès.
-   -   MFA obligatoire.
-   -   Journalisation.
-   -   Politiques de sécurité.
-   -   Sauvegarde des données.
-
-
-  12. Administrer des serveurs en ligne de
-commande
- Linux
-
-   -   Bash, SSH, commandes système.
-
-
- Windows
-
-  -   PowerShell, WinRM.
-
-
-  13. Administrer et sécuriser une solution
-de gestion des mises à jour système
- Windows
-
-  -   WSUS.
-  -   Windows Update for Business.
-
- Linux
-
-  -   apt update / upgrade.
-  -   yum update.
-
- Objectifs
-
-  -   Corriger les vulnérabilités.
-  -   Maintenir la stabilité.
-  -   Automatiser les déploiements.
-
-
-  14. Lire les messages d’erreur et
-journaux
- Linux
-  -   /var/log/syslog
-  -   /var/log/auth.log
-  -   journalctl
-
-
- Windows
-
-  -   Observateur d’événements.
-  -   Journaux système / sécurité / application.
-
-
-  15. Évaluer les performances des
-systèmes
- Indicateurs
-
-
-   -   CPU.
-   -   RAM.
-   -   I/O disque.
-   -   Réseau.
-   -   Processus.
-
- Outils
-
-   -   Windows : Task Manager, Performance Monitor.
-   -   Linux : top, htop, iostat, vmstat.
-
-
- Résumé de la fiche 6
-Ce module couvre :
-
-   -   Windows, Linux, Azure AD
-   -   Services réseau (DNS, DHCP, NTP…)
-   -   Annuaire AD / LDAP / Azure AD
-   -   Haute disponibilité
-   -   Sécurisation des systèmes
-   -   Mises à jour
-   -   Journaux et performances
-
-C’est un module très complet, indispensable pour tout administrateur système.
 
 
  FICHE 7 — Les bases des serveurs
